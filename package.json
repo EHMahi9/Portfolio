@@ -1,0 +1,20 @@
+{
+    "name": "ebnul-hasan-mahi-portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Production portfolio for Ebnul Hasan Mahi, Software Engineering Student and Full-Stack Developer.",
+    "scripts": {
+        "start": "npx serve .",
+        "preview": "npx serve .",
+        "deploy": "vercel --prod"
+    },
+    "keywords": [
+        "portfolio",
+        "frontend",
+        "full-stack",
+        "software-engineering",
+        "vanilla-js"
+    ],
+    "author": "Ebnul Hasan Mahi",
+    "license": "UNLICENSED"
+}

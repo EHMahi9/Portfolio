@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ebnul-hasan-mahi-portfolio.vercel.app/sitemap.xml

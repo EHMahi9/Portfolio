@@ -1,0 +1,24 @@
+{
+    "name": "Ebnul Hasan Mahi Portfolio",
+    "short_name": "Mahi Portfolio",
+    "description": "Developer portfolio of Ebnul Hasan Mahi, Software Engineering Student and Full-Stack Developer.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#090907",
+    "theme_color": "#090907",
+    "icons": [
+        {
+            "src": "favicon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
