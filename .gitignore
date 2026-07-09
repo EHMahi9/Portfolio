@@ -12,3 +12,6 @@ assets/images/*.jpeg
 assets/images/*.png
 !assets/images/optimized/
 !assets/images/optimized/*
+
+.vercel
+.env*
