@@ -130,6 +130,10 @@
         aspect-ratio: 16 / 11;
     }
 
+    .roadpulse-screen {
+        min-height: 270px;
+    }
+
     .footer-layout {
         grid-template-columns: 1fr;
     }
@@ -182,6 +186,25 @@
 
     .browser-bar small {
         max-width: 58vw;
+    }
+
+    .roadpulse-panel {
+        top: 7%;
+        left: 5%;
+        padding: 12px;
+    }
+
+    .roadpulse-alert {
+        right: 5%;
+        bottom: 17%;
+        padding: 10px;
+    }
+
+    .roadpulse-legend {
+        bottom: 6%;
+        left: 5%;
+        gap: 7px;
+        padding: 8px;
     }
 
     .contact-form {

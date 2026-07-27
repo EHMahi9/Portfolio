@@ -761,6 +761,122 @@ dd {
     transition: transform 600ms ease;
 }
 
+.roadpulse-screen {
+    position: relative;
+    isolation: isolate;
+    min-height: 300px;
+    background:
+        radial-gradient(circle at 74% 35%, rgba(98, 217, 201, 0.2), transparent 18%),
+        linear-gradient(135deg, #122820, #0c1715 58%, #142724);
+}
+
+.roadpulse-map-grid {
+    position: absolute;
+    inset: -12%;
+    z-index: -1;
+    opacity: 0.38;
+    background-image:
+        linear-gradient(28deg, transparent 48%, rgba(236, 244, 237, 0.22) 49%, rgba(236, 244, 237, 0.22) 51%, transparent 52%),
+        linear-gradient(122deg, transparent 48%, rgba(236, 244, 237, 0.16) 49%, rgba(236, 244, 237, 0.16) 51%, transparent 52%);
+    background-size: 92px 78px, 130px 112px;
+    transform: rotate(-8deg) scale(1.2);
+}
+
+.roadpulse-route {
+    position: absolute;
+    height: 11px;
+    border-radius: 999px;
+    box-shadow: 0 0 0 5px rgba(247, 244, 234, 0.09);
+}
+
+.route-one {
+    top: 54%;
+    left: -6%;
+    width: 88%;
+    background: linear-gradient(90deg, #80e6a5 0 30%, #ffb86b 30% 66%, #ff7a7a 66%);
+    transform: rotate(-22deg);
+}
+
+.route-two {
+    top: 48%;
+    right: -14%;
+    width: 76%;
+    background: linear-gradient(90deg, #62d9c9 0 38%, #ffb86b 38% 64%, #80e6a5 64%);
+    transform: rotate(35deg);
+}
+
+.roadpulse-panel,
+.roadpulse-alert,
+.roadpulse-legend {
+    position: absolute;
+    border: 1px solid rgba(247, 244, 234, 0.16);
+    border-radius: var(--radius-sm);
+    background: rgba(8, 18, 16, 0.82);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+}
+
+.roadpulse-panel {
+    top: 9%;
+    left: 7%;
+    display: grid;
+    gap: 5px;
+    padding: 16px;
+}
+
+.roadpulse-panel p,
+.roadpulse-alert span {
+    margin: 0;
+    color: #62d9c9;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.roadpulse-panel strong,
+.roadpulse-alert strong {
+    color: #f7f4ea;
+    font-size: 0.93rem;
+}
+
+.roadpulse-status,
+.roadpulse-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #d5d0c3;
+    font-size: 0.75rem;
+}
+
+.roadpulse-status i,
+.roadpulse-legend i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffb86b;
+}
+
+.roadpulse-alert {
+    right: 7%;
+    bottom: 13%;
+    display: grid;
+    gap: 5px;
+    padding: 14px;
+}
+
+.roadpulse-legend {
+    bottom: 7%;
+    left: 7%;
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+}
+
+.roadpulse-legend .clear { background: #80e6a5; }
+.roadpulse-legend .slow { background: #ffb86b; }
+.roadpulse-legend .blocked { background: #ff7a7a; }
+
 .project-showcase:hover .browser-screen img {
     transform: scale(1.035);
 }
