@@ -42,6 +42,7 @@
 
     .header-layout {
         min-height: var(--header-height);
+        gap: 12px;
     }
 
     .site-nav {
@@ -53,7 +54,7 @@
         gap: 4px;
         padding: 10px;
         border-color: var(--line-strong);
-        background: rgba(17, 17, 14, 0.96);
+        background: var(--header-scrolled-bg);
         box-shadow: var(--shadow-md);
         opacity: 0;
         pointer-events: none;
@@ -87,7 +88,9 @@
     }
 
     .theme-toggle {
+        flex: 0 0 44px;
         width: 44px;
+        min-height: 44px;
         justify-content: center;
         padding: 0;
     }
@@ -140,6 +143,16 @@
 
     .footer-links {
         justify-content: flex-start;
+    }
+}
+
+@media (max-width: 380px) {
+    .header-actions {
+        gap: 8px;
+    }
+
+    .brand-text {
+        display: none;
     }
 }
 

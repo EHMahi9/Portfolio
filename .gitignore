@@ -14,4 +14,6 @@ assets/images/*.png
 !assets/images/optimized/*
 
 .vercel
+# Never commit environment files or credentials. Keep only documented templates.
 .env*
+!.env.example
