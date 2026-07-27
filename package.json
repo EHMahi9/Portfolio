@@ -6,6 +6,7 @@
     "scripts": {
         "start": "npx serve .",
         "preview": "npx serve .",
+        "test": "node scripts/verify.js",
         "deploy": "vercel --prod"
     },
     "keywords": [

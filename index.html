@@ -8,28 +8,17 @@
     <meta name="author" content="Ebnul Hasan Mahi">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#071a3d">
-    <script>
-        (() => {
-            try {
-                const savedTheme = localStorage.getItem("mahi-portfolio-theme");
-                const preferredTheme = savedTheme === "light" || savedTheme === "dark"
-                    ? savedTheme
-                    : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-                document.documentElement.dataset.theme = preferredTheme;
-            } catch {
-                document.documentElement.dataset.theme = "dark";
-            }
-        })();
-    </script>
+    <script src="js/theme-preload.js"></script>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ebnul Hasan Mahi | Full-Stack Developer">
     <meta property="og:description" content="Production-minded developer portfolio featuring full-stack, backend, Java, and energy-monitoring projects.">
-    <meta property="og:image" content="assets/images/optimized/og-image.png">
+    <meta property="og:url" content="https://www.ebnulhasanmahi.me/">
+    <meta property="og:image" content="https://www.ebnulhasanmahi.me/assets/images/optimized/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ebnul Hasan Mahi | Full-Stack Developer">
     <meta name="twitter:description" content="Software Engineering student building clean full-stack applications and secure backend systems.">
-    <meta name="twitter:image" content="assets/images/optimized/og-image.png">
-    <link rel="canonical" href="https://ebnul-hasan-mahi-portfolio.vercel.app/">
+    <meta name="twitter:image" content="https://www.ebnulhasanmahi.me/assets/images/optimized/og-image.png">
+    <link rel="canonical" href="https://www.ebnulhasanmahi.me/">
     <title>Ebnul Hasan Mahi | Full-Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -113,7 +102,7 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-actions">
-                <a class="button button-small button-ghost" href="assets/resume.pdf" target="_blank">Resume</a>
+                <a class="button button-small button-ghost" href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
                 <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" data-theme-toggle>
                     <span class="theme-toggle-icon" aria-hidden="true">☀</span>
                     <span class="theme-toggle-label">Light</span>
@@ -673,6 +662,10 @@
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm" novalidate data-reveal>
+                    <div class="form-row form-honeypot" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-row">
                         <label for="name">Full name</label>
                         <input id="name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="nameError">
@@ -710,7 +703,7 @@
             </div>
             <nav class="footer-links" aria-label="Footer links">
                 <a href="#projects">Projects</a>
-                <a href="assets/resume.pdf" target="_blank">Resume</a>
+                <a href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
                 <a href="mailto:vaibongo20@gmail.com">Email</a>
             </nav>
             <p class="copyright">&copy; <span class="current-year">2026</span> Ebnul Hasan Mahi. Built with HTML, CSS, and JavaScript.</p>
