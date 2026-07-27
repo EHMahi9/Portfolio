@@ -273,11 +273,19 @@ ol {
 .button-primary {
     background: var(--accent);
     color: #041210;
-    box-shadow: 0 12px 28px rgba(98, 217, 201, 0.18);
+    box-shadow: 0 4px 0 #3fa697, 0 12px 28px rgba(98, 217, 201, 0.18);
+    transform: translateY(0);
 }
 
 .button-primary:hover {
     background: #82eadf;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #3fa697, 0 15px 30px rgba(98, 217, 201, 0.25);
+}
+
+.button-primary:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #3fa697, 0 5px 10px rgba(98, 217, 201, 0.2);
 }
 
 .button-secondary,
@@ -338,16 +346,26 @@ ol {
     line-height: 1.02;
 }
 
+/* Updated Typography for better readability */
 .hero h1 {
     max-width: 820px;
     font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text) 0%, var(--muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
 }
 
 .hero-lead {
     max-width: 690px;
     margin: 28px 0 0;
     color: var(--text-soft);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    font-weight: 400;
 }
 
 .hero-meta {
@@ -688,11 +706,6 @@ dd {
     transition: transform 600ms ease;
 }
 
-.project-showcase:hover .browser-mockup {
-    border-color: rgba(98, 217, 201, 0.45);
-    box-shadow: var(--shadow-md);
-}
-
 .project-showcase:hover .browser-screen img {
     transform: scale(1.035);
 }
@@ -921,4 +934,90 @@ dd {
 
 .back-to-top:hover {
     border-color: var(--accent);
+}
+
+/* =========================================
+   3D THEME UPGRADES & PERSPECTIVE
+========================================= */
+
+.skill-card,
+.hero-card,
+.metric {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.skill-card h3,
+.skill-card p,
+.tag-list,
+.metric strong,
+.hero-card h2,
+.signal-list {
+    transform: translateZ(30px);
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.skill-card:hover,
+.metric:hover,
+.hero-card:hover {
+    transform: translate3d(0, -8px, 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    box-shadow:
+        20px 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(98, 217, 201, 0.1);
+}
+
+.skill-card:hover h3,
+.metric:hover strong {
+    transform: translateZ(50px);
+}
+
+.browser-mockup {
+    --tilt-x: 4deg;
+    --tilt-y: -6deg;
+    --glow-x: 50%;
+    --glow-y: 50%;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(var(--tilt-y)) rotateX(var(--tilt-x)) translateZ(0);
+    box-shadow:
+        -20px 20px 40px rgba(0, 0, 0, 0.6),
+        1px 1px 0 rgba(255, 255, 255, 0.1) inset;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+}
+
+.project-showcase:hover .browser-mockup {
+    transform: perspective(1000px) rotateY(var(--tilt-y)) rotateX(var(--tilt-x)) translateZ(20px);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(98, 217, 201, 0.15);
+}
+
+.project-showcase.is-reversed .browser-mockup {
+    --tilt-y: 6deg;
+    transform: perspective(1000px) rotateY(var(--tilt-y)) rotateX(var(--tilt-x)) translateZ(0);
+    box-shadow:
+        20px 20px 40px rgba(0, 0, 0, 0.6),
+        1px 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    [data-tilt]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        background: radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(255, 255, 255, 0.13), transparent 36%);
+        opacity: 0;
+        transition: opacity 220ms ease;
+    }
+
+    [data-tilt]:hover::after {
+        opacity: 1;
+    }
 }
