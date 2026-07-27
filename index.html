@@ -69,8 +69,13 @@
             },
             {
                 "@type": "SoftwareApplication",
-                "name": "Mini Solar Panel Monitor",
-                "applicationCategory": "Energy simulation"
+                "name": "HeliosTrack",
+                "applicationCategory": "Energy monitoring"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "NoboGhat",
+                "applicationCategory": "Logistics and booking platform"
             }
         ]
     }
@@ -127,7 +132,7 @@
                 </div>
                 <aside class="hero-visual" aria-label="Profile summary" data-reveal>
                     <div class="portrait-block">
-                        <img src="assets/images/optimized/portrait.webp" width="700" height="697" alt="Portrait of Ebnul Hasan Mahi" decoding="async" fetchpriority="high">
+                        <img src="assets/images/optimized/unnamed.jpg" width="700" height="697" alt="Portrait of Ebnul Hasan Mahi" decoding="async" fetchpriority="high">
                     </div>
                     <div class="hero-card">
                         <p class="card-kicker">Current focus</p>
@@ -153,11 +158,11 @@
         <section class="stats-band" aria-label="Portfolio statistics">
             <div class="container stats-grid">
                 <article class="metric" data-reveal>
-                    <strong>4</strong>
+                    <strong>7</strong>
                     <span>Featured projects</span>
                 </article>
                 <article class="metric" data-reveal>
-                    <strong>2</strong>
+                    <strong>5</strong>
                     <span>Live full-stack deployments</span>
                 </article>
                 <article class="metric" data-reveal>
@@ -407,51 +412,108 @@
                             </div>
                         </div>
                     </article>
-                    <article class="project-showcase is-reversed" id="proj-solar-monitor" data-reveal>
+
+                    <!-- HeliosTrack -->
+                     
+                    <article class="project-showcase is-reversed" id="proj-heliostrack" data-reveal>
                         <figure class="browser-mockup">
                             <div class="browser-bar" aria-hidden="true">
                                 <span></span><span></span><span></span>
-                                <small>solar-monitor.java</small>
+                                <small>heliostrack.vercel.app</small>
                             </div>
                             <div class="browser-screen">
-                                <img src="assets/images/optimized/solar-monitor.webp" width="1500" height="844" loading="lazy" decoding="async" alt="Mini Solar Panel Monitor project screenshot">
+                                <!-- Don't forget to update this image in your assets folder -->
+                                <img src="assets/images/optimized/heliostrack-dashboard.webp" width="1500" height="844" loading="lazy" decoding="async" alt="HeliosTrack distributed solar fleet monitoring dashboard screenshot">
                             </div>
                         </figure>
                         <div class="project-content">
                             <div class="project-topline">
-                                <span>Energy simulation</span>
-                                <strong>Academic</strong>
+                                <span>Full-Stack Energy Monitoring</span>
+                                <strong>Live</strong>
                             </div>
-                            <h3>Mini Solar Panel Monitor</h3>
+                            <h3>HeliosTrack</h3>
                             <dl class="project-facts">
                                 <div>
                                     <dt>Role</dt>
-                                    <dd>Java system designer</dd>
+                                    <dd>Full-stack developer</dd>
                                 </div>
                                 <div>
                                     <dt>Problem</dt>
-                                    <dd>Solar output is easier to understand when readings are modeled, tracked, and summarized consistently.</dd>
+                                    <dd>Monitoring distributed solar arrays requires real-time data visualization, reliable cloud storage, and immediate alerting without layout shifts or system crashes.</dd>
                                 </div>
                                 <div>
                                     <dt>Solution</dt>
-                                    <dd>An object-oriented Java monitor with dedicated producer, solar panel, and system monitoring classes.</dd>
+                                    <dd>An enterprise-grade dashboard featuring live WebSocket streaming, an interactive Chart.js grid, and a virtual battery controller powered by a Node.js backend and Aiven MySQL.</dd>
                                 </div>
                             </dl>
                             <ul class="feature-list">
-                                <li>EnergyProducer and SolarPanel class modeling</li>
-                                <li>OOP concepts including inheritance and polymorphism</li>
-                                <li>Reading storage with collections and exception handling</li>
+                                <li>Real-time data streaming via Socket.io with dynamic UI updates</li>
+                                <li>Custom Virtual Battery logic, ROI calculator, and floating toast alerts</li>
+                                <li>Render-hosted Node.js API with Aiven Cloud MySQL integration</li>
+                            </ul>
+                            <div class="tag-list">
+                                <span>JavaScript</span>
+                                <span>Node.js</span>
+                                <span>WebSockets</span>
+                                <span>MySQL</span>
+                                <span>Chart.js</span>
+                            </div>
+                            <div class="project-actions">
+                                <a class="button button-primary" href="https://helios-track-distributed-solar-moni.vercel.app/" target="_blank">Live demo</a>
+                                <a class="button button-secondary" href="https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Noboghat -->
+
+                    <article class="project-showcase" id="proj-noboghat" data-reveal>
+                        <figure class="browser-mockup">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span></span><span></span><span></span>
+                                <small>noboghat.vercel.app</small>
+                            </div>
+                            <div class="browser-screen">
+                                <!-- Ensure you add a screenshot to this path -->
+                                <img src="assets/images/optimized/noboghat-dashboard.webp" width="1500" height="844" loading="lazy" decoding="async" alt="NoboGhat inland waterway logistics platform dashboard">
+                            </div>
+                        </figure>
+                        <div class="project-content">
+                            <div class="project-topline">
+                                <span>Logistics & Booking</span>
+                                <strong>Live</strong>
+                            </div>
+                            <h3>NoboGhat</h3>
+                            <dl class="project-facts">
+                                <div>
+                                    <dt>Role</dt>
+                                    <dd>Full-stack developer</dd>
+                                </div>
+                                <div>
+                                    <dt>Problem</dt>
+                                    <dd>Inland waterway cargo transport suffers from manual booking, hidden pricing, and no real-time capacity tracking for small traders.</dd>
+                                </div>
+                                <div>
+                                    <dt>Solution</dt>
+                                    <dd>A decoupled Spring Boot and MySQL backend serving a vanilla JS frontend for role-based boat management, route discovery, and capacity-aware cargo booking.</dd>
+                                </div>
+                            </dl>
+                            <ul class="feature-list">
+                                <li>Role-based access control for Farmers, Traders, and Boat Owners</li>
+                                <li>Live cargo capacity tracking to mathematically prevent overbooking</li>
+                                <li>Stateless JWT authentication with secure BCrypt password hashing</li>
                             </ul>
                             <div class="tag-list">
                                 <span>Java</span>
-                                <span>Inheritance</span>
-                                <span>Polymorphism</span>
-                                <span>ArrayList</span>
-                                <span>HashMap</span>
+                                <span>Spring Boot</span>
+                                <span>MySQL</span>
+                                <span>JavaScript</span>
+                                <span>JWT</span>
                             </div>
                             <div class="project-actions">
-                                <a class="button button-primary button-disabled" href="#contact" aria-disabled="true">Demo pending</a>
-                                <a class="button button-secondary" href="https://github.com/EHMahi9?tab=repositories" target="_blank">GitHub</a>
+                                <!-- Replace # with your actual Railway/Vercel URL once stable -->
+                                <a class="button button-primary" href="#" target="_blank">Live demo</a>
+                                <a class="button button-secondary" href="https://github.com/EHMahi9" target="_blank">GitHub</a>
                             </div>
                         </div>
                     </article>
