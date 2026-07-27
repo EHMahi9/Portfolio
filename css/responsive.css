@@ -82,6 +82,16 @@
         display: none;
     }
 
+    .theme-toggle-label {
+        display: none;
+    }
+
+    .theme-toggle {
+        width: 44px;
+        justify-content: center;
+        padding: 0;
+    }
+
     .hero {
         min-height: auto;
         padding-top: calc(var(--header-height) + 62px);
