@@ -1,9 +1,18 @@
 "use strict";
 
 const themePreferenceKey = "mahi-portfolio-theme";
-const savedTheme = localStorage.getItem(themePreferenceKey);
-const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-document.documentElement.dataset.theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+const setTheme = (theme) => {
+    document.documentElement.dataset.theme = theme;
+    document.querySelector("meta[name='theme-color']")?.setAttribute(
+        "content",
+        theme === "light" ? "#f5f7f3" : "#090907"
+    );
+};
+
+if (!['light', 'dark'].includes(document.documentElement.dataset.theme)) {
+    setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+}
 document.documentElement.classList.add("js-enabled");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,8 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
         updateThemeToggle();
         themeToggle.addEventListener("click", () => {
             const nextTheme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-            document.documentElement.dataset.theme = nextTheme;
-            localStorage.setItem(themePreferenceKey, nextTheme);
+            setTheme(nextTheme);
+            try {
+                localStorage.setItem(themePreferenceKey, nextTheme);
+            } catch {
+                // Theme changes still work when the browser blocks persistent storage.
+            }
             updateThemeToggle();
         });
     }

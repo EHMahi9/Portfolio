@@ -8,6 +8,19 @@
     <meta name="author" content="Ebnul Hasan Mahi">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#090907">
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("mahi-portfolio-theme");
+                const preferredTheme = savedTheme === "light" || savedTheme === "dark"
+                    ? savedTheme
+                    : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                document.documentElement.dataset.theme = preferredTheme;
+            } catch {
+                document.documentElement.dataset.theme = "dark";
+            }
+        })();
+    </script>
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ebnul Hasan Mahi | Full-Stack Developer">
     <meta property="og:description" content="Production-minded developer portfolio featuring full-stack, backend, Java, and energy-monitoring projects.">
