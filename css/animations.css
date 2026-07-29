@@ -1,9 +1,11 @@
+/* ==========================================================================
+   Original Scroll Reveals & Transitions[cite: 19]
+   ========================================================================== */
 @keyframes fade-up {
     from {
         opacity: 0;
         transform: translate3d(0, 24px, 0);
     }
-
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -46,6 +48,122 @@
     transition: transform 80ms linear;
 }
 
+/* ==========================================================================
+   Live Ambient Drift Keyframes
+   ========================================================================== */
+@keyframes ambientDrift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   Floating Portrait Physics
+   ========================================================================== */
+.float-animation {
+    animation: levitate 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: center bottom;
+    will-change: transform;
+}
+
+@keyframes levitate {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* ==========================================================================
+   Interactive Dynamic Card Glow
+   ========================================================================== */
+.project-showcase::before, 
+.skill-card::before, 
+.hero-card::before {
+    content: "";
+    position: absolute;
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+    background: radial-gradient(circle, var(--section-glow) 10%, transparent 60%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.project-showcase:hover::before, 
+.skill-card:hover::before, 
+.hero-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+    animation: spinGlow 10s linear infinite;
+}
+
+@keyframes spinGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.project-content, 
+.card-kicker, 
+h2, 
+h3, 
+p, 
+dl, 
+ul {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   Programming Syntax Particles
+   ========================================================================== */
+.code-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.code-particle {
+    position: absolute;
+    bottom: -10%;
+    color: var(--accent);
+    opacity: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-weight: 800;
+    animation: floatCode linear infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes floatCode {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.12; }
+    90% { opacity: 0.12; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ==========================================================================
+   Cyber Decryption Glitch Effect
+   ========================================================================== */
+#hero-title {
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    /* Use tabular lining so the letters don't shift widths aggressively while scrambling */
+    font-variant-numeric: tabular-nums;
+}
+
+/* When the JS is actively scrambling the text */
+#hero-title.is-glitching {
+    color: var(--accent); /* Shifts to your cyan accent color */
+    text-shadow: 
+        3px 0 var(--danger), 
+        -3px 0 var(--accent-violet), 
+        0 0 20px rgba(98, 217, 201, 0.4);
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility (Must stay at the bottom)[cite: 19]
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

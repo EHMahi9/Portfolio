@@ -21,7 +21,7 @@
     <link rel="canonical" href="https://www.ebnulhasanmahi.me/">
     <title>Ebnul Hasan Mahi | Full-Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/style.css">
@@ -88,43 +88,78 @@
     <div class="page-shell" aria-hidden="true"></div>
     <div class="scroll-bar" aria-hidden="true"></div>
     <header class="site-header" data-header>
-        <div class="container header-layout">
-            <a class="brand" href="#home">
-                <span class="brand-mark">EHM</span>
-                <span class="brand-text">Mahi</span>
-            </a>
-            <nav class="site-nav" id="primaryNavigation" aria-label="Primary navigation">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#process">Process</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <a class="button button-small button-ghost" href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
-                <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" data-theme-toggle>
-                    <span class="theme-toggle-icon" aria-hidden="true">☀</span>
-                    <span class="theme-toggle-label">Light</span>
-                </button>
-                <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNavigation" data-menu-button>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+    <div class="container header-layout">
+        <a class="brand" href="#home" aria-label="EHM Home">
+            <svg class="site-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 250" style="height: 38px; width: auto; display: block;">
+                <defs>
+                    <style>
+                        /* Terminal Cursor Blinking Animation */
+                        @keyframes blink {
+                            0%, 49% { opacity: 1; }
+                            50%, 100% { opacity: 0; }
+                        }
+                        .logo-cursor { 
+                            animation: blink 1.2s infinite; 
+                        }
+                        /* Dynamic Theme Styling based on your site's data-theme attribute */
+                        html[data-theme="dark"] .logo-accent { fill: #38bdf8; }
+                        html[data-theme="dark"] .logo-text { fill: #f5fbff; }
+                        
+                        html[data-theme="light"] .logo-accent { fill: #0052cc; }
+                        html[data-theme="light"] .logo-text { fill: #09254d; }
+                    </style>
+                </defs>
+
+                <!-- Left Code Bracket: < -->
+                <path class="logo-accent" d="M 100 50 L 50 125 L 100 200 L 70 200 L 20 125 L 70 50 Z" />
+
+                <!-- Letter: E -->
+                <path class="logo-text" d="M 150 50 H 220 V 80 H 180 V 110 H 210 V 140 H 180 V 170 H 220 V 200 H 150 Z" />
+
+                <!-- Letter: H -->
+                <path class="logo-text" d="M 250 50 H 280 V 110 H 320 V 50 H 350 V 200 H 320 V 140 H 280 V 200 H 250 Z" />
+
+                <!-- Letter: M -->
+                <path class="logo-text" d="M 380 50 H 420 L 440 120 L 460 50 H 500 V 200 H 470 V 110 L 450 170 H 430 L 410 110 V 200 H 380 Z" />
+
+                <!-- Terminal Command Cursor: _ -->
+                <rect x="520" y="170" width="40" height="30" class="logo-accent logo-cursor" />
+
+                <!-- Right Code Bracket: > -->
+                <path class="logo-accent" d="M 580 50 L 630 125 L 580 200 L 610 200 L 660 125 L 610 50 Z" />
+            </svg>
+        </a>
+        <nav class="site-nav" id="primaryNavigation" aria-label="Primary navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <a class="button button-small button-ghost" href="resume.html" target="_blank" rel="noopener noreferrer">Resume</a>
+            <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" data-theme-toggle>
+                <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+                <span class="theme-toggle-label">Light</span>
+            </button>
+            <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNavigation" data-menu-button>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-    </header>
+    </div>
+</header>
     <main id="main">
         <section class="hero section-pad" id="home" aria-labelledby="hero-title">
             <div class="container hero-grid">
                 <div class="hero-copy" data-reveal>
-                    <p class="eyebrow">Available for internships and junior developer roles</p>
-                    <h1 id="hero-title">Building reliable web products with full-stack fundamentals.</h1>
-                    <p class="hero-lead">I am Ebnul Hasan Mahi, a Dhaka-based full-stack developer focused on clean interfaces, practical backend systems, and maintainable software that solves real problems.</p>
+                    <p class="eyebrow" style="color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 10px;">Available for Junior Roles & Internships</p>
+                    <h1 id="hero-title">Ebnul Hasan Mahi</h1>
+                    <h2 class="hero-role" id="heroRole">Software Engineer</h2>
+                    <p>I engineer secure, scalable backend systems and explore the offensive side of network security. I bridge the gap between clean full-stack architecture and system-level vulnerabilities.</p>
                     <div class="hero-meta">
-                        <span>Software Engineering Student</span>
                         <span>Full-Stack Developer</span>
-                        <span>Dhaka, Bangladesh</span>
                     </div>
                     <div class="hero-actions">
                         <a class="button button-primary" href="#projects">View featured projects</a>
@@ -137,74 +172,77 @@
                     </nav>
                 </div>
                 <aside class="hero-visual" aria-label="Profile summary" data-reveal>
-                    <div class="portrait-block">
+                    <div class="portrait-block float-animation">
                         <img src="assets/images/optimized/unnamed.jpg" width="700" height="697" alt="Portrait of Ebnul Hasan Mahi" decoding="async" fetchpriority="high">
                     </div>
                     <div class="hero-card" data-tilt>
                         <p class="card-kicker">Current focus</p>
-                        <h2>Backend systems, dashboards, and production-ready web apps.</h2>
+                        <h2>System security, embedded logic, and production-ready web apps.</h2>
                         <dl class="signal-list">
                             <div>
-                                <dt>Core stack</dt>
-                                <dd>React, FastAPI, Node.js, Java</dd>
+                                <dt>Core languages</dt>
+                                <dd>Python, Java, C, JavaScript</dd>
                             </div>
                             <div>
-                                <dt>Database</dt>
-                                <dd>PostgreSQL, HashMap-based Java storage</dd>
+                                <dt>Systems & Logic</dt>
+                                <dd>Arduino embedded systems, Data Structures, OOP</dd>
                             </div>
                             <div>
-                                <dt>Mindset</dt>
-                                <dd>Design first, implement clearly, test carefully</dd>
+                                <dt>Future trajectory</dt>
+                                <dd>Network security, penetration testing, ethical hacking</dd>
                             </div>
                         </dl>
                     </div>
                 </aside>
             </div>
         </section>
+
+        <!-- Stats Band -->
         <section class="stats-band" aria-label="Portfolio statistics">
             <div class="container stats-grid">
-                <article class="metric" data-reveal>
+                <article class="metric" data-reveal data-tilt>
                     <strong>6</strong>
                     <span>Featured projects</span>
                 </article>
-                <article class="metric" data-reveal>
+                <article class="metric" data-reveal data-tilt>
                     <strong>5</strong>
                     <span>Live full-stack deployments</span>
                 </article>
-                <article class="metric" data-reveal>
+                <article class="metric" data-reveal data-tilt>
                     <strong>10+</strong>
                     <span>Technologies practiced</span>
                 </article>
-                <article class="metric" data-reveal>
+                <article class="metric" data-reveal data-tilt>
                     <strong>100%</strong>
                     <span>Built around real coursework and products</span>
                 </article>
             </div>
         </section>
+
         <section class="section-pad" id="about" aria-labelledby="about-title">
             <div class="container two-column">
                 <div class="section-intro" data-reveal>
                     <p class="eyebrow">About me</p>
-                    <h2 id="about-title">I care about how the pieces fit together.</h2>
+                    <h2 id="about-title">I want to know how systems work from the ground up.</h2>
                 </div>
                 <div class="content-stack" data-reveal>
-                    <p>My work sits at the intersection of practical web development, backend architecture, software fundamentals, and security-aware thinking. I like understanding the system underneath the interface: data models, authentication, API structure, deployment, and the user workflow around it.</p>
-                    <p>I am currently pursuing Software Engineering and building projects that connect classroom fundamentals with production habits: clear naming, modular code, responsive UI, validation, accessibility, and iteration.</p>
+                    <p>My technical journey isn't just about building interfaces; it is about understanding the underlying architecture. As a second-year student at Daffodil International University, I spend my time mastering the fundamentals—from managing memory in C and object-oriented design in Java, to hardware-software integration with Arduino.</p>
+                    <p>While I currently develop full-stack web applications and APIs, my ultimate career goal is cybersecurity. I am actively studying network security and system vulnerabilities, preferring a deep, logical understanding of how to protect systems rather than just memorizing exploit tools.</p>
                     <div class="focus-grid">
-                        <article>
+                        <article data-tilt>
                             <span>01</span>
-                            <h3>Backend thinking</h3>
-                            <p>APIs, authentication, schemas, and data flow before visual polish.</p>
+                            <h3>Backend & Full-Stack</h3>
+                            <p>Building secure APIs, managing PostgreSQL databases, and connecting them to clean React frontends.</p>
                         </article>
-                        <article>
+                        <article data-tilt>
                             <span>02</span>
-                            <h3>Interface quality</h3>
-                            <p>Layouts that are responsive, readable, and built around user tasks.</p>
+                            <h3>Low-Level Logic</h3>
+                            <p>Writing algorithmic sorting logic in Python, working with C, and programming Arduino microcontrollers.</p>
                         </article>
-                        <article>
+                        <article data-tilt>
                             <span>03</span>
-                            <h3>Fundamentals</h3>
-                            <p>OOP, data structures, algorithms, and disciplined problem solving.</p>
+                            <h3>Cybersecurity Focus</h3>
+                            <p>Analyzing system vulnerabilities and studying ethical hacking to transition into penetration testing.</p>
                         </article>
                     </div>
                 </div>
@@ -428,7 +466,6 @@
                                 <small>heliostrack.vercel.app</small>
                             </div>
                             <div class="browser-screen">
-                                <!-- Don't forget to update this image in your assets folder -->
                                 <img src="assets/images/optimized/heliostrack-dashboard.webp" width="1500" height="844" loading="lazy" decoding="async" alt="HeliosTrack distributed solar fleet monitoring dashboard screenshot">
                             </div>
                         </figure>
@@ -597,22 +634,22 @@
                     <h2 id="process-title">How I move from idea to working software.</h2>
                 </div>
                 <div class="process-grid">
-                    <article data-reveal>
+                    <article data-reveal data-tilt>
                         <span>01</span>
                         <h3>Understand</h3>
                         <p>Clarify the user, constraints, core flows, and the data the system needs to manage.</p>
                     </article>
-                    <article data-reveal>
+                    <article data-reveal data-tilt>
                         <span>02</span>
                         <h3>Design</h3>
                         <p>Sketch the interface, API shape, database model, and technical boundaries before implementation.</p>
                     </article>
-                    <article data-reveal>
+                    <article data-reveal data-tilt>
                         <span>03</span>
                         <h3>Build</h3>
                         <p>Write modular, readable code with focused components, routes, services, and validation.</p>
                     </article>
-                    <article data-reveal>
+                    <article data-reveal data-tilt>
                         <span>04</span>
                         <h3>Verify</h3>
                         <p>Test real flows, check responsiveness, improve accessibility, and reduce friction.</p>
@@ -621,7 +658,7 @@
             </div>
         </section>
         <section class="section-pad" id="education" aria-labelledby="education-title">
-            <div class="container education-panel" data-reveal>
+            <div class="container education-panel" data-reveal data-tilt>
                 <div>
                     <p class="eyebrow">Education</p>
                     <h2 id="education-title">Bachelor of Science in Software Engineering</h2>
@@ -645,15 +682,15 @@
                     <h2 id="contact-title">Let's talk about internships, junior roles, or project ideas.</h2>
                     <p>I am open to opportunities where I can contribute, learn from experienced engineers, and keep improving through real product work.</p>
                     <div class="contact-methods">
-                        <a href="mailto:vaibongo20@gmail.com">
+                        <a href="mailto:vaibongo20@gmail.com" data-tilt>
                             <span>Email</span>
                             <strong>vaibongo20@gmail.com</strong>
                         </a>
-                        <a href="https://github.com/EHMahi9" target="_blank">
+                        <a href="https://github.com/EHMahi9" target="_blank" data-tilt>
                             <span>GitHub</span>
                             <strong>github.com/EHMahi9</strong>
                         </a>
-                        <a href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/" target="_blank">
+                        <a href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/" target="_blank" data-tilt>
                             <span>LinkedIn</span>
                             <strong>Connect on LinkedIn</strong>
                         </a>
@@ -693,9 +730,8 @@
     <footer class="site-footer">
         <div class="container footer-layout">
             <div>
-                <a class="brand" href="#home">
-                    <span class="brand-mark">EHM</span>
-                    <span class="brand-text">Mahi</span>
+                <a class="brand" href="#home" aria-label="EHM Home">
+                    <img src="favicon.svg" alt="EHM Logo" style="height: 36px; width: auto; display: block;">
                 </a>
                 <p>Software Engineering Student and Full-Stack Developer based in Dhaka, Bangladesh.</p>
             </div>
@@ -715,5 +751,6 @@
     <script type="module" src="js/projects.js"></script>
     <script type="module" src="js/contact.js"></script>
     <script type="module" src="js/3d-tilt.js"></script>
+    <script type="module" src="js/physics.js"></script>
 </body>
 </html>
