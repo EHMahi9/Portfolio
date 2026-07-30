@@ -340,23 +340,11 @@ ol {
     letter-spacing: 0;
 }
 
-.brand-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.18em;
-    color: var(--accent);
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 1.6rem;
-    font-weight: 900;
-    letter-spacing: -0.08em;
-    line-height: 1;
-    white-space: nowrap;
-}
-
-.brand-logo strong {
-    color: var(--text);
-    font: inherit;
-    letter-spacing: -0.1em;
+.site-logo {
+    display: block;
+    width: 136px;
+    height: 38px;
+    max-width: none;
 }
 
 .brand-mark {
