@@ -45,7 +45,7 @@
             ]
         },
         {
-            "source": "/css/(.*)",
+            "source": "/assets/styles/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -54,13 +54,23 @@
             ]
         },
         {
-            "source": "/js/(.*)",
+            "source": "/assets/scripts/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=0, must-revalidate"
                 }
             ]
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/robots.txt",
+            "destination": "/seo/robots.txt"
+        },
+        {
+            "source": "/sitemap.xml",
+            "destination": "/seo/sitemap.xml"
         }
     ]
 }

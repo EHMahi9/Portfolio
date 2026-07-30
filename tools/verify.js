@@ -8,12 +8,12 @@ const assert = (condition, message) => {
 };
 
 const html = read("index.html");
-const css = read("css/style.css");
+const css = read("assets/styles/style.css");
 const config = JSON.parse(read("vercel.json"));
 const globalHeaders = config.headers.find((entry) => entry.source === "/(.*)")?.headers || [];
 const headerMap = new Map(globalHeaders.map((header) => [header.key, header.value]));
 
-assert(!read("js/contact.js").includes("mailto:"), "Contact JavaScript must not use mailto.");
+assert(!read("assets/scripts/contact.js").includes("mailto:"), "Contact JavaScript must not use mailto.");
 assert(css.includes("--nav-bg-dark") && css.includes("--card-bg-dark"), "Dark navbar and card tokens are missing.");
 assert(css.split("{").length === css.split("}").length, "CSS braces are unbalanced.");
 assert(headerMap.has("Content-Security-Policy"), "Content Security Policy is missing.");
