@@ -1,7 +1,7 @@
 "use strict";
 
 const roleTarget = document.querySelector("[data-role-rotator]");
-const roles = ["Software Engineering Student", "Full-Stack Developer", "Backend Enthusiast"];
+const roles = ["Software Engineer", "Full-Stack Developer", "Backend Enthusiast"];
 
 if (roleTarget && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     let index = 0;

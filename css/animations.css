@@ -61,14 +61,14 @@
    Floating Portrait Physics
    ========================================================================== */
 .float-animation {
-    animation: levitate 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: levitate 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     transform-origin: center bottom;
     will-change: transform;
 }
 
 @keyframes levitate {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-16px); }
 }
 
 /* ==========================================================================

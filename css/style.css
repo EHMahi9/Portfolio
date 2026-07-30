@@ -340,6 +340,16 @@ ol {
     letter-spacing: 0;
 }
 
+/* Keep inline SVG logo colors tied to the page theme. SVG-internal styles
+   cannot reliably select the surrounding HTML theme attribute. */
+.site-logo-svg .logo-accent {
+    fill: var(--accent);
+}
+
+.site-logo-svg .logo-text {
+    fill: var(--text);
+}
+
 .brand-mark {
     display: grid;
     width: 42px;
