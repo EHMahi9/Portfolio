@@ -89,38 +89,7 @@
     <header class="site-header" data-header>
     <div class="container header-layout">
         <a class="brand" href="#home" aria-label="EHM Home">
-            <svg class="site-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 250" role="img" aria-label="EHM" style="height: 38px; width: auto; display: block;">
-                <defs>
-                    <style>
-                        /* Terminal Cursor Blinking Animation */
-                        @keyframes blink {
-                            0%, 49% { opacity: 1; }
-                            50%, 100% { opacity: 0; }
-                        }
-                        .logo-cursor { 
-                            animation: blink 1.2s infinite; 
-                        }
-                    </style>
-                </defs>
-
-                <!-- Left Code Bracket: < -->
-                <path class="logo-accent" d="M 100 50 L 50 125 L 100 200 L 70 200 L 20 125 L 70 50 Z" />
-
-                <!-- Letter: E -->
-                <path class="logo-text" d="M 150 50 H 220 V 80 H 180 V 110 H 210 V 140 H 180 V 170 H 220 V 200 H 150 Z" />
-
-                <!-- Letter: H -->
-                <path class="logo-text" d="M 250 50 H 280 V 110 H 320 V 50 H 350 V 200 H 320 V 140 H 280 V 200 H 250 Z" />
-
-                <!-- Letter: M -->
-                <path class="logo-text" d="M 380 50 H 420 L 440 120 L 460 50 H 500 V 200 H 470 V 110 L 450 170 H 430 L 410 110 V 200 H 380 Z" />
-
-                <!-- Terminal Command Cursor: _ -->
-                <rect x="520" y="170" width="40" height="30" class="logo-accent logo-cursor" />
-
-                <!-- Right Code Bracket: > -->
-                <path class="logo-accent" d="M 580 50 L 630 125 L 580 200 L 610 200 L 660 125 L 610 50 Z" />
-            </svg>
+            <span class="brand-logo" aria-hidden="true"><span>&lt;</span><strong>EHM</strong><span>&gt;</span></span>
         </a>
         <nav class="site-nav" id="primaryNavigation" aria-label="Primary navigation">
             <a href="#home">Home</a>
@@ -724,7 +693,7 @@
         <div class="container footer-layout">
             <div>
                 <a class="brand" href="#home" aria-label="EHM Home">
-                    <img src="favicon.svg" alt="EHM Logo" style="height: 36px; width: auto; display: block;">
+                    <span class="brand-logo" aria-hidden="true"><span>&lt;</span><strong>EHM</strong><span>&gt;</span></span>
                 </a>
                 <p>Software Engineering Student and Full-Stack Developer based in Dhaka, Bangladesh.</p>
             </div>

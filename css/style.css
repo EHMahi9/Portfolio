@@ -340,14 +340,23 @@ ol {
     letter-spacing: 0;
 }
 
-/* Keep inline SVG logo colors tied to the page theme. SVG-internal styles
-   cannot reliably select the surrounding HTML theme attribute. */
-.site-logo-svg .logo-accent {
-    fill: var(--accent);
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.18em;
+    color: var(--accent);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.site-logo-svg .logo-text {
-    fill: var(--text);
+.brand-logo strong {
+    color: var(--text);
+    font: inherit;
+    letter-spacing: -0.1em;
 }
 
 .brand-mark {
