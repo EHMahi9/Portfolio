@@ -1,6 +1,29 @@
 import React from 'react';
 
 export const About: React.FC = () => {
+  const keySignals = [
+    {
+      kicker: 'Institution',
+      value: 'Daffodil International University',
+      sub: 'B.Sc. in Software Engineering (2nd Year)'
+    },
+    {
+      kicker: 'Core Trajectory',
+      value: 'Systems & Network Security',
+      sub: 'Penetration testing & secure architecture'
+    },
+    {
+      kicker: 'Low-Level Core',
+      value: 'C, Java & Arduino',
+      sub: 'Memory management, OOP & microcontrollers'
+    },
+    {
+      kicker: 'Web Systems',
+      value: 'FastAPI, React, TypeScript',
+      sub: 'PostgreSQL, REST APIs & Docker'
+    }
+  ];
+
   const focusAreas = [
     {
       num: '01',
@@ -12,45 +35,47 @@ export const About: React.FC = () => {
       num: '02',
       title: 'Low-Level Logic',
       description:
-        'Writing algorithmic sorting logic in Python, working with C, and programming Arduino microcontrollers.'
+        'Writing algorithmic logic in Python, working with C memory models, and programming Arduino microcontrollers.'
     },
     {
       num: '03',
       title: 'Cybersecurity Focus',
       description:
-        'Analyzing system vulnerabilities and studying ethical hacking to transition into penetration testing.'
+        'Analyzing system vulnerabilities, network security models, and studying penetration testing fundamentals.'
     }
   ];
 
   return (
-    <section className="section-pad" id="about" aria-labelledby="about-title">
+    <section className="section-pad about-section" id="about" aria-labelledby="about-title">
       <div className="container two-column">
         {/* Sticky Section Intro */}
         <div className="section-intro">
           <p className="eyebrow">About me</p>
-          <h2 id="about-title">I want to know how systems work from the ground up.</h2>
+          <h2 id="about-title">Understanding systems from the ground up.</h2>
+          <p className="about-lead">
+            Software engineering student building production web applications and APIs,
+            with an active focus on low-level fundamentals and an engineering trajectory toward systems security.
+          </p>
         </div>
 
-        {/* Biography Content & Focus Cards */}
+        {/* Content Stack: Key Signals Grid + Focus Cards */}
         <div className="content-stack">
-          <p>
-            My technical journey isn't just about building interfaces; it is about
-            understanding the underlying architecture. As a second-year student at
-            Daffodil International University, I spend my time mastering the
-            fundamentals—from managing memory in C and object-oriented design in Java, to
-            hardware-software integration with Arduino.
-          </p>
-          <p>
-            While I currently develop full-stack web applications and APIs, my ultimate
-            career goal is cybersecurity. I am actively studying network security and
-            system vulnerabilities, preferring a deep, logical understanding of how to
-            protect systems rather than just memorizing exploit tools.
-          </p>
+          {/* Quick-Scan Signal Grid */}
+          <div className="about-signals-grid" aria-label="Key background signals">
+            {keySignals.map((signal, idx) => (
+              <div key={idx} className="about-signal-card">
+                <span className="about-signal-kicker">{signal.kicker}</span>
+                <strong className="about-signal-value">{signal.value}</strong>
+                <span className="about-signal-sub">{signal.sub}</span>
+              </div>
+            ))}
+          </div>
 
+          {/* Core Focus Cards */}
           <div className="focus-grid">
             {focusAreas.map((focus) => (
-              <article key={focus.num} data-tilt>
-                <span>{focus.num}</span>
+              <article key={focus.num} className="focus-card">
+                <span className="focus-card-num">{focus.num}</span>
                 <h3>{focus.title}</h3>
                 <p>{focus.description}</p>
               </article>

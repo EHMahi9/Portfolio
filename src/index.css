@@ -965,11 +965,74 @@ dd {
     margin-top: 0;
 }
 
+/* About Section Refinement (Signal-First) */
+#about-title {
+    font-size: clamp(1.85rem, 3.4vw, 2.85rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+}
+
+.about-lead {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    line-height: 1.65;
+}
+
+.about-signals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.about-signal-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--card-bg);
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(14px);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.about-signal-card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+}
+
+.about-signal-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.about-signal-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.about-signal-sub {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-top: 3px;
+}
+
 .focus-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 14px;
-    margin-top: 32px;
+    margin-top: 0;
 }
 
 .focus-grid article,
@@ -1998,6 +2061,7 @@ ul {
         max-width: 300px;
     }
 
+    .about-signals-grid,
     .focus-grid,
     .skill-grid {
         grid-template-columns: 1fr;
