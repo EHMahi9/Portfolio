@@ -1,21 +1,35 @@
 {
-    "name": "ebnul-hasan-mahi-portfolio",
-    "version": "1.0.0",
-    "private": true,
-    "description": "Production portfolio for Ebnul Hasan Mahi, Software Engineering Student and Full-Stack Developer.",
-    "scripts": {
-        "start": "npx serve .",
-        "preview": "npx serve .",
-        "test": "node tools/verify.js",
-        "deploy": "vercel --prod"
-    },
-    "keywords": [
-        "portfolio",
-        "frontend",
-        "full-stack",
-        "software-engineering",
-        "vanilla-js"
-    ],
-    "author": "Ebnul Hasan Mahi",
-    "license": "UNLICENSED"
+  "name": "ebnul-hasan-mahi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production portfolio for Ebnul Hasan Mahi, Software Engineering Student and Full-Stack Developer.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "node tools/verify.js",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "full-stack",
+    "software-engineering",
+    "react",
+    "typescript",
+    "vite"
+  ],
+  "author": "Ebnul Hasan Mahi",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.11"
+  }
 }
