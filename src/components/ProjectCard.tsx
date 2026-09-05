@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Project } from '../types/project';
-import { RoadPulseMockup } from './RoadPulseMockup';
 
 interface ProjectCardProps {
   project: Project;
@@ -8,42 +7,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const mockupRef = useRef<HTMLElement>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
-
-  // Pointer-following 3D micro-tilt effect on the browser mockup
-  useEffect(() => {
-    const mockup = mockupRef.current;
-    if (!mockup) return;
-
-    const finePointer = window.matchMedia('(pointer: fine)').matches;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!finePointer || reducedMotion) return;
-
-    const handlePointerMove = (event: PointerEvent) => {
-      const rect = mockup.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const rotateY = ((x / rect.width) - 0.5) * 5;
-      const rotateX = ((y / rect.height) - 0.5) * -5;
-
-      mockup.classList.add('is-tilting');
-      mockup.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-    };
-
-    const handlePointerLeave = () => {
-      mockup.classList.remove('is-tilting');
-      mockup.style.transform = '';
-    };
-
-    mockup.addEventListener('pointermove', handlePointerMove);
-    mockup.addEventListener('pointerleave', handlePointerLeave);
-
-    return () => {
-      mockup.removeEventListener('pointermove', handlePointerMove);
-      mockup.removeEventListener('pointerleave', handlePointerLeave);
-    };
-  }, []);
 
   // Format project number e.g. "01", "02"
   const projectNumber = index !== undefined ? String(index + 1).padStart(2, '0') : null;
@@ -60,10 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   // Label for primary action button ("Try now" vs "Live demo" vs "Demo pending")
   const getActionLabel = () => {
     if (project.isDemoDisabled) return 'Demo pending';
-    if (
-      project.id === 'proj-noboghat' ||
-      project.id === 'proj-roadpulse'
-    ) {
+    if (project.id === 'proj-noboghat') {
       return 'Try now';
     }
     return 'Live demo';
@@ -75,10 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       id={project.id}
     >
       {/* Visual Mockup Column */}
-      {project.isCustomMockup ? (
-        <RoadPulseMockup />
-      ) : (
-        <figure ref={mockupRef} className="browser-mockup" data-tilt>
+      <figure className="browser-mockup">
           <div className="browser-bar" aria-hidden="true">
             <span></span>
             <span></span>
@@ -127,7 +85,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
           )}
         </figure>
-      )}
 
       {/* Content Column — Concise Homepage Card Structure */}
       <div className="project-content">
@@ -196,14 +153,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           </a>
 
           {project.caseStudyUrl && (
-            <a
-              className="button button-secondary button-case-study"
-              href={project.caseStudyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Architecture &amp; Specs
-            </a>
+            project.caseStudyUrl.startsWith('/') ? (
+              <a
+                className="button button-secondary button-case-study"
+                href={project.caseStudyUrl}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState(null, '', project.caseStudyUrl!);
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+              >
+                Architecture &amp; Specs
+              </a>
+            ) : (
+              <a
+                className="button button-secondary button-case-study"
+                href={project.caseStudyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Architecture &amp; Specs
+              </a>
+            )
           )}
         </div>
       </div>

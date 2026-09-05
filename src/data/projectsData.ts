@@ -1,13 +1,11 @@
 import { Project } from '../types/project';
 
 // Featured portfolio projects preserving exact details and copy
-// Mandatory sequence:
+// Curated 4-project production lineup:
 // 01. Dr. Md. Momenul Islam — FLAGSHIP
 // 02. NoboGhat
 // 03. Hospital Doctor Duty Roster
 // 04. HeliosTrack
-// 05. Data Privacy Vault
-// 06. RoadPulse
 export const projectsData: Project[] = [
   {
     id: 'proj-dr-momenul',
@@ -52,7 +50,7 @@ export const projectsData: Project[] = [
     browserUrl: 'drmomenul.vercel.app',
     demoUrl: 'https://drmomenul.vercel.app',
     githubUrl: 'https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam',
-    caseStudyUrl: 'https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam#readme',
+    caseStudyUrl: '/projects/dr-momenul-islam',
     isReversed: false,
     limitations: [
       'Medical knowledge base is limited to the active curated corpus',
@@ -135,52 +133,6 @@ export const projectsData: Project[] = [
     demoUrl: 'https://helios-track-distributed-solar-moni.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System',
     isReversed: true
-  },
-  {
-    id: 'proj-data-vault',
-    title: 'Data Privacy Vault',
-    category: 'Java security',
-    badge: 'Academic',
-    role: 'Java and OOP developer',
-    shortDescription: 'Encapsulation and HashMap-backed Java architecture for protected user record access and storage.',
-    differentiator: 'Zero-exposure encapsulation',
-    problem: 'Sensitive user data needs controlled access, organization, and protection inside the application logic.',
-    solution: 'A Java vault that applies encapsulation and HashMap-backed storage to organize protected user records.',
-    features: [
-      'Private internal storage through encapsulated methods',
-      'User-to-data mapping with HashMap structures',
-      'Security-focused OOP modeling and validation'
-    ],
-    technologies: ['Java', 'OOP', 'Encapsulation', 'HashMap'],
-    image: '/assets/images/optimized/data-vault.webp',
-    imageAlt: 'Data Privacy Vault project screenshot',
-    browserUrl: 'java-security-system.local',
-    demoUrl: '#contact',
-    githubUrl: 'https://github.com/EHMahi9?tab=repositories',
-    isDemoDisabled: true,
-    isReversed: false
-  },
-  {
-    id: 'proj-roadpulse',
-    title: 'RoadPulse',
-    category: 'System analysis and design',
-    badge: 'Live',
-    role: 'System analysis and design team member',
-    shortDescription: 'Crowd-sourced traffic monitoring platform with verified incident alerts on an interactive road map.',
-    differentiator: 'Verification-gated crowd alerts',
-    problem: 'Commuters need reliable road-status information, while traffic authorities need one place to verify reports and publish timely alerts.',
-    solution: 'A crowd-sourced traffic monitoring platform where verified incident reports update a color-coded live road map.',
-    features: [
-      'Guest map access plus role-based commuter, authority, and administrator workflows',
-      'Incident reporting for accidents, congestion, blockages, hazards, and waterlogging',
-      'Admin verification, public alerts, route advisory, and expiry of unverified reports'
-    ],
-    technologies: ['System Analysis', 'Leaflet', 'OpenStreetMap', 'Node.js', 'Express', 'MySQL'],
-    browserUrl: 'roadpulse - traffic monitoring platform',
-    demoUrl: 'https://road-pusle.vercel.app/',
-    githubUrl: 'https://github.com/EHMahi9/RoadPusle-',
-    isCustomMockup: true,
-    isReversed: true
   }
 ];
 
@@ -204,6 +156,18 @@ export const archivedProjects: Project[] = [
     technologies: ['Node.js', 'Express', 'Vanilla JS', 'REST API', 'Chart.js'],
     image: '/assets/images/optimized/powerpulse-status.webp',
     imageAlt: 'PowerPulse BD energy status dashboard screenshot',
+    screenshots: [
+      {
+        src: '/assets/images/optimized/powerpulse-status.webp',
+        alt: 'PowerPulse BD live energy status dashboard and regional outage feed screenshot',
+        label: 'Energy Status'
+      },
+      {
+        src: '/assets/images/optimized/solar-monitor.webp',
+        alt: 'PowerPulse BD solar backup estimator and calculation engine interface screenshot',
+        label: 'Solar Estimator'
+      }
+    ],
     browserUrl: 'power-pulse-bd.vercel.app',
     demoUrl: 'https://power-pulse-bd.vercel.app/#/dashboard',
     githubUrl: 'https://github.com/EHMahi9?tab=repositories',

@@ -27,7 +27,7 @@
                 },
                 {
                     "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; upgrade-insecure-requests"
+                    "value": "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; frame-src 'self'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self'; upgrade-insecure-requests"
                 },
                 {
                     "key": "Permissions-Policy",
@@ -71,6 +71,10 @@
         {
             "source": "/sitemap.xml",
             "destination": "/seo/sitemap.xml"
+        },
+        {
+            "source": "/projects/(.*)",
+            "destination": "/index.html"
         }
     ]
 }

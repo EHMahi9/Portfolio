@@ -2,17 +2,20 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 export const Hero: React.FC = () => {
   const originalName = 'Ebnul Hasan Mahi';
-  const [displayName, setDisplayName] = useState(originalName);
+  const words = ['Ebnul', 'Hasan', 'Mahi'];
+  const [displayChars, setDisplayChars] = useState<string[]>(originalName.split(''));
   const [isGlitching, setIsGlitching] = useState(false);
   const glitchIntervalRef = useRef<number | null>(null);
 
-  // 1. Subtle, Professional Character Decryption Effect with Stable Box
+  // 1. Subtle, Professional Character Decryption Effect with Subpixel-Stable Slots
   const triggerDecryption = useCallback(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const lowerLetters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    const upperLetters = 'ABCDEFGHJKLNPQRSTUVXYZ0123456789';
+    const lowerLetters = 'abcdefghijklnopqrstuvxyz0123456789';
+    const wideLetters = 'WM80';
+    const narrowLetters = 'il1!|';
     let iteration = 0;
 
     if (glitchIntervalRef.current) {
@@ -22,18 +25,21 @@ export const Hero: React.FC = () => {
     setIsGlitching(true);
 
     glitchIntervalRef.current = window.setInterval(() => {
-      setDisplayName(
-        originalName
-          .split('')
-          .map((char, index) => {
-            if (char === ' ') return ' ';
-            if (index < iteration) return originalName[index];
-            if (char === char.toUpperCase()) {
-              return upperLetters[Math.floor(Math.random() * upperLetters.length)];
-            }
-            return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
-          })
-          .join('')
+      setDisplayChars(
+        originalName.split('').map((char, index) => {
+          if (char === ' ') return ' ';
+          if (index < iteration) return originalName[index];
+          if (char === 'i' || char === 'l') {
+            return narrowLetters[Math.floor(Math.random() * narrowLetters.length)];
+          }
+          if (char === 'm' || char === 'M' || char === 'w' || char === 'W') {
+            return wideLetters[Math.floor(Math.random() * wideLetters.length)];
+          }
+          if (char === char.toUpperCase()) {
+            return upperLetters[Math.floor(Math.random() * upperLetters.length)];
+          }
+          return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
+        })
       );
 
       if (iteration >= originalName.length) {
@@ -41,7 +47,7 @@ export const Hero: React.FC = () => {
           clearInterval(glitchIntervalRef.current);
         }
         setIsGlitching(false);
-        setDisplayName(originalName);
+        setDisplayChars(originalName.split(''));
       }
 
       iteration += 1 / 2;
@@ -90,12 +96,38 @@ export const Hero: React.FC = () => {
             onMouseEnter={triggerDecryption}
             aria-label={originalName}
           >
-            <span className="hero-title-anchor" aria-hidden="true">
-              {originalName}
-            </span>
-            <span className="hero-title-scramble" aria-hidden="true">
-              {displayName}
-            </span>
+            {words.map((word, wordIdx) => {
+              // Word start indices in "Ebnul Hasan Mahi":
+              // "Ebnul" starts at 0
+              // "Hasan" starts at 6
+              // "Mahi" starts at 12
+              const wordStartIndex = wordIdx === 0 ? 0 : wordIdx === 1 ? 6 : 12;
+              return (
+                <React.Fragment key={word}>
+                  {wordIdx > 0 && <span className="hero-title-space"> </span>}
+                  <span className="hero-title-word">
+                    {word.split('').map((targetChar, charIdx) => {
+                      const globalIdx = wordStartIndex + charIdx;
+                      const currentChar = displayChars[globalIdx] || targetChar;
+                      const isScrambled = isGlitching && currentChar !== targetChar;
+                      return (
+                        <span key={charIdx} className="hero-char-slot">
+                          <span className="hero-char-ghost" aria-hidden="true">
+                            {targetChar}
+                          </span>
+                          <span
+                            className={`hero-char-glyph ${isScrambled ? 'is-scrambled' : 'is-resolved'}`}
+                            aria-hidden="true"
+                          >
+                            {currentChar}
+                          </span>
+                        </span>
+                      );
+                    })}
+                  </span>
+                </React.Fragment>
+              );
+            })}
           </h1>
 
           <h2 className="hero-role" id="heroRole">

@@ -34,39 +34,9 @@ export const Projects: React.FC = () => {
               </p>
             </div>
 
-            <div className="other-work-grid">
+            <div className="project-stack other-work-stack">
               {archivedProjects.map((project) => (
-                <article key={project.id} className="other-work-card" id={project.id}>
-                  <div className="other-work-topline">
-                    <span>{project.category}</span>
-                    <strong>{project.badge}</strong>
-                  </div>
-                  <h4>{project.title}</h4>
-                  <p className="other-work-desc">{project.shortDescription}</p>
-                  <div className="tag-list">
-                    {project.technologies.map((tech, idx) => (
-                      <span key={idx}>{tech}</span>
-                    ))}
-                  </div>
-                  <div className="project-actions">
-                    <a
-                      className="button button-small button-primary"
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Try now
-                    </a>
-                    <a
-                      className="button button-small button-secondary"
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  </div>
-                </article>
+                <ProjectCard key={project.id} project={project} />
               ))}
             </div>
           </div>

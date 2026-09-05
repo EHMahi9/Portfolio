@@ -29,7 +29,6 @@ export interface Project {
   caseStudyUrl?: string; // Link to detailed case study or architecture docs
   isDemoDisabled?: boolean;
   isReversed?: boolean; // Alternates mockup/content placement
-  isCustomMockup?: boolean; // True for RoadPulse pure CSS mockup
   // Case-study foundation fields (prepared for future case-study views)
   limitations?: string[];
   futureDirections?: string[];

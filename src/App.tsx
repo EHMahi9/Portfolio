@@ -10,12 +10,49 @@ import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { BackgroundEffects } from './components/BackgroundEffects';
+import { CaseStudyPage } from './components/case-study/CaseStudyPage';
 
 export const App: React.FC = () => {
+  // Current route pathname tracking (native HTML5 routing without heavy external router dependencies)
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    return typeof window !== 'undefined' ? window.location.pathname : '/';
+  });
+
   // Reading progress percentage (0 - 100) for the top progress bar
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   // Controls visibility of the floating back-to-top button
   const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
+
+  // Listen to popstate (browser back / forward button navigation)
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Sync document title with active route
+  useEffect(() => {
+    if (currentPath.startsWith('/projects/dr-momenul-islam')) {
+      document.title = 'Dr. Md. Momenul Islam | Flagship Case Study — Ebnul Hasan Mahi';
+    } else {
+      document.title = 'Ebnul Hasan Mahi | Full-Stack Developer';
+    }
+  }, [currentPath]);
+
+  // Navigate helper
+  const navigateTo = (path: string) => {
+    window.history.pushState(null, '', path);
+    setCurrentPath(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToPortfolio = () => {
+    navigateTo('/#projects');
+  };
+
+  const isCaseStudy = currentPath.startsWith('/projects/dr-momenul-islam');
 
   // Track window scroll for progress bar and back-to-top button
   useEffect(() => {
@@ -51,34 +88,30 @@ export const App: React.FC = () => {
     });
   };
 
-  // Subtle 3D tilt and mouse spotlight effect on interactive [data-tilt] cards.
-  // Note: We update CSS custom properties directly on the DOM elements instead of storing
-  // mouse coordinates in React state. This prevents re-rendering the App component on every mouse move.
+  // Subtle mouse spotlight effect on interactive [data-tilt] cards (Flat & Straight, no 3D angle)
   useEffect(() => {
-    const canTilt =
+    const canSpotlight =
       window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!canTilt) return;
+    if (!canSpotlight) return;
 
-    const tiltElements = document.querySelectorAll<HTMLElement>('[data-tilt]');
+    const cards = document.querySelectorAll<HTMLElement>('[data-tilt]');
 
     const cleanups: (() => void)[] = [];
 
-    tiltElements.forEach((el) => {
+    cards.forEach((el) => {
       let frameId: number | null = null;
       let pointerX = 0;
       let pointerY = 0;
 
-      const updateTilt = () => {
+      const updateSpotlight = () => {
         const bounds = el.getBoundingClientRect();
-        const x = (pointerX - bounds.left) / bounds.width - 0.5;
-        const y = (pointerY - bounds.top) / bounds.height - 0.5;
+        const x = (pointerX - bounds.left) / bounds.width;
+        const y = (pointerY - bounds.top) / bounds.height;
 
-        el.style.setProperty('--tilt-x', `${(y * -5).toFixed(2)}deg`);
-        el.style.setProperty('--tilt-y', `${(x * 5).toFixed(2)}deg`);
-        el.style.setProperty('--glow-x', `${((x + 0.5) * 100).toFixed(1)}%`);
-        el.style.setProperty('--glow-y', `${((y + 0.5) * 100).toFixed(1)}%`);
+        el.style.setProperty('--glow-x', `${(x * 100).toFixed(1)}%`);
+        el.style.setProperty('--glow-y', `${(y * 100).toFixed(1)}%`);
         frameId = null;
       };
 
@@ -86,15 +119,13 @@ export const App: React.FC = () => {
         pointerX = e.clientX;
         pointerY = e.clientY;
         if (frameId === null) {
-          frameId = requestAnimationFrame(updateTilt);
+          frameId = requestAnimationFrame(updateSpotlight);
         }
       };
 
       const handlePointerLeave = () => {
         if (frameId !== null) cancelAnimationFrame(frameId);
         frameId = null;
-        el.style.removeProperty('--tilt-x');
-        el.style.removeProperty('--tilt-y');
       };
 
       el.addEventListener('pointermove', handlePointerMove);
@@ -128,23 +159,29 @@ export const App: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* Navigation Bar */}
-      <Navbar />
+      {isCaseStudy ? (
+        <CaseStudyPage onBackToPortfolio={handleBackToPortfolio} />
+      ) : (
+        <>
+          {/* Navigation Bar */}
+          <Navbar />
 
-      {/* Main Content Area */}
-      <main id="main">
-        <Hero />
-        <StatsBand />
-        <About />
-        <Skills />
-        <Projects />
-        <Process />
-        <Education />
-        <Contact />
-      </main>
+          {/* Main Content Area */}
+          <main id="main">
+            <Hero />
+            <StatsBand />
+            <About />
+            <Skills />
+            <Projects />
+            <Process />
+            <Education />
+            <Contact />
+          </main>
 
-      {/* Footer */}
-      <Footer />
+          {/* Footer */}
+          <Footer />
+        </>
+      )}
 
       {/* Floating Back to Top Button */}
       <button
