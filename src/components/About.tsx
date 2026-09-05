@@ -49,7 +49,7 @@ export const About: React.FC = () => {
 
           <div className="focus-grid">
             {focusAreas.map((focus) => (
-              <article key={focus.num}>
+              <article key={focus.num} data-tilt>
                 <span>{focus.num}</span>
                 <h3>{focus.title}</h3>
                 <p>{focus.description}</p>

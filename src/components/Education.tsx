@@ -13,7 +13,7 @@ export const Education: React.FC = () => {
 
   return (
     <section className="section-pad" id="education" aria-labelledby="education-title">
-      <div className="container education-panel">
+      <div className="container education-panel" data-tilt>
         <div>
           <p className="eyebrow">Education</p>
           <h2 id="education-title">Bachelor of Science in Software Engineering</h2>

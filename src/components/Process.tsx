@@ -40,7 +40,7 @@ export const Process: React.FC = () => {
         {/* 4-Step Process Grid */}
         <div className="process-grid">
           {steps.map((step) => (
-            <article key={step.num}>
+            <article key={step.num} data-tilt>
               <span>{step.num}</span>
               <h3>{step.title}</h3>
               <p>{step.description}</p>

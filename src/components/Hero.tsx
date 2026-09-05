@@ -6,9 +6,13 @@ export const Hero: React.FC = () => {
   const [isGlitching, setIsGlitching] = useState(false);
   const glitchIntervalRef = useRef<number | null>(null);
 
-  // 1. Cyber-Security Decryption / Glitch Effect
+  // 1. Subtle, Professional Character Decryption Effect with Stable Box
   const triggerDecryption = useCallback(() => {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*<>';
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const lowerLetters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let iteration = 0;
 
     if (glitchIntervalRef.current) {
@@ -24,7 +28,10 @@ export const Hero: React.FC = () => {
           .map((char, index) => {
             if (char === ' ') return ' ';
             if (index < iteration) return originalName[index];
-            return letters[Math.floor(Math.random() * letters.length)];
+            if (char === char.toUpperCase()) {
+              return upperLetters[Math.floor(Math.random() * upperLetters.length)];
+            }
+            return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
           })
           .join('')
       );
@@ -37,11 +44,11 @@ export const Hero: React.FC = () => {
         setDisplayName(originalName);
       }
 
-      iteration += 1 / 3;
-    }, 30);
+      iteration += 1 / 2;
+    }, 28);
   }, [originalName]);
 
-  // Run decryption effect once on mount
+  // Run decryption effect once on mount if motion is enabled
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReducedMotion) {
@@ -52,8 +59,8 @@ export const Hero: React.FC = () => {
     };
   }, [triggerDecryption]);
 
-  // 2. Rotating Role Title every 2.6 seconds
-  const roles = ['Software Engineer', 'Full-Stack Developer', 'Backend Enthusiast'];
+  // 2. Rotating Role Title every 2.8 seconds
+  const roles = ['Full-Stack Developer', 'Software Engineer', 'Backend Enthusiast'];
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -62,7 +69,7 @@ export const Hero: React.FC = () => {
 
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2600);
+    }, 2800);
 
     return () => clearInterval(interval);
   }, [roles.length]);
@@ -72,53 +79,45 @@ export const Hero: React.FC = () => {
       <div className="container hero-grid">
         {/* Left Column: Copy & Actions */}
         <div className="hero-copy">
-          <p
-            className="eyebrow"
-            style={{
-              color: 'var(--accent)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              fontSize: '0.85rem',
-              letterSpacing: '1px',
-              marginBottom: '10px'
-            }}
-          >
-            Available for Junior Roles &amp; Internships
+          <p className="hero-eyebrow">
+            <span className="hero-eyebrow-dot" aria-hidden="true"></span>
+            SOFTWARE ENGINEERING STUDENT
           </p>
 
           <h1
             id="hero-title"
             className={isGlitching ? 'is-glitching' : ''}
             onMouseEnter={triggerDecryption}
-            style={{ cursor: 'crosshair' }}
+            aria-label={originalName}
           >
-            {displayName}
+            <span className="hero-title-anchor" aria-hidden="true">
+              {originalName}
+            </span>
+            <span className="hero-title-scramble" aria-hidden="true">
+              {displayName}
+            </span>
           </h1>
 
           <h2 className="hero-role" id="heroRole">
             {roles[roleIndex]}
           </h2>
 
-          <p>
-            I engineer secure, scalable backend systems and explore the offensive side of
-            network security. I bridge the gap between clean full-stack architecture and
-            system-level vulnerabilities.
+          <p className="hero-lead">
+            I build practical software products, web applications, backend systems, and APIs
+            with an emphasis on clean architecture, security, and performance.
           </p>
-
-          <div className="hero-meta">
-            <span>Full-Stack Developer</span>
-          </div>
 
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
-              View featured projects
+              Explore my work
             </a>
-            <a className="button button-secondary" href="mailto:vaibongo20@gmail.com">
+            <a className="button button-secondary" href="#contact">
               Contact me
             </a>
           </div>
 
           <nav className="social-row" aria-label="Social links">
+            <span className="social-row-label">Connect:</span>
             <a
               href="https://github.com/EHMahi9"
               target="_blank"
@@ -127,6 +126,7 @@ export const Hero: React.FC = () => {
             >
               GitHub
             </a>
+            <span className="social-separator" aria-hidden="true">/</span>
             <a
               href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/"
               target="_blank"
@@ -135,6 +135,7 @@ export const Hero: React.FC = () => {
             >
               LinkedIn
             </a>
+            <span className="social-separator" aria-hidden="true">/</span>
             <a href="mailto:vaibongo20@gmail.com" aria-label="Email Ebnul Hasan Mahi">
               Email
             </a>
@@ -143,7 +144,8 @@ export const Hero: React.FC = () => {
 
         {/* Right Column: Visual Portrait & Focus Card */}
         <aside className="hero-visual" aria-label="Profile summary">
-          <div className="portrait-block float-animation">
+          {/* Portrait Asset */}
+          <div className="portrait-block">
             <img
               src="/assets/images/optimized/unnamed.jpg"
               width="700"
@@ -151,24 +153,36 @@ export const Hero: React.FC = () => {
               alt="Portrait of Ebnul Hasan Mahi"
               decoding="async"
               loading="eager"
+              {...{ fetchpriority: 'high' }}
             />
           </div>
 
-          <div className="hero-card">
-            <p className="card-kicker">Current focus</p>
-            <h2>System security, embedded logic, and production-ready web apps.</h2>
+          {/* Current Focus Card */}
+          <div className="hero-card" data-tilt>
+            <div className="card-kicker-row">
+              <span className="card-kicker">Current focus</span>
+              <span className="focus-badge" aria-hidden="true">
+                <span className="focus-dot"></span>
+                Active
+              </span>
+            </div>
+
+            <h3 className="hero-card-title">
+              System security, backend systems, and production web applications.
+            </h3>
+
             <dl className="signal-list">
               <div>
-                <dt>Core languages</dt>
-                <dd>Python, Java, C, JavaScript</dd>
+                <dt>Core Stack</dt>
+                <dd>Python, Java, C, TypeScript, React</dd>
               </div>
               <div>
-                <dt>Systems &amp; Logic</dt>
-                <dd>Arduino embedded systems, Data Structures, OOP</dd>
+                <dt>Systems &amp; Architecture</dt>
+                <dd>Backend APIs, PostgreSQL, OOP, Arduino Embedded Systems</dd>
               </div>
               <div>
-                <dt>Future trajectory</dt>
-                <dd>Network security, penetration testing, ethical hacking</dd>
+                <dt>Trajectory</dt>
+                <dd>Network security, system integrity, penetration testing</dd>
               </div>
             </dl>
           </div>

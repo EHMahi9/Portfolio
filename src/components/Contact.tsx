@@ -122,7 +122,7 @@ export const Contact: React.FC = () => {
           </p>
 
           <div className="contact-methods">
-            <a href="mailto:vaibongo20@gmail.com">
+            <a href="mailto:vaibongo20@gmail.com" data-tilt>
               <span>Email</span>
               <strong>vaibongo20@gmail.com</strong>
             </a>
@@ -130,6 +130,7 @@ export const Contact: React.FC = () => {
               href="https://github.com/EHMahi9"
               target="_blank"
               rel="noopener noreferrer"
+              data-tilt
             >
               <span>GitHub</span>
               <strong>github.com/EHMahi9</strong>
@@ -138,6 +139,7 @@ export const Contact: React.FC = () => {
               href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/"
               target="_blank"
               rel="noopener noreferrer"
+              data-tilt
             >
               <span>LinkedIn</span>
               <strong>Connect on LinkedIn</strong>

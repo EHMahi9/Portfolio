@@ -14,7 +14,7 @@ export const Skills: React.FC = () => {
         {/* Skill Cards Grid */}
         <div className="skill-grid">
           {/* Card 1: Full-stack web (Wide) */}
-          <article className="skill-card wide">
+          <article className="skill-card wide" data-tilt>
             <p className="card-kicker">Full-stack web</p>
             <h3>React frontends with API-driven backends</h3>
             <p>
@@ -32,7 +32,7 @@ export const Skills: React.FC = () => {
           </article>
 
           {/* Card 2: Data and backend */}
-          <article className="skill-card">
+          <article className="skill-card" data-tilt>
             <p className="card-kicker">Data and backend</p>
             <h3>Data models, auth, and persistence</h3>
             <div className="tag-list">
@@ -45,7 +45,7 @@ export const Skills: React.FC = () => {
           </article>
 
           {/* Card 3: Programming */}
-          <article className="skill-card">
+          <article className="skill-card" data-tilt>
             <p className="card-kicker">Programming</p>
             <h3>Strong Java and Python foundations</h3>
             <div className="tag-list">
@@ -58,7 +58,7 @@ export const Skills: React.FC = () => {
           </article>
 
           {/* Card 4: Frontend quality */}
-          <article className="skill-card">
+          <article className="skill-card" data-tilt>
             <p className="card-kicker">Frontend quality</p>
             <h3>Accessible, responsive UI systems</h3>
             <div className="tag-list">

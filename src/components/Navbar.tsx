@@ -1,21 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+// Theme options supported by the application
+type Theme = 'dark' | 'light';
+
+// Navigation link structure
+interface NavItem {
+  readonly id: string;
+  readonly label: string;
+  readonly href: string;
+}
+
+// Static navigation list placed outside component so it is not re-created on every render
+const NAV_ITEMS: NavItem[] = [
+  { id: 'home', label: 'Home', href: '#home' },
+  { id: 'about', label: 'About', href: '#about' },
+  { id: 'skills', label: 'Skills', href: '#skills' },
+  { id: 'projects', label: 'Projects', href: '#projects' },
+  { id: 'process', label: 'Process', href: '#process' },
+  { id: 'contact', label: 'Contact', href: '#contact' }
+];
 
 export const Navbar: React.FC = () => {
-  // Mobile drawer open/close state
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // Header background blur on scroll
-  const [isScrolled, setIsScrolled] = useState(false);
-  // Active navigation section
-  const [activeSection, setActiveSection] = useState('home');
-  // Theme state ('dark' or 'light')
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  // useState stores whether the mobile navigation drawer is open; updates trigger a re-render
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  // Controls header background blur & shadow after scrolling past 24px
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  // Holds the ID of the section currently in view to highlight the corresponding nav link
+  const [activeSection, setActiveSection] = useState<string>('home');
+  // Current active theme
+  const [theme, setTheme] = useState<Theme>('dark');
 
-  // Initialize theme on mount
+  // useRef provides direct references to DOM nodes without causing re-renders
+  const navRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Helper to close mobile menu
+  const closeMenu = () => setIsMenuOpen(false);
+
+  // Helper to toggle mobile menu using functional updater to avoid stale state
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  // Update HTML meta tag for mobile browser address bar color
+  const updateMetaThemeColor = (currentTheme: Theme) => {
+    const meta = document.querySelector<HTMLMetaElement>("meta[name='theme-color']");
+    if (meta) {
+      meta.setAttribute('content', currentTheme === 'light' ? '#d9efff' : '#071a3d');
+    }
+  };
+
+  // Switch between dark and light themes and persist selection to localStorage
+  const toggleTheme = () => {
+    const nextTheme: Theme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    localStorage.setItem('mahi-portfolio-theme', nextTheme);
+    updateMetaThemeColor(nextTheme);
+  };
+
+  // useEffect with [] runs once on mount to initialize theme from localStorage or OS preference
   useEffect(() => {
     const savedTheme = localStorage.getItem('mahi-portfolio-theme');
-    const initialTheme =
+    const initialTheme: Theme =
       savedTheme === 'light' || savedTheme === 'dark'
-        ? savedTheme
+        ? (savedTheme as Theme)
         : window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light';
@@ -25,46 +72,34 @@ export const Navbar: React.FC = () => {
     updateMetaThemeColor(initialTheme);
   }, []);
 
-  const updateMetaThemeColor = (currentTheme: 'dark' | 'light') => {
-    const meta = document.querySelector("meta[name='theme-color']");
-    if (meta) {
-      meta.setAttribute('content', currentTheme === 'light' ? '#d9efff' : '#071a3d');
-    }
-  };
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem('mahi-portfolio-theme', nextTheme);
-    updateMetaThemeColor(nextTheme);
-  };
-
-  // Scroll listener for header shadow/background blur
+  // Window scroll listener: updates isScrolled state for header visual style
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 24);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    // Effect cleanup: removes listener when component unmounts to prevent memory leaks
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Locks body scroll while mobile drawer is open by toggling a CSS class on <body>
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add('nav-open');
     } else {
       document.body.classList.remove('nav-open');
     }
+
+    // Always clean up class if component unmounts while menu is open
     return () => document.body.classList.remove('nav-open');
   }, [isMenuOpen]);
 
-  // Close menu on Escape key press
+  // Keyboard accessibility: close drawer when user presses Escape
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsMenuOpen(false);
+        closeMenu();
       }
     };
 
@@ -72,11 +107,41 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Active section tracking via IntersectionObserver
+  // Closes drawer on clicks outside both the navigation panel and hamburger button
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'skills', 'projects', 'process', 'contact'];
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      const isInsideNav = navRef.current?.contains(target);
+      const isInsideButton = menuButtonRef.current?.contains(target);
+
+      // If click is outside both elements, close the menu
+      if (!isInsideNav && !isInsideButton) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMenuOpen]);
+
+  // Window resize: auto-close mobile drawer when viewport widens past 860px desktop breakpoint
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 860) {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // IntersectionObserver detects which section is visible in the viewport to highlight active link
+  useEffect(() => {
+    const elements = NAV_ITEMS
+      .map((item) => document.getElementById(item.id))
       .filter((el): el is HTMLElement => el !== null);
 
     const observer = new IntersectionObserver(
@@ -94,17 +159,9 @@ export const Navbar: React.FC = () => {
     );
 
     elements.forEach((el) => observer.observe(el));
+    // Disconnect observer on unmount to release resources
     return () => observer.disconnect();
   }, []);
-
-  const navLinks = [
-    { label: 'Home', href: '#home', id: 'home' },
-    { label: 'About', href: '#about', id: 'about' },
-    { label: 'Skills', href: '#skills', id: 'skills' },
-    { label: 'Projects', href: '#projects', id: 'projects' },
-    { label: 'Process', href: '#process', id: 'process' },
-    { label: 'Contact', href: '#contact', id: 'contact' }
-  ];
 
   return (
     <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`} data-header>
@@ -120,20 +177,21 @@ export const Navbar: React.FC = () => {
           />
         </a>
 
-        {/* Primary Navigation */}
+        {/* Primary Navigation Drawer */}
         <nav
+          ref={navRef}
           className={`site-nav ${isMenuOpen ? 'is-open' : ''}`}
           id="primaryNavigation"
           aria-label="Primary navigation"
         >
-          {navLinks.map((link) => (
+          {NAV_ITEMS.map((item) => (
             <a
-              key={link.id}
-              href={link.href}
-              className={activeSection === link.id ? 'is-active' : ''}
-              onClick={() => setIsMenuOpen(false)}
+              key={item.id}
+              href={item.href}
+              className={activeSection === item.id ? 'is-active' : ''}
+              onClick={closeMenu}
             >
-              {link.label}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -167,9 +225,11 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Hamburger Button */}
           <button
+            ref={menuButtonRef}
             className={`menu-button ${isMenuOpen ? 'is-active' : ''}`}
             type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            data-menu-button
+            onClick={toggleMenu}
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             aria-controls="primaryNavigation"

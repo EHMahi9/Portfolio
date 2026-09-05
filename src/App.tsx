@@ -12,14 +12,17 @@ import { Footer } from './components/Footer';
 import { BackgroundEffects } from './components/BackgroundEffects';
 
 export const App: React.FC = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [showBackToTop, setShowBackToTop] = useState(false);
+  // Reading progress percentage (0 - 100) for the top progress bar
+  const [scrollProgress, setScrollProgress] = useState<number>(0);
+  // Controls visibility of the floating back-to-top button
+  const [showBackToTop, setShowBackToTop] = useState<boolean>(false);
 
   // Track window scroll for progress bar and back-to-top button
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
+      // requestAnimationFrame throttles state updates to match screen refresh rate (60fps)
       if (ticking) return;
       ticking = true;
 
@@ -34,6 +37,8 @@ export const App: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+
+    // Effect cleanup: runs on unmount to prevent memory leaks from dangling window listeners
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -46,7 +51,9 @@ export const App: React.FC = () => {
     });
   };
 
-  // Subtle 3D tilt effect on interactive cards
+  // Subtle 3D tilt and mouse spotlight effect on interactive [data-tilt] cards.
+  // Note: We update CSS custom properties directly on the DOM elements instead of storing
+  // mouse coordinates in React state. This prevents re-rendering the App component on every mouse move.
   useEffect(() => {
     const canTilt =
       window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
@@ -54,9 +61,7 @@ export const App: React.FC = () => {
 
     if (!canTilt) return;
 
-    const tiltElements = document.querySelectorAll<HTMLElement>(
-      '.hero-card, .metric, .focus-grid article, .skill-card, .process-grid article, .education-panel, .contact-methods a'
-    );
+    const tiltElements = document.querySelectorAll<HTMLElement>('[data-tilt]');
 
     const cleanups: (() => void)[] = [];
 

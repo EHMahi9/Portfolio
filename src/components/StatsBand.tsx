@@ -12,7 +12,7 @@ export const StatsBand: React.FC = () => {
     <section className="stats-band" aria-label="Portfolio statistics">
       <div className="container stats-grid">
         {stats.map((stat, index) => (
-          <article key={index} className="metric">
+          <article key={index} className="metric" data-tilt>
             <strong>{stat.count}</strong>
             <span>{stat.label}</span>
           </article>
