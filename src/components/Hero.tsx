@@ -160,7 +160,7 @@ export const Hero: React.FC = () => {
             </a>
             <span className="social-separator" aria-hidden="true">/</span>
             <a
-              href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/"
+              href="https://www.linkedin.com/in/ebnul-hasan-mahi/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile"
@@ -168,7 +168,7 @@ export const Hero: React.FC = () => {
               LinkedIn
             </a>
             <span className="social-separator" aria-hidden="true">/</span>
-            <a href="mailto:vaibongo20@gmail.com" aria-label="Email Ebnul Hasan Mahi">
+            <a href="mailto:ebnulhasanmahi001@gmail.com" aria-label="Email Ebnul Hasan Mahi">
               Email
             </a>
           </nav>
@@ -179,9 +179,9 @@ export const Hero: React.FC = () => {
           {/* Portrait Asset */}
           <div className="portrait-block">
             <img
-              src="/assets/images/optimized/unnamed.jpg"
+              src="/assets/images/optimized/portrait.webp"
               width="700"
-              height="697"
+              height="700"
               alt="Portrait of Ebnul Hasan Mahi"
               decoding="async"
               loading="eager"

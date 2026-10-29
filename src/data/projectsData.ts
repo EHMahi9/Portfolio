@@ -9,16 +9,16 @@ import { Project } from '../types/project';
 export const projectsData: Project[] = [
   {
     id: 'proj-dr-momenul',
-    title: 'Dr. Md. Momenul Islam',
-    category: 'Clinical Health Intelligence',
-    badge: 'Live',
+    title: 'Dr. Md. Momenul Islam Health Assistant',
+    category: 'Evidence-Grounded Health Assistant (Research Prototype)',
+    badge: 'Research Prototype',
     featured: true,
     featuredLevel: 'flagship',
-    role: 'Full-stack & ML systems developer',
-    shortDescription: 'Evidence-grounded health information assistant for Bangla, Banglish, and English users.',
+    role: 'Creator & Developer • In memory of Dr. Md. Momenul Islam',
+    shortDescription: 'Evidence-grounded health information assistant prototype built in memory of Dr. Md. Momenul Islam (retrieval pipeline runs in local high-memory environment).',
     differentiator: 'LLM-free production generation',
     problem: 'People increasingly use general-purpose AI systems for health questions, but free-form generation risks ungrounded hallucinations without transparent clinical sources.',
-    solution: 'A safety-oriented medical information retrieval system built around trusted NHS clinical guidance, multilingual semantic retrieval, deterministic emergency triage, and transparent evidence cards.',
+    solution: 'A safety-oriented medical information retrieval system built around trusted NHS clinical guidance, multilingual semantic retrieval, deterministic emergency triage, and transparent evidence cards. (Note: High-memory retrieval pipeline runs in local environment; web deployment provides full interface and triage walkthrough).',
     features: [
       'Multilingual semantic retrieval across Bangla, Banglish, and English',
       'Curated NHS England knowledge base with 119 verified clinical passages',
@@ -108,7 +108,7 @@ export const projectsData: Project[] = [
     imageAlt: 'Hospital Doctor Duty Roster dashboard screenshot',
     browserUrl: 'hospital-doctor-duty-roster.vercel.app',
     demoUrl: 'https://hospital-doctor-duty-roster.vercel.app/',
-    githubUrl: 'https://github.com/EHMahi9?tab=repositories',
+    githubUrl: 'https://github.com/EHMahi9/hospital-doctor-duty-roster',
     isReversed: false
   },
   {
@@ -129,7 +129,7 @@ export const projectsData: Project[] = [
     technologies: ['JavaScript', 'Node.js', 'WebSockets', 'MySQL', 'Chart.js'],
     image: '/assets/images/optimized/heliostrack-dashboard.webp',
     imageAlt: 'HeliosTrack distributed solar fleet monitoring dashboard screenshot',
-    browserUrl: 'heliostrack.vercel.app',
+    browserUrl: 'helios-track-distributed-solar-moni.vercel.app',
     demoUrl: 'https://helios-track-distributed-solar-moni.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System',
     isReversed: true
@@ -137,8 +137,10 @@ export const projectsData: Project[] = [
 ];
 
 // Preserved archive of PowerPulse BD (superseded by HeliosTrack)
-export const archivedProjects: Project[] = [
-  {
+export const archivedProjects: Project[] = [];
+
+// Preserved reference (unlisted from active showcase)
+export const unlistedPowerPulse: Project = {
     id: 'proj-power-pulse',
     title: 'PowerPulse BD',
     category: 'Energy monitoring',
@@ -170,7 +172,6 @@ export const archivedProjects: Project[] = [
     ],
     browserUrl: 'power-pulse-bd.vercel.app',
     demoUrl: 'https://power-pulse-bd.vercel.app/#/dashboard',
-    githubUrl: 'https://github.com/EHMahi9?tab=repositories',
+    githubUrl: 'https://github.com/EHMahi9/Power-Pulse-Bd',
     isReversed: true
-  }
-];
+};

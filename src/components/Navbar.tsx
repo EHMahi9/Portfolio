@@ -200,7 +200,7 @@ export const Navbar: React.FC = () => {
         <div className="header-actions">
           <a
             className="button button-small button-ghost"
-            href="/resume.html"
+            href="/resume"
             target="_blank"
             rel="noopener noreferrer"
           >

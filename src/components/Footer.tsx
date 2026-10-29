@@ -17,25 +17,21 @@ export const Footer: React.FC = () => {
               alt="EHM"
             />
           </a>
-          <p>
-            Software Engineering Student and Full-Stack Developer based in Dhaka,
-            Bangladesh.
-          </p>
+          <p>Software Engineering Student and Full-Stack Developer.</p>
         </div>
 
         {/* Footer Navigation Links */}
         <nav className="footer-links" aria-label="Footer links">
           <a href="#projects">Projects</a>
-          <a href="/resume.html" target="_blank" rel="noopener noreferrer">
+          <a href="/resume" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
-          <a href="mailto:vaibongo20@gmail.com">Email</a>
+          <a href="mailto:ebnulhasanmahi001@gmail.com">Email</a>
         </nav>
 
         {/* Copyright Line */}
         <p className="copyright">
-          &copy; <span className="current-year">{currentYear}</span> Ebnul Hasan Mahi.
-          Built with HTML, CSS, and JavaScript.
+          &copy; <span className="current-year">{currentYear}</span> Ebnul Hasan Mahi. All rights reserved.
         </p>
       </div>
     </footer>

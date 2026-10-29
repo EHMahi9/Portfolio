@@ -73,6 +73,14 @@
             "destination": "/seo/sitemap.xml"
         },
         {
+            "source": "/resume",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/index.html"
+        },
+        {
             "source": "/projects/(.*)",
             "destination": "/index.html"
         }
