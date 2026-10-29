@@ -50,10 +50,11 @@ export const Skills: React.FC = () => {
             <h3>Strong Java and Python foundations</h3>
             <div className="tag-list">
               <span>Java</span>
+              <span>Spring Boot</span>
               <span>Python</span>
               <span>OOP</span>
-              <span>HashMap</span>
-              <span>ArrayList</span>
+              <span>Data Structures</span>
+              <span>Algorithms</span>
             </div>
           </article>
 
