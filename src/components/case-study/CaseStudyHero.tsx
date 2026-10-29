@@ -27,23 +27,23 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
         {/* Project Meta Badges */}
         <div className="cs-hero-badges">
           <span className="cs-badge cs-badge-flagship">Flagship Project</span>
-          <span className="cs-badge cs-badge-clinical">Clinical Health Intelligence</span>
+          <span className="cs-badge cs-badge-clinical">Evidence-Grounded Assistant</span>
           <span className="cs-badge cs-badge-status">
             <span className="cs-status-dot" aria-hidden="true" />
-            Live System
+            Research Prototype
           </span>
           <span className="cs-badge cs-badge-diff">LLM-Free Production Generation</span>
         </div>
 
         {/* Title and Headline */}
-        <h1 className="cs-hero-title">Dr. Md. Momenul Islam</h1>
+        <h1 className="cs-hero-title">Dr. Md. Momenul Islam Health Assistant</h1>
         <p className="cs-hero-headline">
-          Building a safer, evidence-grounded health information assistant.
+          Evidence-grounded health information assistant (research prototype) — In memory of Dr. Md. Momenul Islam.
         </p>
 
         {/* Supporting Description */}
         <p className="cs-hero-lead">
-          Dr. Md. Momenul Islam is a Bangladesh-focused health information system designed to provide
+          Dr. Md. Momenul Islam Health Assistant is a research prototype designed to provide
           transparent, source-grounded guidance instead of unconstrained medical generation.
         </p>
 
