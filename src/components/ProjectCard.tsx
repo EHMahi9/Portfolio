@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Project } from '../types/project';
+import { ProjectDetailsModal } from './ProjectDetailsModal';
 
 interface ProjectCardProps {
   project: Project;
@@ -8,6 +9,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
+  const [showDetailsModal, setShowDetailsModal] = useState<boolean>(false);
 
   // Format project number e.g. "01", "02"
   const projectNumber = index !== undefined ? String(index + 1).padStart(2, '0') : null;
@@ -143,6 +145,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </a>
           )}
 
+          <button
+            type="button"
+            className="button button-secondary button-details"
+            onClick={() => setShowDetailsModal(true)}
+          >
+            View Details
+          </button>
+
           <a
             className="button button-secondary"
             href={project.githubUrl}
@@ -179,6 +189,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           )}
         </div>
       </div>
+
+      {showDetailsModal && (
+        <ProjectDetailsModal
+          project={project}
+          onClose={() => setShowDetailsModal(false)}
+        />
+      )}
     </article>
   );
 };

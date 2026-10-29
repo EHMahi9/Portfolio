@@ -46,6 +46,12 @@ export const About: React.FC = () => {
             system vulnerabilities, preferring a deep, logical understanding of how to
             protect systems rather than just memorizing exploit tools.
           </p>
+          <p>
+            Outside of programming, I am a passionate football enthusiast and an avid gamer. 
+            Whether following high-stakes football tournaments or immersing myself in tactical 
+            and competitive gaming, I thrive on strategic decision-making, fast reflex coordination, 
+            and the collaborative teamwork that gaming naturally cultivates.
+          </p>
 
           <div className="focus-grid">
             {focusAreas.map((focus) => (

@@ -63,6 +63,16 @@ export const projectsData: Project[] = [
       'Optional cloud backup for user session history (Future)',
       'Expanded medical source governance across verified institutions (Future)',
       'Constrained, evidence-bound generation with strict provenance verification (Future)'
+    ],
+    challenges: [
+      'Eliminating generative AI hallucinations in medical queries through deterministic NHS source retrieval.',
+      'Normalizing and embedding phonetically transliterated Banglish (e.g., \'matha betha\', \'jor\') alongside formal English.',
+      'Managing high-memory requirements (>4GB RAM) for cross-encoder rerankers on free cloud hosting.'
+    ],
+    futurePlans: [
+      'Expanding verified source governance to localized Bangladesh clinical guidance and hospital advisories.',
+      'Quantizing embedding models (INT8/ONNX) to enable lightweight serverless inference under 512MB RAM.',
+      'Adding voice speech-to-text queries in Bangla for non-literate community users.'
     ]
   },
   {
@@ -86,7 +96,17 @@ export const projectsData: Project[] = [
     browserUrl: 'noboghatbangladesh.vercel.app',
     demoUrl: 'https://noboghatbangladesh.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/NoboGhat-Bangladesh',
-    isReversed: true
+    isReversed: true,
+    challenges: [
+      'Preventing race-condition cargo overbooking using pessimistic database hold locking across concurrent requests.',
+      'Enforcing strict multi-tenant isolation so farmers, traders, and boat operators cannot access each other\'s consignments.',
+      'Engineering a decoupled Next.js API Gateway that proxies and fails over to the Java/Spring Boot backend.'
+    ],
+    futurePlans: [
+      'Real-time vessel GPS tracking using AIS and IoT water telemetry.',
+      'Automated offline SMS waybill delivery notifications for remote ghats with low network connectivity.',
+      'Integrated river weather radar alerts for seasonal storm and monsoon warnings.'
+    ]
   },
   {
     id: 'proj-hospital-roster',
@@ -109,7 +129,17 @@ export const projectsData: Project[] = [
     browserUrl: 'hospital-doctor-duty-roster.vercel.app',
     demoUrl: 'https://hospital-doctor-duty-roster.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/hospital-doctor-duty-roster',
-    isReversed: false
+    isReversed: false,
+    challenges: [
+      'Designing conflict-free shift scheduling algorithms accounting for leave requests, emergency coverage, and fair shift distribution.',
+      'Enforcing role-based access control and persistent PostgreSQL database migrations for departmental staff data.',
+      'Containerizing full-stack Python/FastAPI backend and React frontend with multi-stage Docker builds.'
+    ],
+    futurePlans: [
+      'Automated AI-assisted roster generation using Constraint Satisfaction Problem (CSP) solvers.',
+      'Push notification alerts via WebSockets for urgent shift swap requests and coverage.',
+      'Exporting monthly departmental roster schedules directly to PDF, Excel, and Google Calendar.'
+    ]
   },
   {
     id: 'proj-heliostrack',
@@ -132,7 +162,17 @@ export const projectsData: Project[] = [
     browserUrl: 'helios-track-distributed-solar-moni.vercel.app',
     demoUrl: 'https://helios-track-distributed-solar-moni.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System',
-    isReversed: true
+    isReversed: true,
+    challenges: [
+      'Streaming high-frequency WebSocket telemetry to Chart.js without UI memory leaks or frame rate stutters.',
+      'Simulating realistic IoT hardware sensor data (voltage, current, power) via background Node.js child processes.',
+      'Implementing automatic client-side reconnection and state resynchronization over unstable network connections.'
+    ],
+    futurePlans: [
+      'Machine learning time-series energy forecasting based on next-day meteorological weather forecasts.',
+      'Direct physical hardware integration via Modbus/RS485 inverter protocol adapters.',
+      'Automated Telegram and WhatsApp emergency alert notifications on critical voltage drop detection.'
+    ]
   }
 ];
 

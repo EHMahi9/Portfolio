@@ -32,4 +32,6 @@ export interface Project {
   // Case-study foundation fields (prepared for future case-study views)
   limitations?: string[];
   futureDirections?: string[];
+  challenges?: string[];
+  futurePlans?: string[];
 }

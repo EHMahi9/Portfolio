@@ -143,7 +143,15 @@ export const Hero: React.FC = () => {
             <a className="button button-primary" href="#projects">
               Explore my work
             </a>
-            <a className="button button-secondary" href="#contact">
+            <a
+              className="button button-secondary"
+              href="/resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+            <a className="button button-ghost" href="#contact">
               Contact me
             </a>
           </div>

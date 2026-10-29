@@ -81,6 +81,8 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
             <p className="resume-contact-bar">
               <a href="mailto:ebnulhasanmahi001@gmail.com">ebnulhasanmahi001@gmail.com</a>
               <span className="sep">•</span>
+              <a href="tel:+8801879450876">+880 1879 450 876</a>
+              <span className="sep">•</span>
               <a href="https://www.linkedin.com/in/ebnul-hasan-mahi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ebnul-hasan-mahi</a>
               <span className="sep">•</span>
               <a href="https://github.com/EHMahi9" target="_blank" rel="noopener noreferrer">github.com/EHMahi9</a>

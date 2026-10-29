@@ -137,6 +137,10 @@ export const Contact: React.FC = () => {
               <span>Email</span>
               <strong>{FALLBACK_EMAIL}</strong>
             </a>
+            <a href="tel:+8801879450876" data-tilt>
+              <span>Phone / WhatsApp</span>
+              <strong>+880 1879 450 876</strong>
+            </a>
             <a
               href="https://github.com/EHMahi9"
               target="_blank"
