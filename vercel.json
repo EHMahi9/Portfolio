@@ -1,10 +1,34 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
+    "redirects": [
+        {
+            "source": "/resume",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        }
+    ],
     "headers": [
         {
             "source": "/(.*)",
-            "headers": [
+            "redirects": [
+        {
+            "source": "/resume",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        }
+    ],
+    "headers": [
                 {
                     "key": "X-Content-Type-Options",
                     "value": "nosniff"
@@ -37,7 +61,19 @@
         },
         {
             "source": "/assets/images/optimized/(.*)",
-            "headers": [
+            "redirects": [
+        {
+            "source": "/resume",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        }
+    ],
+    "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=31536000, immutable"
@@ -46,7 +82,19 @@
         },
         {
             "source": "/assets/styles/(.*)",
-            "headers": [
+            "redirects": [
+        {
+            "source": "/resume",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        }
+    ],
+    "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=0, must-revalidate"
@@ -55,7 +103,19 @@
         },
         {
             "source": "/assets/scripts/(.*)",
-            "headers": [
+            "redirects": [
+        {
+            "source": "/resume",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        },
+        {
+            "source": "/resume.html",
+            "destination": "/assets/documents/resume.pdf",
+            "permanent": false
+        }
+    ],
+    "headers": [
                 {
                     "key": "Cache-Control",
                     "value": "public, max-age=0, must-revalidate"

@@ -26,16 +26,18 @@ export const Footer: React.FC = () => {
         {/* Footer Navigation Links */}
         <nav className="footer-links" aria-label="Footer links">
           <a href="#projects">Projects</a>
-          <a href="/resume.html" target="_blank" rel="noopener noreferrer">
+          <a href="/assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
+          </a>
+          <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf">
+            Download PDF
           </a>
           <a href="mailto:vaibongo20@gmail.com">Email</a>
         </nav>
 
         {/* Copyright Line */}
         <p className="copyright">
-          &copy; <span className="current-year">{currentYear}</span> Ebnul Hasan Mahi.
-          Built with HTML, CSS, and JavaScript.
+          &copy; <span className="current-year">{currentYear}</span> Ebnul Hasan Mahi. All rights reserved.
         </p>
       </div>
     </footer>

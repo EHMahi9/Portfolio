@@ -200,11 +200,18 @@ export const Navbar: React.FC = () => {
         <div className="header-actions">
           <a
             className="button button-small button-ghost"
-            href="/resume.html"
+            href="/assets/documents/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
             Resume
+          </a>
+          <a
+            className="button button-small button-ghost"
+            href="/assets/documents/resume.pdf"
+            download="Ebnul_Hasan_Mahi_Resume.pdf"
+          >
+            Download
           </a>
 
           {/* Theme Toggle Button */}
