@@ -84,13 +84,13 @@ export const projectsData: Project[] = [
     shortDescription: 'Decoupled inland waterway logistics platform with live cargo capacity tracking and role-based booking.',
     differentiator: 'Live capacity tracking',
     problem: 'Inland waterway cargo transport suffers from manual booking, hidden pricing, and no real-time capacity tracking for small traders.',
-    solution: 'A decoupled Spring Boot and MySQL backend serving a vanilla JS frontend for role-based boat management, route discovery, and capacity-aware cargo booking.',
+    solution: 'A decoupled architecture featuring a Next.js frontend and Spring Boot / MySQL backend for role-based boat management, route discovery, and capacity-aware cargo booking.',
     features: [
       'Role-based access control for Farmers, Traders, and Boat Owners',
       'Live cargo capacity tracking to mathematically prevent overbooking',
       'Stateless JWT authentication with secure BCrypt password hashing'
     ],
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'JavaScript', 'JWT'],
+    technologies: ['Next.js', 'React', 'Java', 'Spring Boot', 'MySQL', 'JWT'],
     image: '/assets/images/optimized/noboghat-dashboard.webp',
     imageAlt: 'NoboGhat inland waterway logistics platform dashboard',
     browserUrl: 'noboghatbangladesh.vercel.app',

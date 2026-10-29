@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "postbuild": "node scripts/prerender-routes.cjs",
     "preview": "vite preview",
     "test": "node tools/verify.js",
     "deploy": "vercel --prod"

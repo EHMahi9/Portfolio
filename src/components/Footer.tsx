@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               alt="EHM"
             />
           </a>
-          <p>Software Engineering Student and Full-Stack Developer.</p>
+          <p>Software Engineering Student &amp; Full-Stack Developer • Dhaka, Bangladesh (UTC+6)</p>
         </div>
 
         {/* Footer Navigation Links */}

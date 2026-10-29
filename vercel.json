@@ -81,7 +81,11 @@
             "destination": "/index.html"
         },
         {
-            "source": "/projects/(.*)",
+            "source": "/projects/:path*",
+            "destination": "/index.html"
+        },
+        {
+            "source": "/((?!assets/|seo/|api/|.*\\..*).*)",
             "destination": "/index.html"
         }
     ]
