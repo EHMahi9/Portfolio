@@ -16,18 +16,18 @@ export const Skills: React.FC = () => {
           {/* Card 1: Full-stack web (Wide) */}
           <article className="skill-card wide" data-tilt>
             <p className="card-kicker">Full-stack web</p>
-            <h3>React frontends with API-driven backends</h3>
+            <h3>Next.js & React frontends with Node/Express backends</h3>
             <p>
-              Project work includes React/TypeScript interfaces, FastAPI services,
-              Node.js/Express routes, REST APIs, JWT authentication, and Vercel deployment.
+              Project work includes Next.js and React interfaces, Node.js/Express routes,
+              Better Auth and JWT authentication, and Vercel deployment.
             </p>
             <div className="tag-list">
               <span>React</span>
+              <span>Next.js</span>
               <span>TypeScript</span>
-              <span>FastAPI</span>
               <span>Node.js</span>
               <span>Express</span>
-              <span>REST API</span>
+              <span>Better Auth</span>
             </div>
           </article>
 
@@ -36,10 +36,9 @@ export const Skills: React.FC = () => {
             <p className="card-kicker">Data and backend</p>
             <h3>Data models, auth, and persistence</h3>
             <div className="tag-list">
-              <span>PostgreSQL</span>
-              <span>Alembic</span>
+              <span>MySQL</span>
+              <span>MongoDB</span>
               <span>JWT</span>
-              <span>Docker</span>
               <span>Git</span>
             </div>
           </article>
@@ -50,7 +49,6 @@ export const Skills: React.FC = () => {
             <h3>Strong Java and Python foundations</h3>
             <div className="tag-list">
               <span>Java</span>
-              <span>Spring Boot</span>
               <span>Python</span>
               <span>OOP</span>
               <span>Data Structures</span>
