@@ -11,6 +11,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { BackgroundEffects } from './components/BackgroundEffects';
 import { CaseStudyPage } from './components/case-study/CaseStudyPage';
+import { ResumePage } from './components/ResumePage';
 
 export const App: React.FC = () => {
   // Current route pathname tracking (native HTML5 routing without heavy external router dependencies)
@@ -32,14 +33,19 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  const isCaseStudy = currentPath.startsWith('/projects/dr-momenul-islam');
+  const isResume = currentPath === '/resume' || currentPath === '/resume.html' || currentPath.startsWith('/resume');
+
   // Sync document title with active route
   useEffect(() => {
-    if (currentPath.startsWith('/projects/dr-momenul-islam')) {
+    if (isCaseStudy) {
       document.title = 'Dr. Md. Momenul Islam | Flagship Case Study — Ebnul Hasan Mahi';
+    } else if (isResume) {
+      document.title = 'Resume — Ebnul Hasan Mahi';
     } else {
       document.title = 'Ebnul Hasan Mahi | Full-Stack Developer';
     }
-  }, [currentPath]);
+  }, [currentPath, isCaseStudy, isResume]);
 
   // Navigate helper
   const navigateTo = (path: string) => {
@@ -51,8 +57,6 @@ export const App: React.FC = () => {
   const handleBackToPortfolio = () => {
     navigateTo('/#projects');
   };
-
-  const isCaseStudy = currentPath.startsWith('/projects/dr-momenul-islam');
 
   // Track window scroll for progress bar and back-to-top button
   useEffect(() => {
@@ -161,6 +165,8 @@ export const App: React.FC = () => {
 
       {isCaseStudy ? (
         <CaseStudyPage onBackToPortfolio={handleBackToPortfolio} />
+      ) : isResume ? (
+        <ResumePage onBackToPortfolio={handleBackToPortfolio} />
       ) : (
         <>
           {/* Navigation Bar */}

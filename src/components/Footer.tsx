@@ -23,11 +23,8 @@ export const Footer: React.FC = () => {
         {/* Footer Navigation Links */}
         <nav className="footer-links" aria-label="Footer links">
           <a href="#projects">Projects</a>
-          <a href="/assets/documents/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/resume" target="_blank" rel="noopener noreferrer">
             Resume
-          </a>
-          <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf">
-            Download PDF
           </a>
           <a href="mailto:ebnulhasanmahi001@gmail.com">Email</a>
         </nav>
