@@ -108,7 +108,7 @@ export const projectsData: Project[] = [
     imageAlt: 'Hospital Doctor Duty Roster dashboard screenshot',
     browserUrl: 'hospital-doctor-duty-roster.vercel.app',
     demoUrl: 'https://hospital-doctor-duty-roster.vercel.app/',
-    githubUrl: 'https://github.com/EHMahi9?tab=repositories',
+    githubUrl: 'https://github.com/EHMahi9/hospital-doctor-duty-roster',
     isReversed: false
   },
   {
@@ -129,7 +129,7 @@ export const projectsData: Project[] = [
     technologies: ['JavaScript', 'Node.js', 'WebSockets', 'MySQL', 'Chart.js'],
     image: '/assets/images/optimized/heliostrack-dashboard.webp',
     imageAlt: 'HeliosTrack distributed solar fleet monitoring dashboard screenshot',
-    browserUrl: 'heliostrack.vercel.app',
+    browserUrl: 'helios-track-distributed-solar-moni.vercel.app',
     demoUrl: 'https://helios-track-distributed-solar-moni.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System',
     isReversed: true
@@ -137,8 +137,10 @@ export const projectsData: Project[] = [
 ];
 
 // Preserved archive of PowerPulse BD (superseded by HeliosTrack)
-export const archivedProjects: Project[] = [
-  {
+export const archivedProjects: Project[] = [];
+
+// Preserved reference (unlisted from active showcase)
+export const unlistedPowerPulse: Project = {
     id: 'proj-power-pulse',
     title: 'PowerPulse BD',
     category: 'Energy monitoring',
@@ -170,7 +172,6 @@ export const archivedProjects: Project[] = [
     ],
     browserUrl: 'power-pulse-bd.vercel.app',
     demoUrl: 'https://power-pulse-bd.vercel.app/#/dashboard',
-    githubUrl: 'https://github.com/EHMahi9?tab=repositories',
+    githubUrl: 'https://github.com/EHMahi9/Power-Pulse-Bd',
     isReversed: true
-  }
-];
+};
