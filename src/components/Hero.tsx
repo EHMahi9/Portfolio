@@ -179,9 +179,9 @@ export const Hero: React.FC = () => {
           {/* Portrait Asset */}
           <div className="portrait-block">
             <img
-              src="/assets/images/optimized/unnamed.jpg"
+              src="/assets/images/optimized/portrait.webp"
               width="700"
-              height="697"
+              height="700"
               alt="Portrait of Ebnul Hasan Mahi"
               decoding="async"
               loading="eager"
