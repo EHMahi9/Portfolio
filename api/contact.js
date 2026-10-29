@@ -78,7 +78,7 @@ module.exports = async (request, response) => {
         });
     }
 
-    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || "vaibongo20@gmail.com";
+    const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || "ebnulhasanmahi001@gmail.com";
     const fromEmail = process.env.RESEND_FROM_EMAIL || "Portfolio Contact <onboarding@resend.dev>";
 
     // Plain text email body with provenance details

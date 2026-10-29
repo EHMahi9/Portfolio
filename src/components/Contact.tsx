@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // Single source of truth for direct fallback contact email
-const FALLBACK_EMAIL = 'vaibongo20@gmail.com';
+const FALLBACK_EMAIL = 'ebnulhasanmahi001@gmail.com';
 
 export const Contact: React.FC = () => {
   // Form input state
@@ -147,7 +147,7 @@ export const Contact: React.FC = () => {
               <strong>github.com/EHMahi9</strong>
             </a>
             <a
-              href="https://www.linkedin.com/in/ebnul-hasan-mahi-580b07395/"
+              href="https://www.linkedin.com/in/ebnul-hasan-mahi/"
               target="_blank"
               rel="noopener noreferrer"
               data-tilt

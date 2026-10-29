@@ -17,10 +17,7 @@ export const Footer: React.FC = () => {
               alt="EHM"
             />
           </a>
-          <p>
-            Software Engineering Student and Full-Stack Developer based in Dhaka,
-            Bangladesh.
-          </p>
+          <p>Software Engineering Student and Full-Stack Developer.</p>
         </div>
 
         {/* Footer Navigation Links */}
@@ -32,7 +29,7 @@ export const Footer: React.FC = () => {
           <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf">
             Download PDF
           </a>
-          <a href="mailto:vaibongo20@gmail.com">Email</a>
+          <a href="mailto:ebnulhasanmahi001@gmail.com">Email</a>
         </nav>
 
         {/* Copyright Line */}
