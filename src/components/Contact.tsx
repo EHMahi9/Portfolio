@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Single source of truth for direct fallback contact email
+const FALLBACK_EMAIL = 'vaibongo20@gmail.com';
+
 export const Contact: React.FC = () => {
   // Form input state
   const [formData, setFormData] = useState({
@@ -94,7 +97,7 @@ export const Contact: React.FC = () => {
       }
 
       setIsErrorStatus(false);
-      setStatusMessage(result.message || 'Thanks - your message has been received.');
+      setStatusMessage(result.message || 'Thanks — your message has been received.');
       setFormData({ name: '', email: '', subject: '', message: '', website: '' });
       setErrors({});
     } catch (err: unknown) {
@@ -109,6 +112,14 @@ export const Contact: React.FC = () => {
     }
   };
 
+  const mailtoHref = `mailto:${FALLBACK_EMAIL}?subject=${encodeURIComponent(
+    formData.subject ? `[Portfolio] ${formData.subject}` : 'Portfolio Inquiry'
+  )}&body=${encodeURIComponent(
+    formData.message
+      ? `${formData.message}\n\n---\nSent by: ${formData.name || 'Visitor'} (${formData.email || 'No email provided'})`
+      : ''
+  )}`;
+
   return (
     <section className="section-pad contact-section" id="contact" aria-labelledby="contact-title">
       <div className="container contact-grid">
@@ -122,9 +133,9 @@ export const Contact: React.FC = () => {
           </p>
 
           <div className="contact-methods">
-            <a href="mailto:vaibongo20@gmail.com" data-tilt>
+            <a href={`mailto:${FALLBACK_EMAIL}`} data-tilt>
               <span>Email</span>
-              <strong>vaibongo20@gmail.com</strong>
+              <strong>{FALLBACK_EMAIL}</strong>
             </a>
             <a
               href="https://github.com/EHMahi9"
@@ -246,18 +257,25 @@ export const Contact: React.FC = () => {
 
           {/* Submit Button */}
           <button className="button button-primary" type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Prepare email'}
+            {isSubmitting ? 'Sending...' : 'Send message'}
           </button>
 
-          {/* Status Message */}
-          <p
-            className={`form-status ${isErrorStatus ? 'is-error' : ''}`}
-            id="formStatus"
-            role="status"
-            aria-live="polite"
-          >
-            {statusMessage}
-          </p>
+          {/* Status Message & Fallback Link */}
+          {statusMessage && (
+            <div
+              className={`form-status ${isErrorStatus ? 'is-error' : ''}`}
+              id="formStatus"
+              role="status"
+              aria-live="polite"
+            >
+              <p>{statusMessage}</p>
+              {isErrorStatus && (
+                <p style={{ marginTop: '8px' }}>
+                  Alternative: <a href={mailtoHref} style={{ color: 'var(--accent, #6ce0d1)', textDecoration: 'underline' }}>Click here to open in your email client ({FALLBACK_EMAIL})</a>
+                </p>
+              )}
+            </div>
+          )}
         </form>
       </div>
     </section>
