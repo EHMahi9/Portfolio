@@ -126,10 +126,10 @@ export const Contact: React.FC = () => {
         {/* Contact Copy & Direct Methods */}
         <div className="contact-copy">
           <p className="eyebrow">Contact</p>
-          <h2 id="contact-title">Let's talk about internships, junior roles, or project ideas.</h2>
+          <h2 id="contact-title">Let’s build something reliable together.</h2>
           <p>
-            I am open to opportunities where I can contribute, learn alongside experienced
-            engineers, and build reliable product features.
+            Available for engineering roles, technical projects, and collaborative product development.
+            Let’s discuss how I can contribute to your team.
           </p>
 
           <div className="contact-methods">
