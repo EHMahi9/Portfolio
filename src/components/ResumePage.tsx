@@ -97,9 +97,9 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
           <section className="resume-section">
             <h2 className="resume-section-title">PROFESSIONAL SUMMARY</h2>
             <p className="resume-text">
-              Software engineering student (CGPA: 3.67) with practical experience building responsive full-stack web applications,
-              secure authentication workflows, and relational/document database schemas. Proficient in React, Next.js, Node.js,
-              Express, MySQL, and WebSockets. Committed to clean architecture, reliable fundamentals, and practical software design.
+              Software engineering student (CGPA: 3.67) building structured web applications with TypeScript, Next.js, React, and MongoDB,
+              actively expanding backend capabilities in Express. Grounded in defensive engineering principles, role-based authorization,
+              and core computer science fundamentals. Committed to clean architecture, reliable fundamentals, and practical software design.
             </p>
           </section>
 
@@ -107,11 +107,10 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
           <section className="resume-section">
             <h2 className="resume-section-title">TECHNICAL SKILLS</h2>
             <ul className="resume-skills-list">
-              <li><strong>Languages:</strong> JavaScript (ES6+), TypeScript, Java, Python, C/C++, SQL, HTML5, CSS3</li>
-              <li><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, Responsive Design, Web Accessibility</li>
-              <li><strong>Backend &amp; Authentication:</strong> Node.js, Express.js, Spring Boot, FastAPI, JWT, REST APIs, WebSockets</li>
-              <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB</li>
-              <li><strong>Tools &amp; Concepts:</strong> Git, GitHub, Postman, Vite, Vercel, Docker, OOP, Data Structures &amp; Algorithms</li>
+              <li><strong>Core Full-Stack:</strong> TypeScript, Next.js, React.js, MongoDB, Express.js (In Progress), JavaScript (ES6+), Tailwind CSS</li>
+              <li><strong>Defensive Engineering &amp; Backend:</strong> Role-Based Authorization (RBAC), Input Validation, JWT, RESTful APIs, Node.js</li>
+              <li><strong>Databases:</strong> MongoDB, MySQL, PostgreSQL</li>
+              <li><strong>CS Foundations &amp; Tools:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming (Java, C/C++), Git, GitHub, Postman, Vite, Vercel</li>
             </ul>
           </section>
 
@@ -172,7 +171,7 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
               </div>
               <p className="resume-entry-sub">Real-time distributed solar array monitoring dashboard</p>
               <ul className="resume-bullets">
-                <li>Designed and built an enterprise telemetry dashboard featuring sub-second live telemetry streaming via WebSockets.</li>
+                <li>Designed and built a telemetry dashboard featuring live Socket.io telemetry updates streamed every 5 seconds.</li>
                 <li>Integrated interactive Chart.js grid and virtual battery controller to visualize distributed solar array performance.</li>
                 <li>Connected Node.js API with Aiven Cloud MySQL database for reliable persistence and fast querying of inverter metrics.</li>
               </ul>

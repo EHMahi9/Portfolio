@@ -4,16 +4,15 @@ ebnulhasanmahi001@gmail.com | +880 1879 450 876 | [linkedin.com/in/ebnul-hasan-m
 ---
 
 ## PROFESSIONAL SUMMARY
-Software engineering student (CGPA: 3.67) with practical experience building responsive full-stack web applications, secure authentication workflows, and relational/document database schemas. Proficient in React, Next.js, Node.js, Express, MySQL, and WebSockets. Committed to clean architecture, reliable fundamentals, and practical software design.
+Software engineering student (CGPA: 3.67) building structured web applications with TypeScript, Next.js, React, and MongoDB, actively expanding backend capabilities in Express. Grounded in defensive engineering principles, role-based authorization, and core computer science fundamentals. Committed to clean architecture, reliable fundamentals, and practical software design.
 
 ---
 
 ## TECHNICAL SKILLS
-- **Languages**: JavaScript (ES6+), TypeScript, Java, Python, C/C++, SQL, HTML5, CSS3
-- **Frontend**: React.js, Next.js, Tailwind CSS, Responsive Design, Web Accessibility
-- **Backend & Authentication**: Node.js, Express.js, Spring Boot, FastAPI, JWT, REST APIs, WebSockets
-- **Databases**: MySQL, PostgreSQL, MongoDB
-- **Tools & Core Concepts**: Git, GitHub, Postman, Vite, Vercel, Docker, Object-Oriented Programming (OOP), Data Structures & Algorithms
+- **Core Full-Stack**: TypeScript, Next.js, React.js, MongoDB, Express.js (In Progress), JavaScript (ES6+), Tailwind CSS
+- **Defensive Engineering & Backend**: Role-Based Authorization (RBAC), Input Validation, JWT, RESTful APIs, Node.js
+- **Databases**: MongoDB, MySQL, PostgreSQL
+- **CS Foundations & Tools**: Data Structures & Algorithms, Object-Oriented Programming (Java, C/C++), Git, GitHub, Postman, Vite, Vercel
 
 ---
 
@@ -38,7 +37,7 @@ Software engineering student (CGPA: 3.67) with practical experience building res
 ### HeliosTrack | React, Node.js, Express, MySQL, WebSockets, Chart.js
 *Real-time distributed solar array monitoring dashboard*
 * [Live Demo](https://helios-track-distributed-solar-moni.vercel.app/) | [GitHub Repository](https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System)
-- Designed and built an enterprise telemetry dashboard featuring sub-second live telemetry streaming via WebSockets.
+- Designed and built a telemetry dashboard featuring live Socket.io telemetry updates streamed every 5 seconds.
 - Integrated interactive Chart.js grid and virtual battery controller to visualize distributed solar array performance.
 - Connected Node.js API with Aiven Cloud MySQL database for reliable persistence and fast querying of inverter metrics.
 
