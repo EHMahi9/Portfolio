@@ -7,7 +7,6 @@ import { SafetySection } from './SafetySection';
 import { ContextSection } from './ContextSection';
 import { PrivacySection } from './PrivacySection';
 import { EngineeringChallenge } from './EngineeringChallenge';
-import { ResultsSection } from './ResultsSection';
 import { TechStackSection } from './TechStackSection';
 import { LimitationsFutureSection } from './LimitationsFutureSection';
 import { CaseStudyLinks } from './CaseStudyLinks';
@@ -90,7 +89,6 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ onBackToPortfolio 
         <ContextSection />
         <PrivacySection />
         <EngineeringChallenge />
-        <ResultsSection />
         <TechStackSection />
         <LimitationsFutureSection />
         <CaseStudyLinks onBackToPortfolio={onBackToPortfolio} />

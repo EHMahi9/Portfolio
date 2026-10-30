@@ -74,6 +74,23 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
           </button>
         </div>
 
+        {/* Architecture Note on Demo vs Local Pipeline */}
+        <div style={{
+          margin: '1.5rem 0',
+          padding: '0.85rem 1.15rem',
+          borderRadius: '8px',
+          background: 'rgba(2, 132, 199, 0.08)',
+          borderLeft: '4px solid #0284c7',
+          fontSize: '0.9rem',
+          lineHeight: 1.6,
+          color: 'var(--text-muted, #94a3b8)'
+        }}>
+          <strong style={{ color: 'var(--text-primary, #f1f5f9)', display: 'block', marginBottom: '0.25rem' }}>
+            Architecture Note on Live Prototype:
+          </strong>
+          Full neural retrieval and cross-encoder reranking pipeline runs on a dedicated Python/FastAPI environment; the web deployment serves the client-side conversational triage interface. See GitHub for the complete model pipeline and reproducible setup.
+        </div>
+
         {/* Quick Facts Grid */}
         <div className="cs-quick-specs">
           <div className="cs-spec-item">

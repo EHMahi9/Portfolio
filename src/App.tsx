@@ -35,6 +35,21 @@ export const App: React.FC = () => {
   const isCaseStudy = currentPath.startsWith('/projects/dr-momenul-islam');
   const isResume = currentPath === '/resume' || currentPath === '/resume.html' || currentPath.startsWith('/resume');
 
+    // Client-side hash anchor redirect for legacy subroutes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname === '/projects') {
+        window.history.replaceState(null, '', '/#projects');
+        const el = document.getElementById('projects');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else if (window.location.pathname === '/about') {
+        window.history.replaceState(null, '', '/#about');
+        const el = document.getElementById('about');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, []);
+
   // Sync document title with active route
   useEffect(() => {
     if (isCaseStudy) {

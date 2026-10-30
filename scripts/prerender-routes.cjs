@@ -11,7 +11,7 @@ if (!fs.existsSync(indexHtmlPath)) {
 
 const baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-// Case Study Rich Semantic Static HTML
+// Rich Semantic Case Study HTML (Exact match with React CaseStudyPage)
 const caseStudyHtmlContent = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.65; color: #1e293b;">
   <header style="border-bottom: 2px solid #e2e8f0; padding-bottom: 1.5rem; margin-bottom: 2rem;">
@@ -21,11 +21,19 @@ const caseStudyHtmlContent = `
       Evidence-grounded medical information retrieval assistant prototype with multilingual semantic retrieval, deterministic safety triage, and zero ungrounded generative hallucinations.
     </p>
     <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem;">
-      <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #0284c7; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Launch Live Prototype ↗</a>
-      <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">View GitHub Repository ↗</a>
-      <a href="/" style="display: inline-block; background: transparent; color: #475569; padding: 0.6rem 1rem; text-decoration: none; font-weight: 600;">← Back to Portfolio</a>
+      <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #0284c7; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Launch Live Prototype &rarr;</a>
+      <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">View GitHub Repository &rarr;</a>
+      <a href="/" style="display: inline-block; background: transparent; color: #475569; padding: 0.6rem 1rem; text-decoration: none; font-weight: 600;">&larr; Back to Portfolio</a>
     </div>
-    <p style="font-size: 0.85rem; color: #64748b; background: #f8fafc; border-left: 3px solid #0284c7; padding: 0.75rem 1rem; margin: 1rem 0 0;">
+    
+    <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid #0284c7; padding: 0.85rem 1.15rem; border-radius: 6px; margin: 1.25rem 0;">
+      <strong style="color: #0369a1; display: block; margin-bottom: 0.25rem;">Architecture Note on Live Prototype:</strong>
+      <p style="margin: 0; font-size: 0.9rem; color: #334155;">
+        Full neural retrieval and cross-encoder reranking pipeline runs on a dedicated Python/FastAPI environment; the web deployment serves the client-side conversational triage interface. See GitHub for the complete model pipeline and reproducible setup.
+      </p>
+    </div>
+
+    <p style="font-size: 0.85rem; color: #64748b; background: #f8fafc; border-left: 3px solid #64748b; padding: 0.75rem 1rem; margin: 1rem 0 0;">
       <strong>Memorial &amp; Clinical Disclaimer:</strong> Built in memory of Dr. Md. Momenul Islam. Not affiliated with or endorsed by any clinician, health service, or medical regulatory body. This system is an educational and research prototype, not a medical device or diagnostic tool.
     </p>
   </header>
@@ -45,94 +53,85 @@ const caseStudyHtmlContent = `
     <p>
       The system deliberately decouples retrieval from generative synthesis, operating an <strong>LLM-free deterministic answering architecture</strong>:
     </p>
-    <ul style="padding-left: 1.5rem;">
+    <ul style="padding-left: 1.5rem; color: #334155;">
       <li><strong>Verified Knowledge Base:</strong> 119 verified clinical passages curated from NHS England guidance covering primary care, symptoms, and red-flag conditions.</li>
       <li><strong>Dense Multilingual Embeddings:</strong> Utilizes <code>multilingual-e5-small</code> (384-dimensional dense vectors) to compute symmetric cosine similarity across English, Bangla, and Banglish token spaces.</li>
-      <li><strong>Cross-Encoder Reranking:</strong> Retrieved candidate passages pass through <code>bge-reranker-v2-m3</code> for joint query-passage attention, filtering irrelevant matches.</li>
-      <li><strong>Deterministic Emergency Triage:</strong> A rule-based clinical safety layer intercepts critical emergency keywords (e.g., crushing chest pain, acute shortness of breath, sudden hemiparesis) and immediately surfaces emergency hospital contact protocols without waiting for search retrieval.</li>
-      <li><strong>100% Transparent Citation Grounding:</strong> Every response displays the exact NHS source passage, clinical category, and source link. Generative text generation is disabled by design to eliminate hallucination risk.</li>
+      <li><strong>Cross-Encoder Reranking:</strong> Applies <code>bge-reranker-v2-m3</code> to re-score the top-k candidate passages, providing high-precision relevance ranking that filters false semantic matches.</li>
+      <li><strong>Deterministic Grounding:</strong> Answers are composed strictly from verified passage excerpts with explicit source attribution and SHA-256 provenance tracking. Generation of ungrounded text is completely suppressed.</li>
     </ul>
   </section>
 
   <section style="margin-bottom: 2.5rem;">
-    <h2 style="font-size: 1.5rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">3. Engineering Challenges &amp; Solutions</h2>
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin-top: 0;">Challenge A: High-Memory Inference on Constrained Hosting</h3>
-      <p style="margin: 0; color: #334155;">
-        cross-encoder rerankers require significant memory (&gt;4GB RAM), which exceeds free serverless cloud limits. To resolve this, the architecture was partitioned: the high-memory retrieval and vector pipeline executes in a dedicated local environment, while the client interface, emergency triage logic, and interactive specifications are deployed to Vercel for public walkthrough.
-      </p>
-    </div>
-    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin-top: 0;">Challenge B: Phonetic Banglish Normalization</h3>
-      <p style="margin: 0; color: #334155;">
-        Users frequently search in transliterated phonetic Banglish (e.g. <em>"matha betha"</em> for headache, <em>"buk e betha"</em> for chest pain). The retrieval engine applies phonetic normalization rules before embedding, mapping common phonetic variations into verified clinical symptom vectors.
-      </p>
+    <h2 style="font-size: 1.5rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">3. Deterministic Safety Triage Tiers</h2>
+    <p>
+      The system classifies user queries into four distinct clinical safety tiers before any retrieval or rendering occurs:
+    </p>
+    <ol style="padding-left: 1.5rem; color: #334155;">
+      <li><strong>Tier 1 (Ordinary Clinical Query):</strong> Clear symptom or condition match within verified NHS guidelines. Renders grounded evidence card with citations.</li>
+      <li><strong>Tier 2 (Ambiguous Query):</strong> Vague symptoms lacking clinical specificity (e.g. general ache). Prompts targeted clarifying questions rather than premature guesses.</li>
+      <li><strong>Tier 3 (Emergency Red-Flag):</strong> Acute, life-threatening symptoms (e.g. chest pain radiating to arm, acute shortness of breath). Immediately suppresses retrieval and presents prominent <strong>Bangladesh Emergency Services (999)</strong> escalation instructions.</li>
+      <li><strong>Tier 4 (Out-of-Scope):</strong> Topics outside the 14 verified clinical conditions. Transparently declines to answer and advises consulting a qualified healthcare professional.</li>
+    </ol>
+
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-top: 1.25rem;">
+      <h3 style="font-size: 1.1rem; color: #0f172a; margin-top: 0;">Clinical Progression Example: Bangla / Banglish Triage</h3>
+      <p style="margin: 0.5rem 0;"><strong>Step A (Ambiguous):</strong> User inputs <code>amar buk e betha</code> (<em>"I have chest pain"</em>). System does not guess; asks targeted clarifying questions regarding tightness, radiation, and shortness of breath.</p>
+      <p style="margin: 0.5rem 0;"><strong>Step B (Emergency Escalation):</strong> User clarifies <code>amar buk e betha, shash niteo koshto hocche</code> (<em>"Chest pain, and having difficulty breathing"</em>). System instantly triggers <strong>Emergency Red-Flag Triage</strong>, displaying immediate 999 emergency contact warnings.</p>
     </div>
   </section>
 
   <section style="margin-bottom: 2.5rem;">
-    <h2 style="font-size: 1.5rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">4. Empirical Verification &amp; Test Suite</h2>
-    <p>All reported metrics reflect automated test runs executed against the project repository:</p>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0;">
-      <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; text-align: center;">
-        <strong style="font-size: 1.75rem; color: #0284c7; display: block;">39 / 39</strong>
-        <span style="font-size: 0.85rem; color: #475569;">Backend &amp; API Tests Passed</span>
-      </div>
-      <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; text-align: center;">
-        <strong style="font-size: 1.75rem; color: #0284c7; display: block;">12 / 12</strong>
-        <span style="font-size: 0.85rem; color: #475569;">Frontend Storage Tests</span>
-      </div>
-      <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; text-align: center;">
-        <strong style="font-size: 1.75rem; color: #0284c7; display: block;">5 / 5</strong>
-        <span style="font-size: 0.85rem; color: #475569;">Emergency Safety Flows</span>
-      </div>
-      <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; text-align: center;">
-        <strong style="font-size: 1.75rem; color: #0284c7; display: block;">100%</strong>
-        <span style="font-size: 0.85rem; color: #475569;">Citation Grounding Rate</span>
-      </div>
-    </div>
+    <h2 style="font-size: 1.5rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">4. Engineering Challenge: Multi-Turn Context Isolation</h2>
+    <p>
+      During multi-turn dialogue evaluation, an insidious conversational failure mode was discovered: concatenating previous turns into the embedding prompt caused cumulative symptom noise from prior topics to drown out acute emergency phrases.
+    </p>
+    <p>
+      <strong>Solution:</strong> Engineered a deterministic topic continuity classifier. If a new turn introduces disjoint anatomical organ systems without connecting conjunctions, it is flagged as <code>NEW_TOPIC</code>, the previous context buffer is purged to zero length, and the emergency phrase is evaluated in complete isolation.
+    </p>
   </section>
 
   <section style="margin-bottom: 2.5rem;">
     <h2 style="font-size: 1.5rem; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem;">5. Technology Stack</h2>
-    <ul style="padding-left: 1.5rem;">
-      <li><strong>Frontend:</strong> React 18, TypeScript, Vite, Responsive CSS, Web Accessibility (WCAG compliant)</li>
-      <li><strong>Backend &amp; API:</strong> FastAPI, Python 3.10, RESTful endpoints, CORS middleware</li>
-      <li><strong>Vector Search &amp; RAG:</strong> sentence-transformers (multilingual-e5-small), cross-encoder (bge-reranker-v2-m3)</li>
-      <li><strong>Data &amp; Evaluation:</strong> Curated NHS England corpus (119 verified clinical passages), pytest automated suite</li>
+    <ul style="padding-left: 1.5rem; color: #334155;">
+      <li><strong>Frontend:</strong> React, TypeScript, Vite, Tailwind CSS</li>
+      <li><strong>Backend:</strong> Python, FastAPI, Uvicorn</li>
+      <li><strong>Semantic ML:</strong> <code>multilingual-e5-small</code> (384-dim bi-encoder), <code>bge-reranker-v2-m3</code> (cross-encoder)</li>
+      <li><strong>Corpus:</strong> 119 semantic chunks from 14 verified NHS clinical conditions</li>
+      <li><strong>Storage:</strong> Client-side localStorage for private session state</li>
     </ul>
   </section>
 
-  <footer style="border-top: 1px solid #e2e8f0; padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-    <a href="/" style="color: #0284c7; font-weight: 600; text-decoration: none;">← Return to Ebnul Hasan Mahi's Portfolio</a>
-    <div>
-      <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600; text-decoration: none; margin-right: 1.5rem;">Live Demo ↗</a>
-      <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600; text-decoration: none;">GitHub ↗</a>
-    </div>
+  <footer style="border-top: 1px solid #e2e8f0; padding-top: 1.5rem; margin-top: 3rem;">
+    <p style="margin: 0; font-size: 0.95rem; color: #64748b;">
+      <a href="/" style="color: #0284c7; text-decoration: none; font-weight: 600;">&larr; Return to Portfolio Homepage</a> |
+      <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer" style="color: #0284c7; text-decoration: none; font-weight: 600;">GitHub Repository &rarr;</a>
+    </p>
   </footer>
 </div>
 `;
 
-// Resume Rich Semantic Static HTML
+// Rich Semantic Resume HTML (Exact match with React ResumePage)
 const resumeHtmlContent = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.65; color: #1e293b;">
   <header style="border-bottom: 2px solid #e2e8f0; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
-    <h1 style="font-size: 2.25rem; color: #0f172a; margin: 0 0 0.5rem;">Ebnul Hasan Mahi</h1>
-    <p style="font-size: 1.1rem; font-weight: 600; color: #0284c7; margin: 0 0 0.75rem;">Full-Stack Developer &amp; Software Engineering Student</p>
-    <p style="font-size: 0.95rem; color: #475569; margin: 0 0 1rem;">
-      <a href="mailto:ebnulhasanmahi001@gmail.com" style="color: #0284c7;">ebnulhasanmahi001@gmail.com</a> •
-      <a href="tel:+8801879450876" style="color: #0284c7;">+880 1879 450 876</a> •
-      <a href="https://www.linkedin.com/in/ebnul-hasan-mahi/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">LinkedIn</a> •
-      <a href="https://github.com/EHMahi9" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">GitHub</a> •
+    <h1 style="font-size: 2.2rem; color: #0f172a; margin: 0 0 0.5rem;">Ebnul Hasan Mahi</h1>
+    <p style="font-size: 0.95rem; color: #475569; margin: 0;">
+      <a href="mailto:ebnulhasanmahi001@gmail.com" style="color: #0284c7;">ebnulhasanmahi001@gmail.com</a> &bull;
+      <a href="tel:+8801879450876" style="color: #0284c7;">+880 1879 450 876</a> &bull;
+      <a href="https://www.linkedin.com/in/ebnul-hasan-mahi/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">LinkedIn</a> &bull;
+      <a href="https://github.com/EHMahi9" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">GitHub</a> &bull;
       <a href="https://www.ebnulhasanmahi.me" style="color: #0284c7;">ebnulhasanmahi.me</a>
     </p>
-    <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf" style="display: inline-block; background: #0284c7; color: #ffffff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">⬇ Download Resume PDF</a>
+    <div style="margin-top: 1rem;">
+      <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf" style="display: inline-block; background: #0284c7; color: #ffffff; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">Download Resume PDF &darr;</a>
+      <a href="/" style="display: inline-block; margin-left: 0.75rem; color: #64748b; text-decoration: none; font-size: 0.9rem;">&larr; Back to Portfolio</a>
+    </div>
   </header>
 
   <section style="margin-bottom: 1.75rem;">
     <h2 style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.25rem;">Professional Summary</h2>
-    <p style="margin: 0.5rem 0 0; color: #334155;">
-      Software engineering student (CGPA: 3.67) building structured web applications with TypeScript, Next.js, React, and MongoDB, actively expanding backend capabilities in Express. Grounded in defensive engineering principles, role-based authorization, and core computer science fundamentals. Committed to clean architecture, reliable fundamentals, and practical software design.
+    <p style="color: #334155; margin-top: 0.5rem;">
+      Software engineering student (CGPA: 3.67) building structured web applications with TypeScript, Next.js, React, and MongoDB, actively expanding backend capabilities in Express. Grounded in defensive engineering principles, role-based authorization, and core computer science fundamentals.
     </p>
   </section>
 
@@ -150,7 +149,7 @@ const resumeHtmlContent = `
     <h2 style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.25rem;">Featured Projects</h2>
     
     <div style="margin-top: 1rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">Dr. Md. Momenul Islam Health Assistant <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">— React, TypeScript, FastAPI, Python, RAG</span></h3>
+      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">Dr. Md. Momenul Islam Health Assistant <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">&bull; React, TypeScript, FastAPI, Python, RAG</span></h3>
       <p style="font-size: 0.85rem; color: #0284c7; margin: 0.2rem 0 0.4rem;">
         <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer">Live Demo</a> |
         <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer">GitHub</a> |
@@ -158,26 +157,26 @@ const resumeHtmlContent = `
       </p>
       <ul style="padding-left: 1.25rem; margin: 0; color: #334155; font-size: 0.95rem;">
         <li>Evidence-grounded medical information assistant built around 119 verified NHS England clinical guidance passages.</li>
-        <li>Multilingual semantic retrieval across English, Bangla, and Banglish using multilingual-e5-small and bge-reranker-v2-m3.</li>
+        <li>Multilingual semantic retrieval across English, Bangla, and Banglish using multilingual-e5-small and cross-encoder reranking (bge-reranker-v2-m3).</li>
         <li>Deterministic emergency triage protocols that intercept acute symptoms and bypass generative AI hallucinations.</li>
       </ul>
     </div>
 
     <div style="margin-top: 1rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">NoboGhat <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">— Next.js, React, Java, Spring Boot, MySQL, JWT</span></h3>
+      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">NoboGhat <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">&bull; Next.js, React, Java, Spring Boot, MySQL, JWT</span></h3>
       <p style="font-size: 0.85rem; color: #0284c7; margin: 0.2rem 0 0.4rem;">
         <a href="https://noboghatbangladesh.vercel.app/" target="_blank" rel="noopener noreferrer">Live Platform</a> |
         <a href="https://github.com/EHMahi9/NoboGhat-Bangladesh" target="_blank" rel="noopener noreferrer">GitHub</a>
       </p>
       <ul style="padding-left: 1.25rem; margin: 0; color: #334155; font-size: 0.95rem;">
         <li>Decoupled inland waterway logistics and cargo booking platform with Next.js frontend and Java/Spring Boot backend.</li>
-        <li>Database row locking on booking transactions to mathematically prevent boat cargo overfilling.</li>
+        <li>Database pessimistic row locking (@Lock(LockModeType.PESSIMISTIC_WRITE)) on booking transactions to prevent cargo overfilling.</li>
         <li>Role-based access control for farmers, traders, boat owners, and administrators with bilingual UI (Bangla/English).</li>
       </ul>
     </div>
 
     <div style="margin-top: 1rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">Hospital Doctor Duty Roster <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">— React, TypeScript, FastAPI, PostgreSQL, Docker</span></h3>
+      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">Hospital Doctor Duty Roster <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">&bull; React, TypeScript, FastAPI, PostgreSQL, Docker</span></h3>
       <p style="font-size: 0.85rem; color: #0284c7; margin: 0.2rem 0 0.4rem;">
         <a href="https://hospital-doctor-duty-roster.vercel.app/" target="_blank" rel="noopener noreferrer">Live Demo</a> |
         <a href="https://github.com/EHMahi9/hospital-doctor-duty-roster" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -189,7 +188,7 @@ const resumeHtmlContent = `
     </div>
 
     <div style="margin-top: 1rem;">
-      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">HeliosTrack <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">— JavaScript, Node.js, WebSockets, MySQL, Chart.js</span></h3>
+      <h3 style="font-size: 1.1rem; color: #0f172a; margin: 0;">HeliosTrack <span style="font-weight: 400; font-size: 0.9rem; color: #64748b;">&bull; JavaScript, Node.js, WebSockets, MySQL, Chart.js</span></h3>
       <p style="font-size: 0.85rem; color: #0284c7; margin: 0.2rem 0 0.4rem;">
         <a href="https://helios-track-distributed-solar-moni.vercel.app/" target="_blank" rel="noopener noreferrer">Live Dashboard</a> |
         <a href="https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -204,112 +203,17 @@ const resumeHtmlContent = `
   <section style="margin-bottom: 1.75rem;">
     <h2 style="font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.25rem;">Education &amp; Training</h2>
     <ul style="padding-left: 1.25rem; margin: 0.5rem 0 0; color: #334155;">
-      <li><strong>B.Sc. in Computer Science &amp; Engineering</strong> — Daffodil International University (In Progress, CGPA: 3.67)</li>
-      <li><strong>Full-Stack Web Development Training</strong> — Programming Hero (Batch 14, In Progress)</li>
+      <li><strong>B.Sc. in Computer Science &amp; Engineering</strong> &bull; Daffodil International University (In Progress, CGPA: 3.67)</li>
+      <li><strong>Full-Stack Web Development Training</strong> &bull; Programming Hero (Batch 14, In Progress)</li>
     </ul>
   </section>
 
   <footer style="border-top: 1px solid #e2e8f0; padding-top: 1rem; font-size: 0.9rem; color: #64748b;">
-    <a href="/" style="color: #0284c7; font-weight: 600; text-decoration: none;">← Return to Portfolio Homepage</a>
+    <p style="margin: 0;">
+      <a href="/" style="color: #0284c7; text-decoration: none;">&larr; Back to Portfolio Homepage</a> |
+      <a href="/assets/documents/resume.pdf" download="Ebnul_Hasan_Mahi_Resume.pdf" style="color: #0284c7; text-decoration: none;">Download Official PDF</a>
+    </p>
   </footer>
-</div>
-`;
-
-// Projects Directory Rich Static HTML
-const projectsDirectoryHtmlContent = `
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.65; color: #1e293b;">
-  <header style="border-bottom: 2px solid #e2e8f0; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
-    <h1 style="font-size: 2.25rem; color: #0f172a; margin: 0 0 0.5rem;">Selected Projects</h1>
-    <p style="font-size: 1.1rem; color: #475569; margin: 0 0 1rem;">
-      Full-stack web applications, real-time systems, and defensive engineering prototypes built by Ebnul Hasan Mahi.
-    </p>
-    <a href="/" style="color: #0284c7; font-weight: 600; text-decoration: none;">← Return to Portfolio Homepage</a>
-  </header>
-
-  <div style="display: flex; flex-direction: column; gap: 2rem;">
-    <article style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; background: #ffffff;">
-      <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 0.5rem;">01. Dr. Md. Momenul Islam Health Assistant (Flagship)</h2>
-      <p style="color: #475569; margin: 0 0 1rem;">Evidence-grounded medical information retrieval assistant prototype with multilingual semantic retrieval, deterministic safety triage, and zero ungrounded generative hallucinations.</p>
-      <p style="font-size: 0.9rem; color: #334155; margin: 0 0 1rem;"><strong>Tech Stack:</strong> React, TypeScript, FastAPI, Python, RAG (multilingual-e5-small, bge-reranker-v2-m3)</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">Live Prototype ↗</a>
-        <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">GitHub Repository ↗</a>
-        <a href="/projects/dr-momenul-islam" style="color: #0284c7; font-weight: 600;">Full Architecture Case Study ↗</a>
-      </div>
-    </article>
-
-    <article style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; background: #ffffff;">
-      <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 0.5rem;">02. NoboGhat</h2>
-      <p style="color: #475569; margin: 0 0 1rem;">Decoupled inland waterway cargo logistics platform with live capacity tracking to prevent boat overfilling, stateless JWT authentication, and role-based access control.</p>
-      <p style="font-size: 0.9rem; color: #334155; margin: 0 0 1rem;"><strong>Tech Stack:</strong> Next.js, React, Java, Spring Boot, MySQL, JWT</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://noboghatbangladesh.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">Live Platform ↗</a>
-        <a href="https://github.com/EHMahi9/NoboGhat-Bangladesh" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">GitHub Repository ↗</a>
-      </div>
-    </article>
-
-    <article style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; background: #ffffff;">
-      <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 0.5rem;">03. Hospital Doctor Duty Roster</h2>
-      <p style="color: #475569; margin: 0 0 1rem;">Role-based medical duty scheduling platform featuring constraint-based conflict detection algorithms with fairness scoring and automated regression test suite.</p>
-      <p style="font-size: 0.9rem; color: #334155; margin: 0 0 1rem;"><strong>Tech Stack:</strong> React, TypeScript, FastAPI, PostgreSQL, Docker</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://hospital-doctor-duty-roster.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">Live Demo ↗</a>
-        <a href="https://github.com/EHMahi9/hospital-doctor-duty-roster" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">GitHub Repository ↗</a>
-      </div>
-    </article>
-
-    <article style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; background: #ffffff;">
-      <h2 style="font-size: 1.4rem; color: #0f172a; margin: 0 0 0.5rem;">04. HeliosTrack</h2>
-      <p style="color: #475569; margin: 0 0 1rem;">Distributed solar fleet monitoring dashboard streaming live Socket.io telemetry updates at 5-second intervals, with interactive Chart.js visualization and virtual battery analytics.</p>
-      <p style="font-size: 0.9rem; color: #334155; margin: 0 0 1rem;"><strong>Tech Stack:</strong> JavaScript, Node.js, WebSockets, MySQL, Chart.js</p>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://helios-track-distributed-solar-moni.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">Live Dashboard ↗</a>
-        <a href="https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System" target="_blank" rel="noopener noreferrer" style="color: #0284c7; font-weight: 600;">GitHub Repository ↗</a>
-      </div>
-    </article>
-  </div>
-</div>
-`;
-
-// About Page Rich Static HTML
-const aboutHtmlContent = `
-<div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem; line-height: 1.65; color: #1e293b;">
-  <header style="border-bottom: 2px solid #e2e8f0; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
-    <h1 style="font-size: 2.25rem; color: #0f172a; margin: 0 0 0.5rem;">About Ebnul Hasan Mahi</h1>
-    <p style="font-size: 1.1rem; color: #475569; margin: 0 0 1rem;">
-      Software Engineering Student &amp; Full-Stack Developer
-    </p>
-    <a href="/" style="color: #0284c7; font-weight: 600; text-decoration: none;">← Return to Portfolio Homepage</a>
-  </header>
-
-  <section style="margin-bottom: 2rem;">
-    <h2 style="font-size: 1.3rem; color: #0f172a;">Engineering Philosophy &amp; Background</h2>
-    <p>
-      My technical journey combines hands-on web development with strong computer science fundamentals. As a second-year Software Engineering student at Daffodil International University (CGPA: 3.67), I ground my practical application work in core engineering principles—from object-oriented programming in Java and memory concepts in C, to clean full-stack architecture.
-    </p>
-    <p>
-      I approach full-stack engineering with an emphasis on defensive coding and software reliability. Working with TypeScript, Next.js, React, and MongoDB, and expanding into Express backends, I focus on role authorization, clean data validation, and predictable error handling, believing that good software must be dependable under unexpected user input and edge cases.
-    </p>
-  </section>
-
-  <section style="margin-bottom: 2rem;">
-    <h2 style="font-size: 1.3rem; color: #0f172a;">Core Focus Areas</h2>
-    <ul>
-      <li><strong>Full-Stack Web:</strong> Building modular frontends in Next.js and React with TypeScript, connecting them to structured backends.</li>
-      <li><strong>Data Modeling &amp; Persistence:</strong> Structuring document schemas in MongoDB, managing query performance, and ensuring consistent data persistence.</li>
-      <li><strong>Defensive Engineering:</strong> Learning Express backend design with an emphasis on role-based authorization, input validation, and secure authentication.</li>
-    </ul>
-  </section>
-
-  <section style="margin-bottom: 2rem;">
-    <h2 style="font-size: 1.3rem; color: #0f172a;">Contact &amp; Connect</h2>
-    <p>
-      Email: <a href="mailto:ebnulhasanmahi001@gmail.com" style="color: #0284c7;">ebnulhasanmahi001@gmail.com</a><br>
-      Phone: <a href="tel:+8801879450876" style="color: #0284c7;">+880 1879 450 876</a><br>
-      GitHub: <a href="https://github.com/EHMahi9" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">github.com/EHMahi9</a><br>
-      LinkedIn: <a href="https://www.linkedin.com/in/ebnul-hasan-mahi/" target="_blank" rel="noopener noreferrer" style="color: #0284c7;">linkedin.com/in/ebnul-hasan-mahi</a>
-    </p>
-  </section>
 </div>
 `;
 
@@ -331,24 +235,6 @@ const routeMetadata = {
     ogDescription: 'In-depth engineering case study of an evidence-grounded health assistant prototype using NHS clinical guidance, multilingual semantic retrieval, and deterministic safety triage.',
     ogUrl: 'https://www.ebnulhasanmahi.me/projects/dr-momenul-islam',
     content: caseStudyHtmlContent
-  },
-  'projects': {
-    title: 'Projects | Ebnul Hasan Mahi - Full-Stack Developer',
-    canonical: 'https://www.ebnulhasanmahi.me/projects',
-    description: 'Curated software engineering projects by Ebnul Hasan Mahi, including health retrieval RAG prototypes, inland waterway logistics, scheduling algorithms, and real-time telemetry.',
-    ogTitle: 'Projects | Ebnul Hasan Mahi - Full-Stack Developer',
-    ogDescription: 'Curated software engineering projects by Ebnul Hasan Mahi, including health retrieval RAG prototypes, inland waterway logistics, scheduling algorithms, and real-time telemetry.',
-    ogUrl: 'https://www.ebnulhasanmahi.me/projects',
-    content: projectsDirectoryHtmlContent
-  },
-  'about': {
-    title: 'About | Ebnul Hasan Mahi - Full-Stack Developer',
-    canonical: 'https://www.ebnulhasanmahi.me/about',
-    description: 'Background, education, engineering philosophy, and technical stack of Ebnul Hasan Mahi, Software Engineering student at Daffodil International University.',
-    ogTitle: 'About | Ebnul Hasan Mahi - Full-Stack Developer',
-    ogDescription: 'Background, education, engineering philosophy, and technical stack of Ebnul Hasan Mahi, Software Engineering student at Daffodil International University.',
-    ogUrl: 'https://www.ebnulhasanmahi.me/about',
-    content: aboutHtmlContent
   }
 };
 
@@ -380,7 +266,6 @@ function injectRoute(html, meta) {
   updated = updated.replace(/<meta name="twitter:description" content=".*?"/s, `<meta name="twitter:description" content="${meta.ogDescription}"`);
 
   // Inject into BOTH real DOM root (<div id="root">) AND <noscript>
-  // This guarantees search crawlers, bots, and curl grep find the content in the real DOM!
   if (meta.content) {
     updated = updated.replace(/<div id="root"><\/div>/s, `<div id="root">${meta.content}</div>`);
     updated = updated.replace(/<noscript>.*?<\/noscript>/s, `<noscript>${meta.content}</noscript>`);

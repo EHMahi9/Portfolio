@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
       'Deterministic rule-based medical retrieval strictly refusing to answer outside trusted sources',
       'Curated NHS England knowledge base with 119 verified clinical passages',
       'Multilingual semantic retrieval across Bangla, Banglish, and English',
-      'Benchmark evaluation with 100% citation grounding and zero generative hallucination risk'
+      'Deterministic evidence retrieval with source citation verification and zero generative hallucination risk'
     ],
     technologies: [
       'React',
@@ -67,7 +67,7 @@ export const projectsData: Project[] = [
     challenges: [
       'Eliminating generative AI hallucinations in medical queries through deterministic NHS source retrieval.',
       'Normalizing and embedding phonetically transliterated Banglish (e.g., \'matha betha\', \'jor\') alongside formal English.',
-      'Managing high-memory requirements (>4GB RAM) for cross-encoder rerankers on free cloud hosting.'
+      'Managing heavy memory and compute requirements for cross-encoder rerankers on free cloud hosting.'
     ],
     futurePlans: [
       'Expanding verified source governance to localized Bangladesh clinical guidance and hospital advisories.',

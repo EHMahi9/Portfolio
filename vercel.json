@@ -65,6 +65,16 @@
     ],
     "redirects": [
         {
+            "source": "/projects",
+            "destination": "/#projects",
+            "permanent": true
+        },
+        {
+            "source": "/about",
+            "destination": "/#about",
+            "permanent": true
+        },
+        {
             "source": "/:path*",
             "has": [
                 {
@@ -89,14 +99,6 @@
     ],
     "rewrites": [
         {
-            "source": "/robots.txt",
-            "destination": "/seo/robots.txt"
-        },
-        {
-            "source": "/sitemap.xml",
-            "destination": "/seo/sitemap.xml"
-        },
-        {
             "source": "/resume",
             "destination": "/resume/index.html"
         },
@@ -113,15 +115,7 @@
             "destination": "/projects/dr-momenul-islam/index.html"
         },
         {
-            "source": "/projects",
-            "destination": "/projects/index.html"
-        },
-        {
-            "source": "/about",
-            "destination": "/about/index.html"
-        },
-        {
-            "source": "/((?!assets/|seo/|api/|.*\\..*).*)",
+            "source": "/((?!assets/|api/|.*\\..*).*)",
             "destination": "/index.html"
         }
     ]
