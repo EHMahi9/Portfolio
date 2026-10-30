@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CaseStudyHero } from './CaseStudyHero';
+import { DemoSection } from './DemoSection';
 import { ProblemSection } from './ProblemSection';
 import { ArchitectureSection } from './ArchitectureSection';
 import { RetrievalSection } from './RetrievalSection';
@@ -82,6 +83,7 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ onBackToPortfolio 
       {/* Main Case Study Article */}
       <main id="main" className="cs-main-content">
         <CaseStudyHero onBackToPortfolio={onBackToPortfolio} />
+        <DemoSection />
         <ProblemSection />
         <ArchitectureSection />
         <RetrievalSection />

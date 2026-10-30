@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
     shortDescription: 'Evidence-grounded health information assistant prototype built in memory of Dr. Md. Momenul Islam (retrieval pipeline runs in local high-memory environment).',
     differentiator: 'Deterministic rule-based retrieval',
     problem: 'People increasingly use general-purpose AI systems for health questions, but free-form generation risks ungrounded hallucinations without transparent clinical sources.',
-    solution: 'A safety-oriented medical information retrieval system built around trusted NHS clinical guidance, multilingual semantic retrieval, deterministic emergency triage, and transparent evidence cards. (Note: High-memory retrieval pipeline runs in local environment; web deployment provides full interface and triage walkthrough).',
+    solution: 'A safety-oriented medical information retrieval system built around trusted NHS clinical guidance, multilingual semantic retrieval, deterministic emergency triage, and transparent evidence cards. (Note: High-memory retrieval pipeline runs in local environment; cloud deployment pending).',
     features: [
       'Deterministic rule-based medical retrieval strictly refusing to answer outside trusted sources',
       'Curated NHS England knowledge base with 119 verified clinical passages',
@@ -47,8 +47,10 @@ export const projectsData: Project[] = [
         label: 'Architecture & Specs'
       }
     ],
-    browserUrl: 'drmomenul.vercel.app',
-    demoUrl: 'https://drmomenul.vercel.app',
+    browserUrl: null,
+    demoVideoUrl: '/assets/media/flagship-demo.mp4',
+    deploymentStatus: 'local',
+    demoUrl: null,
     githubUrl: 'https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam',
     caseStudyUrl: '/projects/dr-momenul-islam',
     isReversed: false,
@@ -77,6 +79,8 @@ export const projectsData: Project[] = [
   },
   {
     id: 'proj-noboghat',
+    demoVideoUrl: null,
+    deploymentStatus: 'live',
     title: 'NoboGhat',
     category: 'Logistics & Booking',
     badge: 'Live',
@@ -144,6 +148,8 @@ export const projectsData: Project[] = [
   },
   {
     id: 'proj-heliostrack',
+    demoVideoUrl: null,
+    deploymentStatus: 'live',
     title: 'HeliosTrack',
     category: 'Solar monitoring system',
     badge: 'Live',

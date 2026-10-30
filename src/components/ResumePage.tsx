@@ -125,7 +125,7 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
                   <span className="resume-entry-stack"> — React, TypeScript, FastAPI, Python, RAG</span>
                 </div>
                 <div className="resume-entry-links">
-                  <a href="https://drmomenul.vercel.app" target="_blank" rel="noopener noreferrer">Live Prototype</a> |{' '}
+                  <a href="/assets/media/flagship-demo.mp4" target="_blank" rel="noopener noreferrer">Watch Demo</a> |{' '}
                   <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
                 <li>Grounded information using curated NHS clinical sources with transparent source provenance tracking and safety disclaimers.</li>
                 <li>Implemented out-of-scope refusal protocols and emergency routing to avoid ungrounded generative health advice.</li>
                 <li>Built a modern, accessible web interface with responsive conversation flow.</li>
-                <li><em>Architecture Note:</em> Retrieval pipeline runs on a high-memory local environment; web deployment hosts full client triage interface.</li>
+                <li><em>Architecture Note:</em> Retrieval pipeline runs on a high-memory local environment; cloud deployment pending.</li>
               </ul>
             </div>
 

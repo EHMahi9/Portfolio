@@ -100,15 +100,26 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
         </div>
 
         <div className="project-modal-footer">
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`button button-primary ${project.isDemoDisabled ? 'button-disabled' : ''}`}
-            onClick={project.isDemoDisabled ? (e) => e.preventDefault() : undefined}
-          >
-            {project.isDemoDisabled ? 'Demo Pending' : 'Live Demo'}
-          </a>
+          {!project.demoUrl && project.demoVideoUrl ? (
+            <a
+              href={project.demoVideoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-primary"
+            >
+              Watch Demo
+            </a>
+          ) : project.demoUrl ? (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`button button-primary ${project.isDemoDisabled ? 'button-disabled' : ''}`}
+              onClick={project.isDemoDisabled ? (e) => e.preventDefault() : undefined}
+            >
+              {project.isDemoDisabled ? 'Demo Pending' : 'Live Demo'}
+            </a>
+          ) : null}
           <a
             href={project.githubUrl}
             target="_blank"

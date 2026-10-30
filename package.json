@@ -5,7 +5,7 @@
   "description": "Production portfolio for Ebnul Hasan Mahi, Software Engineering Student and Full-Stack Developer.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "postbuild": "node scripts/prerender-routes.cjs",
     "preview": "vite preview",
     "test": "node tools/verify.js",

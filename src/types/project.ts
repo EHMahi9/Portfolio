@@ -23,8 +23,10 @@ export interface Project {
   image?: string; // WebP screenshot path in /assets/images/optimized/
   imageAlt?: string;
   screenshots?: ProjectScreenshot[]; // Optional user-switched supporting screenshots
-  browserUrl: string; // Simulated address in the browser bar
-  demoUrl: string; // Live site or demo link
+  browserUrl?: string | null; // Simulated address in the browser bar
+  demoUrl?: string | null; // Live site or demo link
+  demoVideoUrl?: string | null; // Recorded demo video link
+  deploymentStatus?: 'live' | 'local' | 'archived'; // Deployment reality tag
   githubUrl: string; // GitHub repository link
   caseStudyUrl?: string; // Link to detailed case study or architecture docs
   isDemoDisabled?: boolean;

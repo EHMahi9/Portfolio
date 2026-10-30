@@ -11,7 +11,7 @@ export const CaseStudyLinks: React.FC<CaseStudyLinksProps> = ({ onBackToPortfoli
         <div className="cs-links-box">
           <p className="cs-eyebrow">Explore the Project</p>
           <h2 id="links-heading" className="cs-links-title">
-            Test the live assistant or review the code.
+            Watch the demonstration or inspect the code.
           </h2>
           <p className="cs-links-lead">
             The project is fully open-source with reproducible test suites, container configs, and dataset documentation.
@@ -19,12 +19,12 @@ export const CaseStudyLinks: React.FC<CaseStudyLinksProps> = ({ onBackToPortfoli
 
           <div className="cs-links-actions">
             <a
-              href="https://drmomenul.vercel.app"
+              href="/assets/media/flagship-demo.mp4"
               target="_blank"
               rel="noopener noreferrer"
               className="button button-primary"
             >
-              Launch Live Demo
+              Watch Demo Video
             </a>
             <a
               href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam"

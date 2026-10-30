@@ -43,7 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <span></span>
             <span></span>
             <span></span>
-            <small>{project.browserUrl}</small>
+            <small>{project.browserUrl || (project.deploymentStatus === 'local' ? 'localhost:8000' : '')}</small>
           </div>
           <div className="browser-screen">
             {currentScreenshot && (
@@ -99,6 +99,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 Flagship
               </span>
             )}
+            {project.deploymentStatus === 'local' && (
+              <span className="badge-status-neutral" style={{
+                fontSize: '0.75rem',
+                padding: '0.15rem 0.5rem',
+                borderRadius: '4px',
+                background: 'rgba(148, 163, 184, 0.12)',
+                color: 'var(--text-muted, #94a3b8)',
+                border: '1px solid rgba(148, 163, 184, 0.25)',
+                fontWeight: 500
+              }}>
+                Runs locally
+              </span>
+            )}
           </div>
           <strong>{project.badge}</strong>
         </div>
@@ -125,25 +138,36 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
 
         <div className="project-actions">
-          {project.isDemoDisabled ? (
-            <a
-              className="button button-primary button-disabled"
-              href={project.demoUrl}
-              aria-disabled="true"
-              onClick={(e) => e.preventDefault()}
-            >
-              {getActionLabel()}
-            </a>
-          ) : (
+          {!project.demoUrl && project.demoVideoUrl ? (
             <a
               className="button button-primary"
-              href={project.demoUrl}
+              href={project.demoVideoUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {getActionLabel()}
+              Watch demo
             </a>
-          )}
+          ) : project.demoUrl ? (
+            project.isDemoDisabled ? (
+              <a
+                className="button button-primary button-disabled"
+                href={project.demoUrl}
+                aria-disabled="true"
+                onClick={(e) => e.preventDefault()}
+              >
+                {getActionLabel()}
+              </a>
+            ) : (
+              <a
+                className="button button-primary"
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {getActionLabel()}
+              </a>
+            )
+          ) : null}
 
           <button
             type="button"

@@ -30,7 +30,7 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
           <span className="cs-badge cs-badge-clinical">Evidence-Grounded Assistant</span>
           <span className="cs-badge cs-badge-status">
             <span className="cs-status-dot" aria-hidden="true" />
-            Research Prototype
+            Runs Locally
           </span>
           <span className="cs-badge cs-badge-diff">LLM-Free Rule-Based Retrieval</span>
         </div>
@@ -39,6 +39,20 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
         <h1 className="cs-hero-title">Dr. Md. Momenul Islam Health Assistant</h1>
         <p className="cs-hero-headline">
           Evidence-grounded health information assistant (research prototype) — In memory of Dr. Md. Momenul Islam.
+        </p>
+
+        {/* Status line directly under title/headline */}
+        <p className="cs-hero-status-line" style={{
+          fontSize: '1rem',
+          lineHeight: 1.6,
+          color: 'var(--text-secondary, #cbd5e1)',
+          background: 'rgba(148, 163, 184, 0.08)',
+          borderLeft: '4px solid #64748b',
+          padding: '0.85rem 1.15rem',
+          borderRadius: '6px',
+          margin: '1.25rem 0'
+        }}>
+          <strong>Status: runs locally.</strong> The retrieval pipeline (multilingual-e5-small embeddings + bge-reranker-v2-m3 cross-encoder) needs roughly 3 GB RAM, which exceeds free-tier hosting limits. Cloud deployment is pending. The recording below shows the full system running end to end; see the GitHub README for reproducible setup.
         </p>
 
         {/* Supporting Description */}
@@ -50,12 +64,12 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
         {/* Action Buttons */}
         <div className="cs-hero-actions">
           <a
-            href="https://drmomenul.vercel.app"
+            href="/assets/media/flagship-demo.mp4"
             target="_blank"
             rel="noopener noreferrer"
             className="button button-primary"
           >
-            Live Demo
+            Watch demo (1:20)
           </a>
           <a
             href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam"
@@ -72,23 +86,6 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
           >
             &larr; Back to Selected Work
           </button>
-        </div>
-
-        {/* Architecture Note on Demo vs Local Pipeline */}
-        <div style={{
-          margin: '1.5rem 0',
-          padding: '0.85rem 1.15rem',
-          borderRadius: '8px',
-          background: 'rgba(2, 132, 199, 0.08)',
-          borderLeft: '4px solid #0284c7',
-          fontSize: '0.9rem',
-          lineHeight: 1.6,
-          color: 'var(--text-muted, #94a3b8)'
-        }}>
-          <strong style={{ color: 'var(--text-primary, #f1f5f9)', display: 'block', marginBottom: '0.25rem' }}>
-            Architecture Note on Live Prototype:
-          </strong>
-          Full neural retrieval and cross-encoder reranking pipeline runs on a dedicated Python/FastAPI environment; the web deployment serves the client-side conversational triage interface. See GitHub for the complete model pipeline and reproducible setup.
         </div>
 
         {/* Quick Facts Grid */}
