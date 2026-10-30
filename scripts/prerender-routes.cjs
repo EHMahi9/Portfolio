@@ -28,10 +28,10 @@ async function prerender() {
 
   const routeMetadata = {
     'resume': {
-      title: 'Resume | Ebnul Hasan Mahi - Full-Stack Developer',
+      title: 'Resume | Ebnul Hasan Mahi',
       canonical: 'https://www.ebnulhasanmahi.me/resume',
       description: 'Technical resume and engineering background of Ebnul Hasan Mahi, Full-Stack Developer and Software Engineering student.',
-      ogTitle: 'Resume | Ebnul Hasan Mahi - Full-Stack Developer',
+      ogTitle: 'Resume | Ebnul Hasan Mahi',
       ogDescription: 'Technical resume and engineering background of Ebnul Hasan Mahi, Full-Stack Developer and Software Engineering student.',
       ogUrl: 'https://www.ebnulhasanmahi.me/resume',
       content: resumeHtmlContent

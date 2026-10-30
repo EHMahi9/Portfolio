@@ -53,11 +53,11 @@ export const App: React.FC = () => {
   // Sync document title with active route
   useEffect(() => {
     if (isCaseStudy) {
-      document.title = 'Dr. Md. Momenul Islam | Flagship Case Study — Ebnul Hasan Mahi';
+      document.title = 'Case Study: Dr. Md. Momenul Islam Health Assistant | Ebnul Hasan Mahi';
     } else if (isResume) {
-      document.title = 'Resume — Ebnul Hasan Mahi';
+      document.title = 'Resume | Ebnul Hasan Mahi';
     } else {
-      document.title = 'Ebnul Hasan Mahi | Full-Stack Developer';
+      document.title = 'Ebnul Hasan Mahi — Full-Stack Developer';
     }
   }, [currentPath, isCaseStudy, isResume]);
 

@@ -34,9 +34,9 @@ export const About: React.FC = () => {
         {/* Biography Content & Focus Cards */}
         <div className="content-stack">
           <p>
-            My technical journey combines hands-on web development with strong computer science
-            fundamentals. As a second-year Software Engineering student at Daffodil International
-            University, I ground my practical application work in core engineering principles—from
+            I am Ebnul Hasan Mahi, a second-year Software Engineering student at Daffodil International
+            University combining hands-on web development with strong computer science fundamentals.
+            I ground my practical application work in core engineering principles—from
             object-oriented programming in Java and memory concepts in C, to clean full-stack architecture.
           </p>
           <p>

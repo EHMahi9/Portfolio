@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="">
     <meta name="description" content="Portfolio of Ebnul Hasan Mahi, a Software Engineering student building structured web applications with TypeScript, Next.js, React, and MongoDB, with backend development in Express.">
-    <meta name="keywords" content="Ebnul Hasan Mahi, Full-Stack Developer, Software Engineering Student, React, Next.js, Node.js, Express, MongoDB, MySQL, portfolio">
     <meta name="author" content="Ebnul Hasan Mahi">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#071a3d">
@@ -23,16 +23,16 @@
     })();
     </script>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Ebnul Hasan Mahi | Full-Stack Developer">
+    <meta property="og:title" content="Ebnul Hasan Mahi — Full-Stack Developer">
     <meta property="og:description" content="Software engineering student portfolio building structured web applications with TypeScript, Next.js, React, and MongoDB, with backend development in Express.">
     <meta property="og:url" content="https://www.ebnulhasanmahi.me/">
     <meta property="og:image" content="https://www.ebnulhasanmahi.me/assets/images/optimized/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ebnul Hasan Mahi | Full-Stack Developer">
+    <meta name="twitter:title" content="Ebnul Hasan Mahi — Full-Stack Developer">
     <meta name="twitter:description" content="Software Engineering student building structured web applications with TypeScript, Next.js, React, and MongoDB, with backend development in Express.">
     <meta name="twitter:image" content="https://www.ebnulhasanmahi.me/assets/images/optimized/og-image.png">
     <link rel="canonical" href="https://www.ebnulhasanmahi.me/">
-    <title>Ebnul Hasan Mahi | Full-Stack Developer</title>
+    <title>Ebnul Hasan Mahi — Full-Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="/assets/brand/ehm-favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
     <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
@@ -44,48 +44,86 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ebnul Hasan Mahi",
-        "jobTitle": ["Software Engineering Student", "Full-Stack Developer"],
-        "email": "mailto:ebnulhasanmahi001@gmail.com",
-        "sameAs": [
-            "https://github.com/EHMahi9",
-            "https://www.linkedin.com/in/ebnul-hasan-mahi/"
-        ],
-        "knowsAbout": [
-            "Full-stack development",
-            "Backend engineering",
-            "API design",
-            "Java",
-            "Object-oriented programming",
-            "React",
-            "FastAPI",
-            "PostgreSQL"
-        ],
-        "workExample": [
+        "@graph": [
+            {
+                "@type": "Person",
+                "@id": "https://www.ebnulhasanmahi.me/#person",
+                "name": "Ebnul Hasan Mahi",
+                "alternateName": ["Ebnul Mahi", "EHMahi9"],
+                "url": "https://www.ebnulhasanmahi.me/",
+                "image": "https://www.ebnulhasanmahi.me/assets/images/optimized/profile-photo.webp",
+                "jobTitle": "Software Engineering Student",
+                "email": "mailto:ebnulhasanmahi001@gmail.com",
+                "sameAs": [
+                    "https://github.com/EHMahi9",
+                    "https://www.linkedin.com/in/ebnul-hasan-mahi/"
+                ],
+                "knowsAbout": [
+                    "Full-stack development",
+                    "Backend engineering",
+                    "API design",
+                    "TypeScript",
+                    "Next.js",
+                    "React",
+                    "Node.js",
+                    "MongoDB",
+                    "PostgreSQL"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://www.ebnulhasanmahi.me/#website",
+                "url": "https://www.ebnulhasanmahi.me/",
+                "name": "Ebnul Hasan Mahi",
+                "publisher": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                },
+                "author": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                }
+            },
             {
                 "@type": "SoftwareApplication",
                 "name": "Dr. Md. Momenul Islam Health Assistant",
-                "applicationCategory": "Health prototype",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Web (Local Python/FastAPI environment)",
+                "author": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                },
                 "codeRepository": "https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam"
             },
             {
                 "@type": "SoftwareApplication",
                 "name": "NoboGhat",
-                "applicationCategory": "Logistics and booking platform",
-                "url": "https://noboghatbangladesh.vercel.app/"
+                "applicationCategory": "LogisticsApplication",
+                "operatingSystem": "Web",
+                "url": "https://noboghatbangladesh.vercel.app/",
+                "author": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                },
+                "codeRepository": "https://github.com/EHMahi9/NoboGhat-Bangladesh"
             },
             {
                 "@type": "SoftwareApplication",
                 "name": "Hospital Doctor Duty Roster",
-                "applicationCategory": "Healthcare scheduling",
-                "url": "https://hospital-doctor-duty-roster.vercel.app/"
+                "applicationCategory": "HealthcareApplication",
+                "operatingSystem": "Web",
+                "url": "https://hospital-doctor-duty-roster.vercel.app/",
+                "author": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                },
+                "codeRepository": "https://github.com/EHMahi9/hospital-doctor-duty-roster"
             },
             {
                 "@type": "SoftwareApplication",
                 "name": "HeliosTrack",
-                "applicationCategory": "Energy monitoring",
-                "url": "https://helios-track-distributed-solar-moni.vercel.app/"
+                "applicationCategory": "EnergyApplication",
+                "operatingSystem": "Web",
+                "url": "https://helios-track-distributed-solar-moni.vercel.app/",
+                "author": {
+                    "@id": "https://www.ebnulhasanmahi.me/#person"
+                },
+                "codeRepository": "https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System"
             }
         ]
     }
@@ -125,56 +163,43 @@
 
             <section>
                 <h2>Featured Projects</h2>
-
-                <article>
-                    <h3>01. Dr. Md. Momenul Islam Health Assistant (Flagship Research Prototype)</h3>
-                    <p>Evidence-grounded health information assistant prototype built in memory of Dr. Md. Momenul Islam. Integrates curated NHS clinical guidance (119 verified passages), multilingual semantic retrieval (Bangla, Banglish, English), and deterministic emergency triage to eliminate ungrounded generative AI hallucinations.</p>
-                    <p><strong>Stack:</strong> React, TypeScript, FastAPI, Python, RAG (multilingual-e5-small, bge-reranker-v2-m3)</p>
+                <div>
+                    <h3>Dr. Md. Momenul Islam Health Assistant (Flagship)</h3>
+                    <p>Evidence-grounded medical information retrieval assistant prototype with multilingual semantic retrieval and deterministic safety triage.</p>
                     <p>
-                        <a href="/assets/media/flagship-demo.mp4">Watch Demo</a> |
-                        <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam">GitHub Repository</a> |
-                        <a href="https://www.ebnulhasanmahi.me/projects/dr-momenul-islam">Full Case Study</a>
+                        <a href="https://www.ebnulhasanmahi.me/projects/dr-momenul-islam">Case Study</a> |
+                        <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam">GitHub</a>
                     </p>
-                </article>
-
-                <article>
-                    <h3>02. NoboGhat (Inland Waterway Logistics &amp; Booking Platform)</h3>
-                    <p>Decoupled full-stack logistics platform for inland waterway transport. Features live vessel cargo capacity tracking to mathematically prevent overbooking, stateless JWT authentication, and role-based access control for farmers, traders, and boat operators.</p>
-                    <p><strong>Stack:</strong> Next.js, React, Java, Spring Boot, MySQL, JWT</p>
+                </div>
+                <div>
+                    <h3>NoboGhat</h3>
+                    <p>Inland waterway cargo booking platform with live capacity tracking and role-based access control.</p>
                     <p>
                         <a href="https://noboghatbangladesh.vercel.app/">Live Platform</a> |
-                        <a href="https://github.com/EHMahi9/NoboGhat-Bangladesh">GitHub Repository</a>
+                        <a href="https://github.com/EHMahi9/NoboGhat-Bangladesh">GitHub</a>
                     </p>
-                </article>
-
-                <article>
-                    <h3>03. Hospital Doctor Duty Roster (Healthcare Scheduling Platform)</h3>
-                    <p>Role-based hospital staff scheduling system with automated shift conflict detection, leave management workflows, and persistent PostgreSQL database migrations.</p>
-                    <p><strong>Stack:</strong> React, TypeScript, FastAPI, PostgreSQL, Docker</p>
+                </div>
+                <div>
+                    <h3>Hospital Doctor Duty Roster</h3>
+                    <p>Medical duty roster management system with automated shift scheduling algorithms.</p>
                     <p>
                         <a href="https://hospital-doctor-duty-roster.vercel.app/">Live Demo</a> |
-                        <a href="https://github.com/EHMahi9/hospital-doctor-duty-roster">GitHub Repository</a>
+                        <a href="https://github.com/EHMahi9/hospital-doctor-duty-roster">GitHub</a>
                     </p>
-                </article>
-
-                <article>
-                    <h3>04. HeliosTrack (Real-Time Solar Fleet Monitoring Dashboard)</h3>
-                    <p>Enterprise solar array monitoring dashboard featuring live Socket.io telemetry streaming every 5 seconds, interactive Chart.js telemetry grid, and virtual battery analytics powered by Node.js and Aiven Cloud MySQL.</p>
-                    <p><strong>Stack:</strong> JavaScript, Node.js, WebSockets, MySQL, Chart.js</p>
+                </div>
+                <div>
+                    <h3>HeliosTrack</h3>
+                    <p>Real-time solar array monitoring dashboard with live Socket.io telemetry updates.</p>
                     <p>
                         <a href="https://helios-track-distributed-solar-moni.vercel.app/">Live Dashboard</a> |
-                        <a href="https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System">GitHub Repository</a>
+                        <a href="https://github.com/EHMahi9/HeliosTrack---Distributed-Solar-Monitoring-System">GitHub</a>
                     </p>
-                </article>
+                </div>
             </section>
 
-            <section>
-                <h2>Education &amp; Training</h2>
-                <ul>
-                    <li><strong>B.Sc. in Computer Science &amp; Engineering</strong> — Daffodil International University (CGPA: 3.67)</li>
-                    <li><strong>Full-Stack Web Development Training</strong> — Programming Hero (Batch 14)</li>
-                </ul>
-            </section>
+            <footer>
+                <p>&copy; 2026 Ebnul Hasan Mahi. All rights reserved.</p>
+            </footer>
         </div>
     </noscript>
     <script type="module" src="/src/main.tsx"></script>
