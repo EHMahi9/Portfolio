@@ -69,7 +69,7 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
             rel="noopener noreferrer"
             className="button button-primary"
           >
-            Watch demo
+            Watch demo (1:55)
           </a>
           <a
             href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam"
