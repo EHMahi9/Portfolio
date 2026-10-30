@@ -41,10 +41,10 @@ export const About: React.FC = () => {
             hardware-software integration with Arduino.
           </p>
           <p>
-            While I currently develop full-stack web applications and APIs, my ultimate
-            career goal is cybersecurity. I am actively studying network security and
-            system vulnerabilities, preferring a deep, logical understanding of how to
-            protect systems rather than just memorizing exploit tools.
+            I approach full-stack engineering with a defensive, security-first mindset. 
+            Beyond assembling UI components and API routes, I focus on system authorization, 
+            resilient database schemas, and data sanitization, believing that good software 
+            engineering requires understanding both how systems run and how they fail under edge cases.
           </p>
           <p>
             Outside of programming, I am a passionate football enthusiast and an avid gamer. 

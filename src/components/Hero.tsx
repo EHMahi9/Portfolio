@@ -106,40 +106,38 @@ export const Hero: React.FC = () => {
             id="hero-title"
             className={isGlitching ? 'is-glitching' : ''}
             onMouseEnter={triggerDecryption}
-            aria-label={originalName}
           >
-            {words.map((word, wordIdx) => {
-              // Word start indices in "Ebnul Hasan Mahi":
-              // "Ebnul" starts at 0
-              // "Hasan" starts at 6
-              // "Mahi" starts at 12
-              const wordStartIndex = wordIdx === 0 ? 0 : wordIdx === 1 ? 6 : 12;
-              return (
-                <React.Fragment key={word}>
-                  {wordIdx > 0 && <span className="hero-title-space"> </span>}
-                  <span className="hero-title-word">
-                    {word.split('').map((targetChar, charIdx) => {
-                      const globalIdx = wordStartIndex + charIdx;
-                      const currentChar = displayChars[globalIdx] || targetChar;
-                      const isScrambled = isGlitching && currentChar !== targetChar;
-                      return (
-                        <span key={charIdx} className="hero-char-slot">
-                          <span className="hero-char-ghost" aria-hidden="true">
-                            {targetChar}
+            <span className="sr-only">{originalName}</span>
+            <span aria-hidden="true" className="hero-title-visual">
+              {words.map((word, wordIdx) => {
+                const wordStartIndex = wordIdx === 0 ? 0 : wordIdx === 1 ? 6 : 12;
+                return (
+                  <React.Fragment key={word}>
+                    {wordIdx > 0 && <span className="hero-title-space"> </span>}
+                    <span className="hero-title-word">
+                      {word.split('').map((targetChar, charIdx) => {
+                        const globalIdx = wordStartIndex + charIdx;
+                        const currentChar = displayChars[globalIdx] || targetChar;
+                        const isScrambled = isGlitching && currentChar !== targetChar;
+                        return (
+                          <span key={charIdx} className="hero-char-slot">
+                            <span className="hero-char-ghost" aria-hidden="true">
+                              {targetChar}
+                            </span>
+                            <span
+                              className={`hero-char-glyph ${isScrambled ? 'is-scrambled' : 'is-resolved'}`}
+                              aria-hidden="true"
+                            >
+                              {currentChar}
+                            </span>
                           </span>
-                          <span
-                            className={`hero-char-glyph ${isScrambled ? 'is-scrambled' : 'is-resolved'}`}
-                            aria-hidden="true"
-                          >
-                            {currentChar}
-                          </span>
-                        </span>
-                      );
-                    })}
-                  </span>
-                </React.Fragment>
-              );
-            })}
+                        );
+                      })}
+                    </span>
+                  </React.Fragment>
+                );
+              })}
+            </span>
           </h1>
 
           <h2 className="hero-role" id="heroRole">
@@ -147,8 +145,9 @@ export const Hero: React.FC = () => {
           </h2>
 
           <p className="hero-lead">
-            I build practical software products, web applications, backend systems, and APIs
-            with an emphasis on clean architecture, security, and performance.
+            Software engineering student building responsive full-stack applications, real-time
+            telemetry dashboards, and evidence-grounded health prototypes with React, Next.js,
+            Java Spring Boot, and Node.js.
           </p>
 
           <div className="hero-actions">
