@@ -13,59 +13,59 @@ export const Skills: React.FC = () => {
 
         {/* Skill Cards Grid */}
         <div className="skill-grid">
-          {/* Card 1: Full-stack web (Wide) */}
+          {/* Card 1: Core Full-Stack Web (Wide) */}
           <article className="skill-card wide" data-tilt>
-            <p className="card-kicker">Full-stack web</p>
-            <h3>Next.js & React frontends with Node/Express backends</h3>
+            <p className="card-kicker">Core Full-Stack Web</p>
+            <h3>Next.js &amp; React frontends with TypeScript</h3>
             <p>
-              Project work includes Next.js and React interfaces, Node.js/Express routes,
-              Better Auth and JWT authentication, and Vercel deployment.
+              Building responsive, accessible web applications with TypeScript, Next.js, and React,
+              connected to structured MongoDB persistence and expanding into Express backends.
             </p>
             <div className="tag-list">
-              <span>React</span>
-              <span>Next.js</span>
               <span>TypeScript</span>
-              <span>Node.js</span>
-              <span>Express</span>
-              <span>Better Auth</span>
-            </div>
-          </article>
-
-          {/* Card 2: Data and backend */}
-          <article className="skill-card" data-tilt>
-            <p className="card-kicker">Data and backend</p>
-            <h3>Data models, auth, and persistence</h3>
-            <div className="tag-list">
-              <span>MySQL</span>
+              <span>Next.js</span>
+              <span>React</span>
               <span>MongoDB</span>
-              <span>JWT</span>
-              <span>Git</span>
+              <span>Express (In Progress)</span>
+              <span>Tailwind CSS</span>
             </div>
           </article>
 
-          {/* Card 3: Programming */}
+          {/* Card 2: Database & Persistence */}
           <article className="skill-card" data-tilt>
-            <p className="card-kicker">Programming</p>
-            <h3>Strong Java and Python foundations</h3>
+            <p className="card-kicker">Database &amp; Persistence</p>
+            <h3>Structured data models &amp; MongoDB schemas</h3>
             <div className="tag-list">
-              <span>Java</span>
-              <span>Python</span>
-              <span>OOP</span>
+              <span>MongoDB</span>
+              <span>Mongoose</span>
+              <span>MySQL</span>
+              <span>PostgreSQL</span>
+            </div>
+          </article>
+
+          {/* Card 3: Defensive Engineering */}
+          <article className="skill-card" data-tilt>
+            <p className="card-kicker">Defensive Engineering</p>
+            <h3>Role-based access &amp; API validation</h3>
+            <div className="tag-list">
+              <span>Role-Based Access</span>
+              <span>Input Validation</span>
+              <span>JWT</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          {/* Card 4: Computer Science Foundations */}
+          <article className="skill-card" data-tilt>
+            <p className="card-kicker">Computer Science Foundations</p>
+            <h3>Core programming fundamentals</h3>
+            <div className="tag-list">
               <span>Data Structures</span>
               <span>Algorithms</span>
-            </div>
-          </article>
-
-          {/* Card 4: Frontend quality */}
-          <article className="skill-card" data-tilt>
-            <p className="card-kicker">Frontend quality</p>
-            <h3>Accessible, responsive UI systems</h3>
-            <div className="tag-list">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              <span>Accessibility</span>
-              <span>Performance</span>
+              <span>OOP</span>
+              <span>Java</span>
+              <span>C/C++</span>
+              <span>Git</span>
             </div>
           </article>
         </div>

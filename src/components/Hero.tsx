@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
   }, [triggerDecryption]);
 
   // 2. Rotating Role Title every 2.8 seconds
-  const roles = ['Full-Stack Developer', 'Software Engineer', 'Backend Enthusiast'];
+  const roles = ['Full-Stack Developer', 'Frontend & Web Developer', 'Software Engineering Student'];
   const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
@@ -145,9 +145,8 @@ export const Hero: React.FC = () => {
           </h2>
 
           <p className="hero-lead">
-            Software engineering student building responsive full-stack applications, real-time
-            telemetry dashboards, and evidence-grounded health prototypes with React, Next.js,
-            Java Spring Boot, and Node.js.
+            Software engineering student building structured web applications with TypeScript, Next.js,
+            React, and MongoDB, learning Express backends with an emphasis on role authorization and defensive coding.
           </p>
 
           <div className="hero-actions">
@@ -219,21 +218,21 @@ export const Hero: React.FC = () => {
             </div>
 
             <h3 className="hero-card-title">
-              System security, backend systems, and production web applications.
+              Structured web applications, defensive coding, and backend architecture.
             </h3>
 
             <dl className="signal-list">
               <div>
                 <dt>Core Stack</dt>
-                <dd>Python, Java, C, TypeScript, React</dd>
+                <dd>TypeScript, Next.js, React, MongoDB, Express (In Progress)</dd>
               </div>
               <div>
-                <dt>Systems &amp; Architecture</dt>
-                <dd>Backend APIs, PostgreSQL, OOP, Arduino Embedded Systems</dd>
+                <dt>Key Practices</dt>
+                <dd>Input Validation, Role-Based Access, Safe Data Schemas</dd>
               </div>
               <div>
                 <dt>Trajectory</dt>
-                <dd>Network security, system integrity, penetration testing</dd>
+                <dd>Reliable web systems, secure API services, resilient databases</dd>
               </div>
             </dl>
           </div>

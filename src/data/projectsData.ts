@@ -16,14 +16,14 @@ export const projectsData: Project[] = [
     featuredLevel: 'flagship',
     role: 'Creator & Developer • In memory of Dr. Md. Momenul Islam',
     shortDescription: 'Evidence-grounded health information assistant prototype built in memory of Dr. Md. Momenul Islam (retrieval pipeline runs in local high-memory environment).',
-    differentiator: 'LLM-free production generation',
+    differentiator: 'Deterministic rule-based retrieval',
     problem: 'People increasingly use general-purpose AI systems for health questions, but free-form generation risks ungrounded hallucinations without transparent clinical sources.',
     solution: 'A safety-oriented medical information retrieval system built around trusted NHS clinical guidance, multilingual semantic retrieval, deterministic emergency triage, and transparent evidence cards. (Note: High-memory retrieval pipeline runs in local environment; web deployment provides full interface and triage walkthrough).',
     features: [
-      'Multilingual semantic retrieval across Bangla, Banglish, and English',
+      'Deterministic rule-based medical retrieval strictly refusing to answer outside trusted sources',
       'Curated NHS England knowledge base with 119 verified clinical passages',
-      'Deterministic safety triage prioritizing emergency escalation over guidance',
-      'LLM-free production pipeline eliminating ungrounded medical hallucinations'
+      'Multilingual semantic retrieval across Bangla, Banglish, and English',
+      'Benchmark evaluation with 100% citation grounding and zero generative hallucination risk'
     ],
     technologies: [
       'React',
@@ -82,12 +82,13 @@ export const projectsData: Project[] = [
     badge: 'Live',
     role: 'Full-stack developer',
     shortDescription: 'Decoupled inland waterway logistics platform with live cargo capacity tracking and role-based booking.',
-    differentiator: 'Live capacity tracking',
+    differentiator: 'Row-locked cargo capacity tracking',
     problem: 'Inland waterway cargo transport suffers from manual booking, hidden pricing, and no real-time capacity tracking for small traders.',
     solution: 'A decoupled architecture featuring a Next.js frontend and Spring Boot / MySQL backend for role-based boat management, route discovery, and capacity-aware cargo booking.',
     features: [
-      'Role-based access control for Farmers, Traders, and Boat Owners',
-      'Live cargo capacity tracking to mathematically prevent overbooking',
+      'Database row locking on bookings to prevent overfilling boats',
+      'Role-based access control for Farmers, Boat Owners, and Admins',
+      'Bilingual interface (Bangla and English) with simulated payment workflows',
       'Stateless JWT authentication with secure BCrypt password hashing'
     ],
     technologies: ['Next.js', 'React', 'Java', 'Spring Boot', 'MySQL', 'JWT'],
@@ -119,9 +120,9 @@ export const projectsData: Project[] = [
     problem: 'Manual duty planning creates avoidable conflicts, unclear availability, and slow schedule updates.',
     solution: 'A role-based scheduling application with staff dashboards, leave workflows, secure auth, and persistent shift data.',
     features: [
-      'JWT authentication and role-aware access',
-      'Doctor scheduling and leave management',
-      'PostgreSQL-backed data model with migrations'
+      'Constraint-based scheduling algorithm with fairness scoring and tests',
+      'Role-based staff dashboards and leave management workflows',
+      'PostgreSQL relational data model with automated test suite'
     ],
     technologies: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
     image: '/assets/images/optimized/roster-dashboard.webp',
@@ -148,13 +149,14 @@ export const projectsData: Project[] = [
     badge: 'Live',
     role: 'Full-stack developer',
     shortDescription: 'Real-time solar array monitoring dashboard with live WebSocket telemetry and virtual battery analytics.',
-    differentiator: 'Sub-second WebSocket telemetry',
+    differentiator: 'Live Socket.io telemetry (5s intervals)',
     problem: 'Monitoring distributed solar arrays requires real-time data visualization, reliable cloud storage, and immediate alerting without layout shifts or system crashes.',
     solution: 'An enterprise-grade dashboard featuring live WebSocket streaming, an interactive Chart.js grid, and a virtual battery controller powered by a Node.js backend and Aiven MySQL.',
     features: [
-      'Real-time data streaming via Socket.io with dynamic UI updates',
-      'Custom Virtual Battery logic, ROI calculator, and floating toast alerts',
-      'Render-hosted Node.js API with Aiven Cloud MySQL integration'
+      'Live Socket.io telemetry updates streamed every 5 seconds',
+      'JWT authentication with BCrypt password hashing and login rate limiting',
+      'Simulated IoT solar sensor telemetry (voltage, current, and battery metrics)',
+      'Interactive Chart.js real-time visualization with Aiven Cloud MySQL storage'
     ],
     technologies: ['JavaScript', 'Node.js', 'WebSockets', 'MySQL', 'Chart.js'],
     image: '/assets/images/optimized/heliostrack-dashboard.webp',
