@@ -155,12 +155,14 @@ export const App: React.FC = () => {
       {/* Ambient drifting background and code particles */}
       <BackgroundEffects />
 
-      {/* Top reading progress indicator */}
-      <div
-        className="scroll-bar"
-        style={{ width: `${scrollProgress}%` }}
-        aria-hidden="true"
-      />
+      {/* Top reading progress indicator — exclusively on long-form Case Study reading page */}
+      {isCaseStudy && (
+        <div
+          className="scroll-bar"
+          style={{ width: `${scrollProgress}%` }}
+          aria-hidden="true"
+        />
+      )}
 
       {isCaseStudy ? (
         <CaseStudyPage onBackToPortfolio={handleBackToPortfolio} />
