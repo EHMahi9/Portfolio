@@ -85,6 +85,18 @@ export const Hero: React.FC = () => {
       <div className="container hero-grid">
         {/* Left Column: Copy & Actions */}
         <div className="hero-copy">
+          {/* Mobile-Only Avatar */}
+          <div className="hero-mobile-avatar" aria-hidden="true">
+            <img
+              src="/assets/images/optimized/portrait.webp"
+              width="140"
+              height="140"
+              alt="Portrait of Ebnul Hasan Mahi"
+              decoding="async"
+              loading="eager"
+            />
+          </div>
+
           <p className="hero-eyebrow">
             <span className="hero-eyebrow-dot" aria-hidden="true"></span>
             SOFTWARE ENGINEERING STUDENT
