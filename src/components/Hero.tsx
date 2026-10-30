@@ -219,7 +219,7 @@ export const Hero: React.FC = () => {
             </div>
 
             <h3 className="hero-card-title">
-              System security, backend systems, and production web applications.
+              Backend systems, practical web applications, and application security.
             </h3>
 
             <dl className="signal-list">

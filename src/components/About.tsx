@@ -16,9 +16,9 @@ export const About: React.FC = () => {
     },
     {
       num: '03',
-      title: 'Cybersecurity Focus',
+      title: 'Application Security',
       description:
-        'Analyzing system vulnerabilities and studying ethical hacking to transition into penetration testing.'
+        'Learning application security fundamentals, role-based authorization, and defensive engineering practices.'
     }
   ];
 
@@ -41,10 +41,11 @@ export const About: React.FC = () => {
             hardware-software integration with Arduino.
           </p>
           <p>
-            I approach full-stack engineering with a defensive, security-first mindset. 
-            Beyond assembling UI components and API routes, I focus on system authorization, 
-            resilient database schemas, and data sanitization, believing that good software 
-            engineering requires understanding both how systems run and how they fail under edge cases.
+            I approach full-stack engineering by learning application security and applying 
+            defensive principles to my own projects. Beyond assembling UI components and 
+            API routes, I focus on role-based authorization, resilient database schemas, and 
+            input validation, believing that good software engineering requires understanding 
+            both how systems run and how they fail under edge cases.
           </p>
           <p>
             Outside of programming, I am a passionate football enthusiast and an avid gamer. 

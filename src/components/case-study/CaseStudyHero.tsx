@@ -32,7 +32,7 @@ export const CaseStudyHero: React.FC<CaseStudyHeroProps> = ({ onBackToPortfolio 
             <span className="cs-status-dot" aria-hidden="true" />
             Research Prototype
           </span>
-          <span className="cs-badge cs-badge-diff">LLM-Free Production Generation</span>
+          <span className="cs-badge cs-badge-diff">LLM-Free Rule-Based Retrieval</span>
         </div>
 
         {/* Title and Headline */}
