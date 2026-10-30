@@ -8,7 +8,7 @@ Built with **React 18, TypeScript, and Vite**, designed with an emphasis on syst
 
 ## Featured Engineering Projects
 
-### 1. [Dr. Md. Momenul Islam](/assets/media/flagship-demo.mp4) *(Flagship)*
+### 1. [Dr. Md. Momenul Islam](https://www.ebnulhasanmahi.me/projects/dr-momenul-islam) *(Flagship)*
 - **Domain**: Clinical Health Intelligence & Retrieval Systems
 - **Core Stack**: React, TypeScript, FastAPI, multilingual-e5-small, bge-reranker-v2-m3
 - **Summary**: An evidence-grounded health information assistant designed for Bangla, Banglish, and English users. Features an LLM-free production retrieval pipeline over verified NHS England clinical guidance, deterministic safety triage, and transparent evidence cards. Includes a dedicated in-app engineering case study with interactive system architecture tabs, query lifecycles, latency breakdowns, and safety matrices.

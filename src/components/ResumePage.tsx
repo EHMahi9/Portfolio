@@ -125,7 +125,7 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
                   <span className="resume-entry-stack"> — React, TypeScript, FastAPI, Python, RAG</span>
                 </div>
                 <div className="resume-entry-links">
-                  <a href="/assets/media/flagship-demo.mp4" target="_blank" rel="noopener noreferrer">Watch Demo</a> |{' '}
+                  <a href="https://www.ebnulhasanmahi.me/projects/dr-momenul-islam">Case Study</a> |{' '}
                   <a href="https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
               </div>

@@ -20,7 +20,7 @@ Software engineering student (CGPA: 3.67) building structured web applications w
 
 ### Dr. Md. Momenul Islam Health Assistant | React, TypeScript, FastAPI, Python, RAG
 *Evidence-grounded health information assistant prototype — Built in memory of Dr. Md. Momenul Islam*
-* [Watch Demo Video](/assets/media/flagship-demo.mp4) | [GitHub Repository](https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam)
+* [Case Study](https://www.ebnulhasanmahi.me/projects/dr-momenul-islam) | [GitHub Repository](https://github.com/EHMahi9/Dr.-Md.-Momenul-Islam)
 - Developed a multilingual health assistant interface addressing queries across English, Bangla, and Banglish.
 - Grounded information using curated NHS clinical sources with transparent source provenance tracking and safety disclaimers.
 - Implemented out-of-scope refusal protocols and emergency routing to avoid ungrounded generative health advice.
