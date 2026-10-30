@@ -63,6 +63,30 @@
             ]
         }
     ],
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ebnul-hasan-mahi-portfolio.vercel.app"
+                }
+            ],
+            "destination": "https://www.ebnulhasanmahi.me/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ebnulhasanmahi.bro.bd"
+                }
+            ],
+            "destination": "https://www.ebnulhasanmahi.me/:path*",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/robots.txt",
