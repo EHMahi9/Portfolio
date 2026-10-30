@@ -59,7 +59,7 @@ const caseStudyHtmlContent = `
     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem;">
       <h3 style="font-size: 1.1rem; color: #0f172a; margin-top: 0;">Challenge A: High-Memory Inference on Constrained Hosting</h3>
       <p style="margin: 0; color: #334155;">
-        Cross-encoder rerankers require significant memory (&gt;4GB RAM), which exceeds free serverless cloud limits. To resolve this, the architecture was partitioned: the high-memory retrieval and vector pipeline executes in a dedicated local environment, while the client interface, emergency triage logic, and interactive specifications are deployed to Vercel for public walkthrough.
+        cross-encoder rerankers require significant memory (&gt;4GB RAM), which exceeds free serverless cloud limits. To resolve this, the architecture was partitioned: the high-memory retrieval and vector pipeline executes in a dedicated local environment, while the client interface, emergency triage logic, and interactive specifications are deployed to Vercel for public walkthrough.
       </p>
     </div>
     <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.25rem;">
@@ -98,7 +98,7 @@ const caseStudyHtmlContent = `
     <ul style="padding-left: 1.5rem;">
       <li><strong>Frontend:</strong> React 18, TypeScript, Vite, Responsive CSS, Web Accessibility (WCAG compliant)</li>
       <li><strong>Backend &amp; API:</strong> FastAPI, Python 3.10, RESTful endpoints, CORS middleware</li>
-      <li><strong>Vector Search &amp; RAG:</strong> sentence-transformers (multilingual-e5-small), Cross-Encoder (bge-reranker-v2-m3)</li>
+      <li><strong>Vector Search &amp; RAG:</strong> sentence-transformers (multilingual-e5-small), cross-encoder (bge-reranker-v2-m3)</li>
       <li><strong>Data &amp; Evaluation:</strong> Curated NHS England corpus (119 verified clinical passages), pytest automated suite</li>
     </ul>
   </section>
@@ -221,7 +221,7 @@ const projectsDirectoryHtmlContent = `
   <header style="border-bottom: 2px solid #e2e8f0; padding-bottom: 1.25rem; margin-bottom: 1.5rem;">
     <h1 style="font-size: 2.25rem; color: #0f172a; margin: 0 0 0.5rem;">Selected Projects</h1>
     <p style="font-size: 1.1rem; color: #475569; margin: 0 0 1rem;">
-      Production-minded full-stack web applications, real-time systems, and defensive engineering prototypes built by Ebnul Hasan Mahi.
+      Full-stack web applications, real-time systems, and defensive engineering prototypes built by Ebnul Hasan Mahi.
     </p>
     <a href="/" style="color: #0284c7; font-weight: 600; text-decoration: none;">← Return to Portfolio Homepage</a>
   </header>
@@ -379,8 +379,10 @@ function injectRoute(html, meta) {
   // Replace twitter:description
   updated = updated.replace(/<meta name="twitter:description" content=".*?"/s, `<meta name="twitter:description" content="${meta.ogDescription}"`);
 
-  // Replace <noscript> block with custom semantic HTML for this exact route
+  // Inject into BOTH real DOM root (<div id="root">) AND <noscript>
+  // This guarantees search crawlers, bots, and curl grep find the content in the real DOM!
   if (meta.content) {
+    updated = updated.replace(/<div id="root"><\/div>/s, `<div id="root">${meta.content}</div>`);
     updated = updated.replace(/<noscript>.*?<\/noscript>/s, `<noscript>${meta.content}</noscript>`);
   }
 
@@ -393,7 +395,7 @@ Object.entries(routeMetadata).forEach(([route, meta]) => {
   const customizedHtml = injectRoute(baseHtml, meta);
   fs.writeFileSync(path.join(targetDir, 'index.html'), customizedHtml, 'utf8');
   fs.writeFileSync(path.join(distDir, `${route.replace('/', '-')}.html`), customizedHtml, 'utf8');
-  console.log(`[prerender-routes] Generated static route with full semantic content: /${route}`);
+  console.log(`[prerender-routes] Generated static route with full DOM content: /${route}`);
 });
 
-console.log('[prerender-routes] All client routes pre-rendered with customized SEO metadata and full semantic HTML.');
+console.log('[prerender-routes] All client routes pre-rendered with customized SEO metadata and full DOM HTML.');
