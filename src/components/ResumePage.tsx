@@ -79,8 +79,6 @@ export const ResumePage: React.FC<ResumePageProps> = ({ onBackToPortfolio }) => 
           <header className="resume-header">
             <h1 className="resume-name">Ebnul Hasan Mahi</h1>
             <p className="resume-contact-bar">
-              <span>Dhaka, Bangladesh (UTC+6) • Open to remote &amp; relocation</span>
-              <span className="sep">•</span>
               <a href="mailto:ebnulhasanmahi001@gmail.com">ebnulhasanmahi001@gmail.com</a>
               <span className="sep">•</span>
               <a href="tel:+8801879450876">+880 1879 450 876</a>

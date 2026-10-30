@@ -128,8 +128,8 @@ export const Contact: React.FC = () => {
           <p className="eyebrow">Contact</p>
           <h2 id="contact-title">Let's talk about internships, junior roles, or project ideas.</h2>
           <p>
-            Based in Dhaka, Bangladesh (UTC+6) • Open to remote roles &amp; relocation worldwide.
-            I am eager to contribute, learn alongside experienced engineers, and build reliable product features.
+            I am open to opportunities where I can contribute, learn alongside experienced
+            engineers, and build reliable product features.
           </p>
 
           <div className="contact-methods">

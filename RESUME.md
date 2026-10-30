@@ -1,5 +1,4 @@
 # Ebnul Hasan Mahi
-Dhaka, Bangladesh (UTC+6) • Open to remote & relocation
 ebnulhasanmahi001@gmail.com | +880 1879 450 876 | [linkedin.com/in/ebnul-hasan-mahi](https://www.linkedin.com/in/ebnul-hasan-mahi/) | [github.com/EHMahi9](https://github.com/EHMahi9) | [ebnulhasanmahi.me](https://www.ebnulhasanmahi.me/)
 
 ---
