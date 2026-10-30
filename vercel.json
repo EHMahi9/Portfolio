@@ -63,6 +63,30 @@
             ]
         }
     ],
+    "redirects": [
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ebnul-hasan-mahi-portfolio.vercel.app"
+                }
+            ],
+            "destination": "https://www.ebnulhasanmahi.me/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ebnulhasanmahi.bro.bd"
+                }
+            ],
+            "destination": "https://www.ebnulhasanmahi.me/:path*",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/robots.txt",
@@ -74,15 +98,27 @@
         },
         {
             "source": "/resume",
-            "destination": "/index.html"
+            "destination": "/resume/index.html"
         },
         {
             "source": "/resume.html",
-            "destination": "/index.html"
+            "destination": "/resume/index.html"
         },
         {
-            "source": "/projects/:path*",
-            "destination": "/index.html"
+            "source": "/projects/dr-momenul-islam",
+            "destination": "/projects/dr-momenul-islam/index.html"
+        },
+        {
+            "source": "/projects/dr-momenul-islam.html",
+            "destination": "/projects/dr-momenul-islam/index.html"
+        },
+        {
+            "source": "/projects",
+            "destination": "/projects/index.html"
+        },
+        {
+            "source": "/about",
+            "destination": "/about/index.html"
         },
         {
             "source": "/((?!assets/|seo/|api/|.*\\..*).*)",
