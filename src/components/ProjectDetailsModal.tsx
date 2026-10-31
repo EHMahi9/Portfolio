@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Project } from '../types/project';
 
 interface ProjectDetailsModalProps {
@@ -16,15 +17,19 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
-  // Lock body scroll while modal is active
+  // Lock both body and html scroll while modal is active (prevents mobile/touch background scroll bleed)
   useEffect(() => {
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
     };
   }, []);
 
-  return (
+  const modalContent = (
     <div
       className="project-modal-backdrop"
       onClick={onClose}
@@ -150,4 +155,8 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({ projec
       </div>
     </div>
   );
+
+  return typeof document !== 'undefined'
+    ? createPortal(modalContent, document.body)
+    : null;
 };
