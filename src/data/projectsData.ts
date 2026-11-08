@@ -130,7 +130,19 @@ export const projectsData: Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'Docker'],
     image: '/assets/images/optimized/roster-dashboard.webp',
-    imageAlt: 'Hospital Doctor Duty Roster dashboard screenshot',
+    imageAlt: 'Hospital Doctor Duty Roster interactive monthly calendar and shift assignment interface',
+    screenshots: [
+      {
+        src: '/assets/images/optimized/roster-dashboard.webp',
+        alt: 'Hospital Doctor Duty Roster interactive monthly calendar and shift assignment interface',
+        label: 'Monthly Roster'
+      },
+      {
+        src: '/assets/images/optimized/roster-analytics.webp',
+        alt: 'Hospital Doctor Duty Roster command center analytics and duty mix workload distribution',
+        label: 'Duty Analytics'
+      }
+    ],
     browserUrl: 'hospital-doctor-duty-roster.vercel.app',
     demoUrl: 'https://hospital-doctor-duty-roster.vercel.app/',
     githubUrl: 'https://github.com/EHMahi9/hospital-doctor-duty-roster',
