@@ -43,7 +43,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <span></span>
             <span></span>
             <span></span>
-            <small>{project.browserUrl || (project.deploymentStatus === 'local' ? 'localhost:8000' : '')}</small>
+            <small>{project.browserUrl || ''}</small>
           </div>
           <div className="browser-screen">
             {currentScreenshot && (
